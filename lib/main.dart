@@ -45,18 +45,10 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
       navigatorKey: Get.navigatorKey,
       debugShowCheckedModeBanner: false,
       theme: getDefaultTheme(),
-      home: MainNavigationView(),
+      home: WellcomeView(),
       onGenerateRoute: (routeSettings) {
         print(routeSettings.name);
         return null;
-      },
-      builder: (context, child) {
-        print(Get.currentContext.toString());
-        return DebugView(
-          context: context,
-          child: child,
-          visible: true,
-        );
       },
     );
   }

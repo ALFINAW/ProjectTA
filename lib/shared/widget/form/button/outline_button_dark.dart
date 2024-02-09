@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hyper_ui/core.dart';
 
-class QOutlineButton extends StatelessWidget {
+class QOutlineButtonDark extends StatelessWidget {
   final String label;
   final Function onPressed;
   final double? width;
-  QOutlineButton({
+  QOutlineButtonDark({
     Key? key,
     required this.label,
     required this.onPressed,
@@ -18,9 +19,10 @@ class QOutlineButton extends StatelessWidget {
       height: 51,
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
+          backgroundColor: Colors.white,
           foregroundColor: Colors.green,
           side: BorderSide(
-            color: Colors.white,
+            color: primaryColor,
             width: 1.0,
           ),
           shape: RoundedRectangleBorder(
@@ -33,7 +35,7 @@ class QOutlineButton extends StatelessWidget {
           style: TextStyle(
             fontWeight: FontWeight.bold,
             fontSize: 16.0,
-            color: Colors.white,
+            color: primaryColor,
           ),
         ),
       ),

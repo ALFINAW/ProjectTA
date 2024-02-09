@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-Color primaryColor = Colors.blueGrey[800]!;
+Color primaryColor = Color.fromARGB(255, 12, 3, 39);
+Color backgroundColor = Color.fromARGB(255, 241, 239, 239);
 Color secondaryColor = const Color(0xff6c757d);
 Color disabledColor = const Color(0xff9fa5aa);
 Color textColor = Colors.blueGrey[900]!;

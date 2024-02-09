@@ -61,7 +61,7 @@ ThemeData getDefaultTheme() {
         ),
       ),
       enabledBorder: OutlineInputBorder(
-        borderRadius: BorderRadius.circular(8.0),
+        borderRadius: BorderRadius.circular(13.0),
         borderSide: BorderSide(
           color: Colors.transparent,
         ),

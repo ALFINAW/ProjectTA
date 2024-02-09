@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
-class QButton extends StatelessWidget {
+class QButtonDark extends StatelessWidget {
   final String label;
   final Function onPressed;
   final double? width;
@@ -13,7 +13,7 @@ class QButton extends StatelessWidget {
   final ThemeSize size;
   final double? fontSize;
 
-  QButton({
+  QButtonDark({
     Key? key,
     required this.label,
     required this.onPressed,
@@ -46,7 +46,7 @@ class QButton extends StatelessWidget {
       height: widgetHeight,
       child: ElevatedButton(
         style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.white,
+          backgroundColor: primaryColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(13.0),
           ),
@@ -68,10 +68,9 @@ class QButton extends StatelessWidget {
             Text(
               label,
               style: TextStyle(
-                fontWeight: FontWeight.bold,
-                fontSize: fontSize ?? widgetFontSize,
-                color: primaryColor,
-              ),
+                  fontWeight: FontWeight.bold,
+                  fontSize: fontSize ?? widgetFontSize,
+                  color: Colors.white),
             ),
             if (spaceBetween && sufixIcon != null) Spacer(),
             if (sufixIcon != null) ...[
