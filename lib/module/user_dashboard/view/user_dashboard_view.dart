@@ -147,15 +147,13 @@ class UserDashboardView extends StatefulWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "Layanan untukmu",
+                        "Layanan Untukmu",
                         style: TextStyle(
                           fontSize: 20.0,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(
-                        height: 20.0,
-                      ),
+                      const SizedBox(height: 25.0),
                       Builder(builder: (context) {
                         List menuItems = [
                           {
@@ -167,6 +165,11 @@ class UserDashboardView extends StatefulWidget {
                             "image":
                                 "https://cdn-icons-png.flaticon.com/128/2537/2537856.png",
                             "label": "Berita\nDesa",
+                          },
+                          {
+                            "image":
+                                "https://cdn-icons-png.flaticon.com/128/862/862819.png",
+                            "label": "Produk\nDesa",
                           },
                           {
                             "image":
@@ -185,9 +188,9 @@ class UserDashboardView extends StatefulWidget {
                           gridDelegate:
                               const SliverGridDelegateWithFixedCrossAxisCount(
                             childAspectRatio: 1.0,
-                            crossAxisCount: 4,
-                            mainAxisSpacing: 6,
-                            crossAxisSpacing: 6,
+                            crossAxisCount: 3,
+                            mainAxisSpacing: 15,
+                            crossAxisSpacing: 25,
                           ),
                           itemCount: menuItems.length,
                           shrinkWrap: true,
@@ -195,7 +198,7 @@ class UserDashboardView extends StatefulWidget {
                           itemBuilder: (BuildContext context, int index) {
                             var item = menuItems[index];
                             return InkWell(
-                              onTap: () {},
+                              onTap: () => Get.to(UserInformasiDesaView()),
                               child: Column(
                                 children: [
                                   Expanded(
@@ -213,7 +216,7 @@ class UserDashboardView extends StatefulWidget {
                                     item["label"],
                                     textAlign: TextAlign.center,
                                     style: const TextStyle(
-                                      fontSize: 12.0,
+                                      fontSize: 14.0,
                                     ),
                                   ),
                                 ],
@@ -249,8 +252,8 @@ class UserDashboardView extends StatefulWidget {
                     children: [
                       H4(
                           title: 'Berita Desa Terbaru',
-                          subtitle: 'Lihat Semua',
-                          onPressed: () {}),
+                          subtitle: 'Lihat semua',
+                          onPressed: () => Get.to(UserNewsListView())),
                       const SizedBox(
                         height: 5.0,
                       ),
@@ -276,19 +279,22 @@ class UserDashboardView extends StatefulWidget {
                             "title":
                                 "Polisis amankan tiga pemuda hendak bunuh diri",
                             "date": "09 Januari 2024",
+                            "like": "15"
                           },
                           {
                             "image":
                                 "https://images.unsplash.com/photo-1626030952277-9fbe79141a31?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5jaWRlbnR8ZW58MHx8MHx8fDA%3D",
                             "title": "Kecelakaan beruntun di jl.Garuda",
                             "date": "23 Januari 2024",
+                            "like": "18"
                           },
                           {
                             "image":
                                 "https://plus.unsplash.com/premium_photo-1686397308706-9547f8cc4e32?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW5jaWRlbnR8ZW58MHx8MHx8fDA%3D",
                             "title": "Penyelamatan pemuda tenggelam di laut",
                             "date": "08 Februari 2024",
-                          }
+                            "like": "20"
+                          },
                         ];
                         return ListView.builder(
                           padding: EdgeInsets.zero,
@@ -298,7 +304,7 @@ class UserDashboardView extends StatefulWidget {
                           itemBuilder: (BuildContext context, int index) {
                             var item = menuItems[index];
                             return Container(
-                              margin: const EdgeInsets.only(bottom: 15.0),
+                              margin: const EdgeInsets.only(bottom: 10.0),
                               padding: const EdgeInsets.all(8.0),
                               decoration: BoxDecoration(
                                 color: Colors.white,
@@ -348,10 +354,20 @@ class UserDashboardView extends StatefulWidget {
                                         ),
                                         Align(
                                           alignment: Alignment.bottomRight,
-                                          child: Icon(
-                                            Icons.thumb_up,
-                                            color: Colors.grey[800],
-                                            size: 20.0,
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.min,
+                                            children: [
+                                              Icon(
+                                                Icons.thumb_up,
+                                                color: Colors.grey[800],
+                                                size: 20.0,
+                                              ),
+                                              Text(
+                                                item["like"],
+                                                style:
+                                                    TextStyle(fontSize: 16.0),
+                                              ),
+                                            ],
                                           ),
                                         ),
                                       ],
@@ -390,8 +406,8 @@ class UserDashboardView extends StatefulWidget {
                     children: [
                       H4(
                           title: 'Produk Desa',
-                          subtitle: 'Lihat Semua',
-                          onPressed: () {}),
+                          subtitle: 'Lihat semua',
+                          onPressed: () => Get.to(UserProductListView())),
                       const SizedBox(
                         height: 20.0,
                       ),

@@ -5,7 +5,12 @@
         "sign_up",
         "user_main_navigation",
         "user_dashboard",
-        "user_profile"
+        "user_profile",
+        "user_news_list",
+        "user_news_detail",
+        "user_product_list",
+        "user_product_detail",
+        "user_informasi_desa"
     ],
     "module_directory_name": "module",
     "experimental_mode": false,
