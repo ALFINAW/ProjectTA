@@ -56,7 +56,7 @@ class UserDashboardView extends StatefulWidget {
                       CarouselSlider(
                         carouselController: controller.carouselController,
                         options: CarouselOptions(
-                          height: 170.0,
+                          height: 190.0,
                           autoPlay: true,
                           enlargeCenterPage: false,
                           viewportFraction: 1.0,
@@ -198,7 +198,22 @@ class UserDashboardView extends StatefulWidget {
                           itemBuilder: (BuildContext context, int index) {
                             var item = menuItems[index];
                             return InkWell(
-                              onTap: () => Get.to(UserInformasiDesaView()),
+                              onTap: () {
+                                // Menggunakan Navigator.pushNamed untuk pindah halaman
+                                if (index == 0) {
+                                  Navigator.pushNamed(
+                                      context, '/pengajuan_surat');
+                                } else if (index == 1) {
+                                  Navigator.pushNamed(context, '/berita_desa');
+                                } else if (index == 2) {
+                                  Navigator.pushNamed(context, '/produk_desa');
+                                } else if (index == 3) {
+                                  Navigator.pushNamed(
+                                      context, '/ajukan_pengaduan');
+                                } else if (index == 4) {
+                                  Navigator.pushNamed(context, '/info_desa');
+                                }
+                              },
                               child: Column(
                                 children: [
                                   Expanded(
@@ -322,7 +337,7 @@ class UserDashboardView extends StatefulWidget {
                                     item["image"],
                                     width: 140.0,
                                     height: 94.0,
-                                    fit: BoxFit.fill,
+                                    fit: BoxFit.cover,
                                   ),
                                   const SizedBox(
                                     width: 12.0,

@@ -42,6 +42,13 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Capek Ngoding',
+      routes: {
+        '/pengajuan_surat': (context) => UserPengajuanSuratView(),
+        '/berita_desa': (context) => UserNewsListView(),
+        '/produk_desa': (context) => UserProductListView(),
+        '/ajukan_pengaduan': (context) => UserAjukanPengaduanView(),
+        '/info_desa': (context) => UserInformasiDesaView(),
+      },
       navigatorKey: Get.navigatorKey,
       debugShowCheckedModeBanner: false,
       theme: getDefaultTheme(),

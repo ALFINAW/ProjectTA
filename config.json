@@ -10,7 +10,12 @@
         "user_news_detail",
         "user_product_list",
         "user_product_detail",
-        "user_informasi_desa"
+        "user_informasi_desa",
+        "user_pengajuan_surat",
+        "user_ajukan_pengaduan",
+        "user_pengajuan_ktp",
+        "user_pengajuan_skck",
+        "user_pengajuan_kk"
     ],
     "module_directory_name": "module",
     "experimental_mode": false,
