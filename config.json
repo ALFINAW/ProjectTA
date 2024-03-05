@@ -15,7 +15,10 @@
         "user_ajukan_pengaduan",
         "user_pengajuan_ktp",
         "user_pengajuan_skck",
-        "user_pengajuan_kk"
+        "user_pengajuan_kk1",
+        "user_profile_bantuan",
+        "user_profile_kebijakan_privasi",
+        "user_profile_tentang_aplikasi"
     ],
     "module_directory_name": "module",
     "experimental_mode": false,

@@ -3,6 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:hyper_ui/core.dart';
 import 'package:image_picker/image_picker.dart';
 
 const String _CLOUDINARY_CLOUD_NAME = "dotz74j1p";
@@ -132,9 +133,6 @@ class _QImagePickerState extends State<QImagePicker> {
           Container(
             height: 96.0,
             width: 96.0,
-            margin: EdgeInsets.only(
-              top: 8.0,
-            ),
             decoration: BoxDecoration(
               color: loading ? Colors.blueGrey[400] : null,
               image: loading
@@ -142,7 +140,7 @@ class _QImagePickerState extends State<QImagePicker> {
                   : DecorationImage(
                       image: NetworkImage(
                         imageUrl == null
-                            ? "https://i.ibb.co/S32HNjD/no-image.jpg"
+                            ? "https://i.ibb.co/F8BMdbL/no-image-fococlipping-standard.png"
                             : imageUrl!,
                       ),
                       fit: BoxFit.cover,
@@ -208,6 +206,8 @@ class _QImagePickerState extends State<QImagePicker> {
                             helperText: widget.helper,
                             hintText: widget.hint,
                             errorText: field.errorText,
+                            filled: true,
+                            fillColor: Colors.white,
                           ),
                           onChanged: (value) {
                             widget.onChanged(value);
@@ -227,7 +227,7 @@ class _QImagePickerState extends State<QImagePicker> {
                           child: ElevatedButton(
                             style: ElevatedButton.styleFrom(
                               padding: const EdgeInsets.all(0.0),
-                              backgroundColor: Colors.grey[500],
+                              backgroundColor: primaryColor,
                             ),
                             onPressed: () => browseFile(),
                             child: Icon(

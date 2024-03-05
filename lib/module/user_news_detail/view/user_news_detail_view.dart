@@ -40,7 +40,7 @@ class UserNewsDetailView extends StatefulWidget {
                           Text(
                             "Polisi Amankan Tiga Pemuda Hendak Bunuh Diri",
                             style: TextStyle(
-                              fontSize: 22.0,
+                              fontSize: 20.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -53,7 +53,7 @@ class UserNewsDetailView extends StatefulWidget {
                               Text(
                                 "09 Januari 2024",
                                 style: TextStyle(
-                                  fontSize: 16.0,
+                                  fontSize: 15.0,
                                 ),
                               ),
                               Row(
@@ -62,11 +62,11 @@ class UserNewsDetailView extends StatefulWidget {
                                   Icon(
                                     Icons.thumb_up,
                                     color: Colors.grey[800],
-                                    size: 20.0,
+                                    size: 19.0,
                                   ),
                                   Text(
                                     "15",
-                                    style: TextStyle(fontSize: 16.0),
+                                    style: TextStyle(fontSize: 15.0),
                                   ),
                                 ],
                               ),
@@ -78,7 +78,7 @@ class UserNewsDetailView extends StatefulWidget {
                           Text(
                             "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec velit ut lectus accumsan suscipit. Nulla facilisi. Proin eu nisi non felis fermentum ullamcorper. Phasellus non mi vitae nisi pharetra malesuada. Vestibulum id felis sapien. Sed tincidunt convallis nisi, sed feugiat elit molestie vel. Cras vestibulum id eros at cursus. Vivamus pulvinar posuere orci ut suscipit. Cras ultricies justo nec lorem sollicitudin, id convallis tortor fringilla.\nAliquam nec turpis a mi ullamcorper sagittis. Maecenas dignissim tristique magna. Phasellus sit amet dictum nulla. Integer auctor eros nec justo feugiat vestibulum. Phasellus eget tellus ghjahvjshvjhvjjhvjhvshvkavjhvavjhvsjhvjhsvjhvjhsvjhvshdvkjhvsdvjhasvjhvjhsavdjhvjhsvdjhvajhsvdjhvsdjhvsajhvheyksshdgfkjhgfgyddjhgfj",
                             style: TextStyle(
-                              fontSize: 17.0,
+                              fontSize: 15.0,
                             ),
                             textAlign: TextAlign.justify,
                           ),

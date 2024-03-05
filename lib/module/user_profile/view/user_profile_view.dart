@@ -104,54 +104,63 @@ class UserProfileView extends StatefulWidget {
                       ),
                     ),
                   ),
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 5.0),
-                    color: Colors.white,
-                    child: const ListTile(
-                      leading: Icon(Icons.live_help),
-                      minLeadingWidth: 0.0,
-                      title: Text("Bantuan"),
-                      trailing: Icon(
-                        Icons.chevron_right,
-                        size: 24.0,
+                  InkWell(
+                    onTap: () => Get.to(UserProfileBantuanView()),
+                    child: Container(
+                      margin: const EdgeInsets.only(bottom: 5.0),
+                      color: Colors.white,
+                      child: const ListTile(
+                        leading: Icon(Icons.live_help),
+                        minLeadingWidth: 0.0,
+                        title: Text("Bantuan"),
+                        trailing: Icon(
+                          Icons.chevron_right,
+                          size: 24.0,
+                        ),
                       ),
                     ),
                   ),
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 5.0),
-                    color: Colors.white,
-                    child: const ListTile(
-                      leading: Icon(Icons.privacy_tip),
-                      minLeadingWidth: 0.0,
-                      title: Text("Kebijakan Privasi"),
-                      trailing: Icon(
-                        Icons.chevron_right,
-                        size: 24.0,
+                  InkWell(
+                    onTap: () => Get.to(UserProfileKebijakanPrivasiView()),
+                    child: Container(
+                      margin: const EdgeInsets.only(bottom: 5.0),
+                      color: Colors.white,
+                      child: const ListTile(
+                        leading: Icon(Icons.privacy_tip),
+                        minLeadingWidth: 0.0,
+                        title: Text("Kebijakan Privasi"),
+                        trailing: Icon(
+                          Icons.chevron_right,
+                          size: 24.0,
+                        ),
                       ),
                     ),
                   ),
 
-                  Container(
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          bottomLeft: Radius.circular(13.0),
-                          bottomRight: Radius.circular(13.0)),
-                      boxShadow: [
-                        BoxShadow(
-                          color: Color(0x19000000),
-                          blurRadius: 24,
-                          offset: Offset(0, 11),
+                  InkWell(
+                    onTap: () => Get.to(UserProfileTentangAplikasiView()),
+                    child: Container(
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            bottomLeft: Radius.circular(13.0),
+                            bottomRight: Radius.circular(13.0)),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Color(0x19000000),
+                            blurRadius: 24,
+                            offset: Offset(0, 11),
+                          ),
+                        ],
+                      ),
+                      child: const ListTile(
+                        leading: Icon(Icons.info),
+                        minLeadingWidth: 0.0,
+                        title: Text("Tentang Aplikasi"),
+                        trailing: Icon(
+                          Icons.chevron_right,
+                          size: 24.0,
                         ),
-                      ],
-                    ),
-                    child: const ListTile(
-                      leading: Icon(Icons.info),
-                      minLeadingWidth: 0.0,
-                      title: Text("Tentang Aplikasi"),
-                      trailing: Icon(
-                        Icons.chevron_right,
-                        size: 24.0,
                       ),
                     ),
                   ),

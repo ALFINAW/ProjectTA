@@ -498,20 +498,20 @@ class UserDashboardView extends StatefulWidget {
                                 Text(
                                   food["nama"],
                                   style: TextStyle(
-                                    fontSize: 15.0,
+                                    fontSize: 16.0,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
                                 Text(
                                   food["penjual"],
                                   style: TextStyle(
-                                    fontSize: 13.0,
+                                    fontSize: 14.0,
                                   ),
                                 ),
                                 Text(
                                   food["harga"],
                                   style: TextStyle(
-                                    fontSize: 16.0,
+                                    fontSize: 17.0,
                                   ),
                                 ),
                               ],

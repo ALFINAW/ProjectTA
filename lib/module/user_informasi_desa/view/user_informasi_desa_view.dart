@@ -26,27 +26,45 @@ class UserInformasiDesaView extends StatefulWidget {
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Text(
               'DESA KARANGRENA',
-              style: TextStyle(fontSize: 19, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 17, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(height: 20.0),
+            Container(
+              decoration: BoxDecoration(
+                boxShadow: [
+                  BoxShadow(
+                    color: Color(0x19000000),
+                    blurRadius: 24,
+                    offset: Offset(0, 11),
+                  ),
+                ],
+              ),
+              child: Image.asset(
+                "assets/icon/balai_desa.jpg",
+                width: MediaQuery.of(context).size.width,
+                height: 230.0,
+                fit: BoxFit.cover,
+              ),
             ),
             const SizedBox(height: 20.0),
             Text(
               'PROFIL',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10.0),
             Text(
               'Desa kami adalah Desa yang menjunjung tinggi kearifan lokal dalam bermasyarakat dan bernegara.',
-              style: TextStyle(fontSize: 17),
+              style: TextStyle(fontSize: 15),
             ),
             const SizedBox(height: 20.0),
             Text(
               'HUBUNGI KAMI',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
             ),
             const SizedBox(height: 10.0),
             Text(
-              'Jl. Rajawali RT/RW 3/2, Karangrena, Kec. Maos, Kabupaten Cilacap, \nJawa Tengah 53272\nTelpon : 0888-6839-006\nEmail : karangrena@gmail.com',
-              style: TextStyle(fontSize: 17),
+              'Jl. Rajawali RT/RW 3/2, Karangrena, Kec. Maos, Kabupaten Cilacap, Jawa Tengah 53272\nTelpon : 0888-6839-006\nEmail : karangrena@gmail.com',
+              style: TextStyle(fontSize: 15),
             ),
           ]),
         ),

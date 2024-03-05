@@ -89,7 +89,7 @@ class UserPengajuanSkckView extends StatefulWidget {
                 hint: "masukan keperluan anda",
               ),
               const SizedBox(height: 15.0),
-              QButtonForm(label: "Ajukan", onPressed: () {}),
+              QButtonForm(label: "Kirim", onPressed: () {}),
             ],
           ),
         ),

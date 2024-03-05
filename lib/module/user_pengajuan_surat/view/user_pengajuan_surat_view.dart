@@ -62,7 +62,7 @@ class UserPengajuanSuratView extends StatefulWidget {
             ),
             const SizedBox(height: 15.0),
             InkWell(
-              onTap: () => Get.to(UserPengajuanKkView()),
+              onTap: () => Get.to(UserPengajuanKk1View()),
               child: Container(
                 padding: const EdgeInsets.all(15.0),
                 height: 80,

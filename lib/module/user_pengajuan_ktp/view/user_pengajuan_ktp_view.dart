@@ -82,7 +82,7 @@ class UserPengajuanKtpView extends StatefulWidget {
                 hint: "masukan golongan darah anda",
               ),
               const SizedBox(height: 15.0),
-              QButtonForm(label: "Ajukan", onPressed: () {}),
+              QButtonForm(label: "Kirim", onPressed: () {}),
             ],
           ),
         ),

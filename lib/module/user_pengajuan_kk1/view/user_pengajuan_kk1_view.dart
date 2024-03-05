@@ -1,13 +1,35 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
+
 import '../../../model/family_member.dart';
-import '../controller/user_pengajuan_kk_controller.dart';
+import '../controller/family_member_controller.dart';
 
-class UserPengajuanKkView extends StatefulWidget {
-  const UserPengajuanKkView({Key? key}) : super(key: key);
+class UserPengajuanKk1View extends StatefulWidget {
+  const UserPengajuanKk1View({super.key});
 
-  Widget build(context, UserPengajuanKkController controller) {
-    controller.view = this;
+  @override
+  State<UserPengajuanKk1View> createState() => _UserPengajuanKk1ViewState();
+}
+
+class _UserPengajuanKk1ViewState extends State<UserPengajuanKk1View> {
+  late FamilyMemberController controller;
+
+  @override
+  void initState() {
+    super.initState();
+    controller = FamilyMemberController();
+    // Add an initial empty family member
+    controller.addFamilyMember(FamilyMember(
+      name: '',
+      gender: '',
+      maritalStatus: '',
+      placeOfBirth: '',
+      dateOfBirth: '',
+    ));
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Pengajuan Surat Pengantar KK",
@@ -21,7 +43,6 @@ class UserPengajuanKkView extends StatefulWidget {
       body: SingleChildScrollView(
         child: Container(
           color: backgroundColor,
-          height: MediaQuery.of(context).size.height,
           padding: const EdgeInsets.all(20.0),
           child: Column(
             children: [
@@ -72,29 +93,34 @@ class UserPengajuanKkView extends StatefulWidget {
                     //text001
                     "Keluarga yang ikut:",
                     style: TextStyle(
-                      fontSize: 15.0,
+                      fontSize: 16.0,
                     ),
                   ),
                   IconButton(
                     icon: Icon(Icons.add),
                     onPressed: () {
-                      controller.familyMemberController
-                          .addFamilyMember(FamilyMember(
+                      controller.addFamilyMember(FamilyMember(
                         name: '',
                         gender: '',
                         maritalStatus: '',
                         placeOfBirth: '',
                         dateOfBirth: '',
                       ));
-                      // setState(() {});
+                      setState(() {});
                     },
                   )
                 ],
               ),
-              const SizedBox(height: 15.0),
               SingleChildScrollView(
                 scrollDirection: Axis.horizontal,
                 child: DataTable(
+                  headingRowHeight: 60,
+                  dataRowHeight: 60,
+                  columnSpacing: 30,
+                  decoration: BoxDecoration(
+                    border: Border.all(color: Colors.black),
+                    borderRadius: BorderRadius.circular(13),
+                  ),
                   columns: [
                     DataColumn(label: Text('Nama')),
                     DataColumn(label: Text('Jenis Kelamin')),
@@ -102,36 +128,54 @@ class UserPengajuanKkView extends StatefulWidget {
                     DataColumn(label: Text('Tempat Lahir')),
                     DataColumn(label: Text('Tanggal Lahir')),
                   ],
-                  rows: controller.familyMemberController.familyMembers
-                      .map((member) {
+                  rows: controller.familyMembers.map((member) {
                     return DataRow(
                       cells: [
                         DataCell(TextFormField(
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                          ),
                           initialValue: member.name,
                           onChanged: (value) {
                             member.name = value;
                           },
                         )),
                         DataCell(TextFormField(
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                          ),
                           initialValue: member.gender,
                           onChanged: (value) {
                             member.gender = value;
                           },
                         )),
                         DataCell(TextFormField(
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                          ),
                           initialValue: member.maritalStatus,
                           onChanged: (value) {
                             member.maritalStatus = value;
                           },
                         )),
                         DataCell(TextFormField(
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                          ),
                           initialValue: member.placeOfBirth,
                           onChanged: (value) {
                             member.placeOfBirth = value;
                           },
                         )),
                         DataCell(TextFormField(
-                          
+                          decoration: InputDecoration(
+                            filled: true,
+                            fillColor: Colors.white,
+                          ),
                           initialValue: member.dateOfBirth,
                           onChanged: (value) {
                             member.dateOfBirth = value;
@@ -143,14 +187,11 @@ class UserPengajuanKkView extends StatefulWidget {
                 ),
               ),
               const SizedBox(height: 15.0),
-              QButtonForm(label: "Ajukan", onPressed: () {}),
+              QButtonForm(label: "Kirim", onPressed: () {}),
             ],
           ),
         ),
       ),
     );
   }
-
-  @override
-  State<UserPengajuanKkView> createState() => UserPengajuanKkController();
 }
