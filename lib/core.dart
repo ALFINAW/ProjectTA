@@ -6,10 +6,15 @@ it means you have to rename it to something more unique.
 export 'package:hyper_ui/config.dart';
 export 'package:hyper_ui/core_package.dart';
 export 'package:hyper_ui/demo.dart';
+export 'package:hyper_ui/module/admin_dashboard/controller/admin_dashboard_controller.dart';
+export 'package:hyper_ui/module/admin_dashboard/view/admin_dashboard_view.dart';
+
 export 'package:hyper_ui/module/sign_in/controller/sign_in_controller.dart';
 export 'package:hyper_ui/module/sign_in/view/sign_in_view.dart';
 export 'package:hyper_ui/module/sign_up/controller/sign_up_controller.dart';
 export 'package:hyper_ui/module/sign_up/view/sign_up_view.dart';
+export 'package:hyper_ui/module/user_ajuan/controller/user_ajuan_controller.dart';
+export 'package:hyper_ui/module/user_ajuan/view/user_ajuan_view.dart';
 export 'package:hyper_ui/module/user_ajukan_pengaduan/controller/user_ajukan_pengaduan_controller.dart';
 export 'package:hyper_ui/module/user_ajukan_pengaduan/view/user_ajukan_pengaduan_view.dart';
 export 'package:hyper_ui/module/user_dashboard/controller/user_dashboard_controller.dart';

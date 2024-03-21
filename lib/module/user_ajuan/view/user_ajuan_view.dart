@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/user_news_list_controller.dart';
+import '../controller/user_ajuan_controller.dart';
 
-class UserNewsListView extends StatefulWidget {
-  const UserNewsListView({Key? key}) : super(key: key);
+class UserAjuanView extends StatefulWidget {
+  const UserAjuanView({Key? key}) : super(key: key);
 
-  Widget build(context, UserNewsListController controller) {
+  Widget build(context, UserAjuanController controller) {
     controller.view = this;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("UserNewsList"),
+        title: const Text("UserAjuan"),
         actions: const [],
       ),
       body: SingleChildScrollView(
@@ -24,5 +24,5 @@ class UserNewsListView extends StatefulWidget {
   }
 
   @override
-  State<UserNewsListView> createState() => UserNewsListController();
+  State<UserAjuanView> createState() => UserAjuanController();
 }

@@ -18,7 +18,9 @@
         "user_pengajuan_kk1",
         "user_profile_bantuan",
         "user_profile_kebijakan_privasi",
-        "user_profile_tentang_aplikasi"
+        "user_profile_tentang_aplikasi",
+        "admin_dashboard",
+        "user_ajuan"
     ],
     "module_directory_name": "module",
     "experimental_mode": false,
