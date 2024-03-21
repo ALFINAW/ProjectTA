@@ -9,10 +9,14 @@ class ProductListView extends StatefulWidget {
     controller.view = this;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("UserProductList"),
+        title: const Text("Produk Desa",
+            style: TextStyle(
+              fontSize: 16,
+              fontWeight: FontWeight.bold,
+            )),
+        centerTitle: true,
         actions: const [],
       ),
-<<<<<<< HEAD:lib/module/product_list/view/product_list_view.dart
       body: Container(
         color: backgroundColor,
         padding: const EdgeInsets.all(13.0),
@@ -155,14 +159,6 @@ class ProductListView extends StatefulWidget {
               ),
             ),
           ],
-=======
-      body: SingleChildScrollView(
-        child: Container(
-          padding: const EdgeInsets.all(10.0),
-          child: Column(
-            children: const [],
-          ),
->>>>>>> ed773b84ecaa6a6c3977387c45c48665656f9a9e:lib/module/user_product_list/view/user_product_list_view.dart
         ),
       ),
     );

@@ -8,7 +8,6 @@ export 'package:hyper_ui/core_package.dart';
 export 'package:hyper_ui/demo.dart';
 export 'package:hyper_ui/module/admin_dashboard/controller/admin_dashboard_controller.dart';
 export 'package:hyper_ui/module/admin_dashboard/view/admin_dashboard_view.dart';
-<<<<<<< HEAD
 export 'package:hyper_ui/module/news_detail/controller/news_detail_controller.dart';
 export 'package:hyper_ui/module/news_detail/view/news_detail_view.dart';
 export 'package:hyper_ui/module/news_list/controller/news_list_controller.dart';
@@ -17,9 +16,6 @@ export 'package:hyper_ui/module/product_detail/controller/product_detail_control
 export 'package:hyper_ui/module/product_detail/view/product_detail_view.dart';
 export 'package:hyper_ui/module/product_list/controller/product_list_controller.dart';
 export 'package:hyper_ui/module/product_list/view/product_list_view.dart';
-=======
-
->>>>>>> ed773b84ecaa6a6c3977387c45c48665656f9a9e
 export 'package:hyper_ui/module/sign_in/controller/sign_in_controller.dart';
 export 'package:hyper_ui/module/sign_in/view/sign_in_view.dart';
 export 'package:hyper_ui/module/sign_up/controller/sign_up_controller.dart';
