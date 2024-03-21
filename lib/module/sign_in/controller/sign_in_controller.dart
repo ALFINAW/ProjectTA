@@ -20,7 +20,12 @@ class SignInController extends State<SignInView> {
 
   login() async {
     //logic utk login
+<<<<<<< HEAD
     // Get.offAll(UserMainNavigationView());
     Get.offAll(AdminDashboardView());
+=======
+    Get.offAll(UserMainNavigationView());
+    // Get.offAll(AdminDashboardView());
+>>>>>>> ed773b84ecaa6a6c3977387c45c48665656f9a9e
   }
 }

@@ -17,6 +17,7 @@ class ProductListController extends State<ProductListView> {
 
   @override
   Widget build(BuildContext context) => widget.build(context, this);
+<<<<<<< HEAD:lib/module/product_list/controller/product_list_controller.dart
   List<Map<String, dynamic>> products = [
     {
       "nama": "Sate Ayam",
@@ -62,4 +63,6 @@ class ProductListController extends State<ProductListView> {
     },
     // Add more products as needed
   ];
+=======
+>>>>>>> ed773b84ecaa6a6c3977387c45c48665656f9a9e:lib/module/user_product_list/controller/user_product_list_controller.dart
 }
