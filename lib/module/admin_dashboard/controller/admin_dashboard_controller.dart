@@ -20,4 +20,7 @@ class AdminDashboardController extends State<AdminDashboardView> {
 
   int currentIndex = 0;
   final CarouselController carouselController = CarouselController();
+  logout() {
+    Get.offAll(WellcomeView());
+  }
 }

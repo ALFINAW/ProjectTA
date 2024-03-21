@@ -154,7 +154,7 @@ class AdminDashboardView extends StatefulWidget {
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   )),
-              onTap: () {},
+              onTap: () => controller.logout(),
             )
           ],
         ),
