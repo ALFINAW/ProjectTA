@@ -268,7 +268,7 @@ class UserDashboardView extends StatefulWidget {
                       H4(
                           title: 'Berita Desa Terbaru',
                           subtitle: 'Lihat semua',
-                          onPressed: () => Get.to(UserNewsListView())),
+                          onPressed: () => Get.to(NewsListView())),
                       const SizedBox(
                         height: 5.0,
                       ),
@@ -422,7 +422,7 @@ class UserDashboardView extends StatefulWidget {
                       H4(
                           title: 'Produk Desa',
                           subtitle: 'Lihat semua',
-                          onPressed: () => Get.to(UserProductListView())),
+                          onPressed: () => Get.to(ProductListView())),
                       const SizedBox(
                         height: 20.0,
                       ),

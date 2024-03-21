@@ -8,7 +8,14 @@ export 'package:hyper_ui/core_package.dart';
 export 'package:hyper_ui/demo.dart';
 export 'package:hyper_ui/module/admin_dashboard/controller/admin_dashboard_controller.dart';
 export 'package:hyper_ui/module/admin_dashboard/view/admin_dashboard_view.dart';
-
+export 'package:hyper_ui/module/news_detail/controller/news_detail_controller.dart';
+export 'package:hyper_ui/module/news_detail/view/news_detail_view.dart';
+export 'package:hyper_ui/module/news_list/controller/news_list_controller.dart';
+export 'package:hyper_ui/module/news_list/view/news_list_view.dart';
+export 'package:hyper_ui/module/product_detail/controller/product_detail_controller.dart';
+export 'package:hyper_ui/module/product_detail/view/product_detail_view.dart';
+export 'package:hyper_ui/module/product_list/controller/product_list_controller.dart';
+export 'package:hyper_ui/module/product_list/view/product_list_view.dart';
 export 'package:hyper_ui/module/sign_in/controller/sign_in_controller.dart';
 export 'package:hyper_ui/module/sign_in/view/sign_in_view.dart';
 export 'package:hyper_ui/module/sign_up/controller/sign_up_controller.dart';
@@ -23,10 +30,7 @@ export 'package:hyper_ui/module/user_informasi_desa/controller/user_informasi_de
 export 'package:hyper_ui/module/user_informasi_desa/view/user_informasi_desa_view.dart';
 export 'package:hyper_ui/module/user_main_navigation/controller/user_main_navigation_controller.dart';
 export 'package:hyper_ui/module/user_main_navigation/view/user_main_navigation_view.dart';
-export 'package:hyper_ui/module/user_news_detail/controller/user_news_detail_controller.dart';
-export 'package:hyper_ui/module/user_news_detail/view/user_news_detail_view.dart';
-export 'package:hyper_ui/module/user_news_list/controller/user_news_list_controller.dart';
-export 'package:hyper_ui/module/user_news_list/view/user_news_list_view.dart';
+
 export 'package:hyper_ui/module/user_pengajuan_kk1/controller/family_member_controller.dart';
 export 'package:hyper_ui/module/user_pengajuan_kk1/controller/user_pengajuan_kk1_controller.dart';
 export 'package:hyper_ui/module/user_pengajuan_kk1/view/user_pengajuan_kk1_view.dart';
@@ -36,10 +40,7 @@ export 'package:hyper_ui/module/user_pengajuan_skck/controller/user_pengajuan_sk
 export 'package:hyper_ui/module/user_pengajuan_skck/view/user_pengajuan_skck_view.dart';
 export 'package:hyper_ui/module/user_pengajuan_surat/controller/user_pengajuan_surat_controller.dart';
 export 'package:hyper_ui/module/user_pengajuan_surat/view/user_pengajuan_surat_view.dart';
-export 'package:hyper_ui/module/user_product_detail/controller/user_product_detail_controller.dart';
-export 'package:hyper_ui/module/user_product_detail/view/user_product_detail_view.dart';
-export 'package:hyper_ui/module/user_product_list/controller/user_product_list_controller.dart';
-export 'package:hyper_ui/module/user_product_list/view/user_product_list_view.dart';
+
 export 'package:hyper_ui/module/user_profile/controller/user_profile_controller.dart';
 export 'package:hyper_ui/module/user_profile/view/user_profile_view.dart';
 export 'package:hyper_ui/module/user_profile_bantuan/controller/user_profile_bantuan_controller.dart';

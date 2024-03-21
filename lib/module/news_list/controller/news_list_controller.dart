@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../view/user_news_detail_view.dart';
+import '../view/news_list_view.dart';
 
-class UserNewsDetailController extends State<UserNewsDetailView> {
-  static late UserNewsDetailController instance;
-  late UserNewsDetailView view;
+class NewsListController extends State<NewsListView> {
+  static late NewsListController instance;
+  late NewsListView view;
 
   @override
   void initState() {
