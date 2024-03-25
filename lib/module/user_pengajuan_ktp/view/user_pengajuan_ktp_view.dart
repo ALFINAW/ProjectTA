@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 import 'package:hyper_ui/shared/widget/form/button/button_form.dart';
+import 'package:hyper_ui/shared/widget/form/image_picker/image_picker_ajuan_surat.dart';
 import 'package:hyper_ui/shared/widget/form/textfield/text_field_form.dart';
 import '../controller/user_pengajuan_ktp_controller.dart';
 
@@ -32,7 +33,7 @@ class UserPengajuanKtpView extends StatefulWidget {
                 hint: "masukan nama lengkap anda",
               ),
               QTextFieldForm(
-                label: "Tempat/tanggal lahir:",
+                label: "Tempat / Tanggal Lahir:",
                 onChanged: (p0) {},
                 hint: "masukan tempat/tanggal lahir anda",
               ),
@@ -42,7 +43,7 @@ class UserPengajuanKtpView extends StatefulWidget {
                 hint: "masukan umur anda",
               ),
               QTextFieldForm(
-                label: "Warga negara:",
+                label: "Warga Negara:",
                 onChanged: (p0) {},
                 hint: "masukan warga negara anda",
               ),
@@ -52,7 +53,7 @@ class UserPengajuanKtpView extends StatefulWidget {
                 hint: "masukan agama anda",
               ),
               QTextFieldForm(
-                label: "Jenis kelamin:",
+                label: "Jenis Kelamin:",
                 onChanged: (p0) {},
                 hint: "masukan jenis kelamin anda",
               ),
@@ -62,14 +63,16 @@ class UserPengajuanKtpView extends StatefulWidget {
                 hint: "masukan pekerjaan anda",
               ),
               QTextFieldForm(
-                label: "Alamat/tempat tinggal:",
+                label: "Alamat / Tempat Tinggal:",
                 onChanged: (p0) {},
                 hint: "masukan alamat lengkap anda",
               ),
-              QTextFieldForm(
-                label: "Surat bukti diri:",
-                onChanged: (p0) {},
-                hint: "masukan no kk anda",
+              QImagePickerAS(
+                label: "Fotokopi KK:",
+                validator: Validator.required,
+                value: null,
+                onChanged: (value) {},
+                hint: "upload fotokopi kk",
               ),
               QTextFieldForm(
                 label: "Keperluan:",
@@ -77,7 +80,7 @@ class UserPengajuanKtpView extends StatefulWidget {
                 hint: "masukan keperluan anda",
               ),
               QTextFieldForm(
-                label: "Golongan darah:",
+                label: "Golongan Darah:",
                 onChanged: (p0) {},
                 hint: "masukan golongan darah anda",
               ),

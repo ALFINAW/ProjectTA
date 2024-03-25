@@ -52,12 +52,12 @@ class _UserPengajuanKk1ViewState extends State<UserPengajuanKk1View> {
                 hint: "masukan nama lengkap anda",
               ),
               QTextFieldForm(
-                label: "Tempat/tanggal lahir:",
+                label: "Tempat / Tanggal Lahir:",
                 onChanged: (p0) {},
                 hint: "masukan tempat/tanggal lahir anda",
               ),
               QTextFieldForm(
-                label: "Jenis kelamin:",
+                label: "Jenis Kelamin:",
                 onChanged: (p0) {},
                 hint: "masukan jenis kelamin anda",
               ),
@@ -67,7 +67,7 @@ class _UserPengajuanKk1ViewState extends State<UserPengajuanKk1View> {
                 hint: "masukan agama anda",
               ),
               QTextFieldForm(
-                label: "Status perkawinan:",
+                label: "Status Perkawinan:",
                 onChanged: (p0) {},
                 hint: "masukan status perkawinan anda",
               ),
@@ -77,7 +77,7 @@ class _UserPengajuanKk1ViewState extends State<UserPengajuanKk1View> {
                 hint: "masukan pekerjaan anda",
               ),
               QTextFieldForm(
-                label: "Alamat/tempat tinggal:",
+                label: "Alamat / Tempat Tinggal:",
                 onChanged: (p0) {},
                 hint: "masukan alamat lengkap anda",
               ),
@@ -91,7 +91,7 @@ class _UserPengajuanKk1ViewState extends State<UserPengajuanKk1View> {
                 children: [
                   Text(
                     //text001
-                    "Keluarga yang ikut:",
+                    "Keluarga Yang Ikut:",
                     style: TextStyle(
                       fontSize: 16.0,
                     ),

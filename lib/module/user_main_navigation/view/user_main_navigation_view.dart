@@ -23,12 +23,8 @@ class UserMainNavigationView extends StatefulWidget {
           index: controller.selectedIndex,
           children: [
             UserDashboardView(),
-            Container(
-              color: Colors.green,
-            ),
-            Container(
-              color: Colors.blue,
-            ),
+            UserAjuanView(),
+            UserAduanView(),
             UserProfileView()
           ],
         ),

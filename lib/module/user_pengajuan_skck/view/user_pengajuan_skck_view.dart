@@ -24,7 +24,7 @@ class UserPengajuanSkckView extends StatefulWidget {
           child: Column(
             children: [
               QTextFieldForm(
-                label: "Nama lengkap:",
+                label: "Nama Lengkap:",
                 onChanged: (p0) {},
                 hint: "masukan nama lengkap anda",
               ),
@@ -39,12 +39,12 @@ class UserPengajuanSkckView extends StatefulWidget {
                 hint: "masukan no kk anda",
               ),
               QTextFieldForm(
-                label: "Kepala keluarga:",
+                label: "Kepala Keluarga:",
                 onChanged: (p0) {},
                 hint: "masukan kepala keluarga anda",
               ),
               QTextFieldForm(
-                label: "Tempat/tanggal lahir:",
+                label: "Tempat / Tanggal Lahir:",
                 onChanged: (p0) {},
                 hint: "masukan tempat/tanggal lahir anda",
               ),
@@ -54,12 +54,12 @@ class UserPengajuanSkckView extends StatefulWidget {
                 hint: "masukan agama anda",
               ),
               QTextFieldForm(
-                label: "Jenis kelamin:",
+                label: "Jenis Kelamin:",
                 onChanged: (p0) {},
                 hint: "masukan jenis kelamin anda",
               ),
               QTextFieldForm(
-                label: "Alamat/tempat tinggal:",
+                label: "Alamat / Tempat Tinggal:",
                 onChanged: (p0) {},
                 hint: "masukan alamat lengkap anda",
               ),

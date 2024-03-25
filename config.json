@@ -20,7 +20,10 @@
         "user_profile_kebijakan_privasi",
         "user_profile_tentang_aplikasi",
         "admin_dashboard",
-        "user_ajuan"
+        "user_ajuan",
+        "user_detail_ajuan",
+        "user_aduan",
+        "user_detail_aduan"
     ],
     "module_directory_name": "module",
     "experimental_mode": false,

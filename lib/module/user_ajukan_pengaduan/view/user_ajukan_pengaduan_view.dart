@@ -39,7 +39,19 @@ class UserAjukanPengaduanView extends StatefulWidget {
                 onChanged: (value) {},
               ),
               Text(
-                "Tambahkan keterangan:",
+                "Judul Aduan:",
+                style: TextStyle(
+                  fontSize: 15.0,
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              QTextFieldForm(
+                label: "",
+                onChanged: (p0) {},
+                hint: "masukan judul aduan",
+              ),
+              Text(
+                "Tambahkan Keterangan:",
                 style: TextStyle(
                   fontSize: 15.0,
                 ),
@@ -51,7 +63,7 @@ class UserAjukanPengaduanView extends StatefulWidget {
                 hint: "masukan keterangan",
               ),
               Text(
-                "Tambahkan alamat:",
+                "Tambahkan Alamat:",
                 style: TextStyle(
                   fontSize: 15.0,
                 ),
