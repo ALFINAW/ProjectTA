@@ -70,8 +70,8 @@ class UserAduanView extends StatefulWidget {
                               ),
                               Container(
                                 padding: const EdgeInsets.only(
-                                    left: 10.0,
-                                    right: 10.0,
+                                    left: 17.0,
+                                    right: 17.0,
                                     top: 3.0,
                                     bottom: 3.0),
                                 decoration: BoxDecoration(
@@ -86,7 +86,7 @@ class UserAduanView extends StatefulWidget {
                                 child: Text(
                                   "Lapor",
                                   style: TextStyle(
-                                    fontSize: 18.0,
+                                    fontSize: 16.0,
                                     color: Colors.red,
                                     fontWeight: FontWeight.bold,
                                   ),

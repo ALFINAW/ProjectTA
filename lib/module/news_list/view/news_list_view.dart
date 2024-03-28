@@ -24,43 +24,41 @@ class NewsListView extends StatefulWidget {
         padding: const EdgeInsets.all(13.0),
         child: Column(
           children: [
-            Container(
-              decoration: BoxDecoration(
-                boxShadow: [
-                  BoxShadow(
-                    color: Color(0x19000000),
-                    blurRadius: 24,
-                    offset: Offset(0, 11),
-                  ),
-                ],
-              ),
-              child: TextField(
-                decoration: InputDecoration(
-                  hintText: 'Search',
-                  filled: true,
-                  fillColor: Colors.white,
-                  enabledBorder: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(8.0),
-                      borderSide: BorderSide(
-                        color: Colors.grey[300]!,
-                      )),
-                  prefixIcon: Icon(
-                    Icons.search,
-                    color: Colors.blueGrey[900],
-                  ),
-                  suffixIcon: Container(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Icon(
-                      Icons.sort,
-                      color: Colors.blueGrey[900],
-                    ),
-                  ),
-                ),
-              ),
-            ),
-            const SizedBox(
-              height: 15.0,
-            ),
+            // Container(
+            //   decoration: BoxDecoration(
+            //     boxShadow: [
+            //       BoxShadow(
+            //         color: Color(0x19000000),
+            //         blurRadius: 24,
+            //         offset: Offset(0, 11),
+            //       ),
+            //     ],
+            //   ),
+            //   child: TextField(
+            //     decoration: InputDecoration(
+            //       hintText: 'Search',
+            //       filled: true,
+            //       fillColor: Colors.white,
+            //       enabledBorder: OutlineInputBorder(
+            //           borderRadius: BorderRadius.circular(8.0),
+            //           borderSide: BorderSide(
+            //             color: Colors.grey[300]!,
+            //           )),
+            //       prefixIcon: Icon(
+            //         Icons.search,
+            //         color: Colors.blueGrey[900],
+            //       ),
+            //       suffixIcon: Container(
+            //         padding: const EdgeInsets.all(8.0),
+            //         child: Icon(
+            //           Icons.sort,
+            //           color: Colors.blueGrey[900],
+            //         ),
+            //       ),
+            //     ),
+            //   ),
+            // ),
+
             Expanded(
               child: Builder(builder: (context) {
                 List menuItems = [
@@ -107,6 +105,7 @@ class NewsListView extends StatefulWidget {
                     "like": "10"
                   }
                 ];
+
                 return ListView.builder(
                   padding: EdgeInsets.zero,
                   itemCount: menuItems.length,
@@ -114,6 +113,103 @@ class NewsListView extends StatefulWidget {
                   physics: const ScrollPhysics(),
                   itemBuilder: (BuildContext context, int index) {
                     var item = menuItems[index];
+                    bool isFirstItem = index == 0;
+
+                    if (isFirstItem) {
+                      return GestureDetector(
+                        onTap: () => Get.to(NewsDetailView()),
+                        child: Container(
+                          margin: const EdgeInsets.only(bottom: 10.0),
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0x19000000),
+                                blurRadius: 24,
+                                offset: Offset(0, 11),
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Stack(
+                                children: [
+                                  Image.network(
+                                    item["image"],
+                                    width: double.infinity,
+                                    height: 270.0,
+                                    fit: BoxFit.cover,
+                                  ),
+                                  Positioned(
+                                    bottom: 0,
+                                    left: 0,
+                                    right: 0,
+                                    child: Container(
+                                      padding: const EdgeInsets.all(15.0),
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            item["title"],
+                                            style: TextStyle(
+                                              fontSize: 18.0,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.white,
+                                              shadows: [
+                                                Shadow(
+                                                  color: Colors.black,
+                                                  blurRadius: 24,
+                                                  offset: Offset(1, 1),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 8.0),
+                              Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 8.0, right: 8.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(
+                                      item['date'],
+                                      style: TextStyle(
+                                        fontSize: 15.0,
+                                      ),
+                                    ),
+                                    Row(
+                                      mainAxisAlignment: MainAxisAlignment.end,
+                                      children: [
+                                        Icon(
+                                          Icons.thumb_up,
+                                          color: Colors.grey[800],
+                                          size: 19.0,
+                                        ),
+                                        Text(
+                                          "15",
+                                          style: TextStyle(fontSize: 15.0),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    }
+
                     return GestureDetector(
                       onTap: () => Get.to(NewsDetailView()),
                       child: Container(
@@ -157,7 +253,7 @@ class NewsListView extends StatefulWidget {
                                   Text(
                                     item["date"],
                                     style: TextStyle(
-                                      fontSize: 12.0,
+                                      fontSize: 14.0,
                                       color: Colors.grey[600],
                                     ),
                                   ),
@@ -172,11 +268,11 @@ class NewsListView extends StatefulWidget {
                                         Icon(
                                           Icons.thumb_up,
                                           color: Colors.grey[800],
-                                          size: 20.0,
+                                          size: 19.0,
                                         ),
                                         Text(
                                           item["like"],
-                                          style: TextStyle(fontSize: 16.0),
+                                          style: TextStyle(fontSize: 15.0),
                                         ),
                                       ],
                                     ),

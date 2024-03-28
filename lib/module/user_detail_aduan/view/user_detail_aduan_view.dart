@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
+import 'package:timeline_tile/timeline_tile.dart';
+
 import '../controller/user_detail_aduan_controller.dart';
 
 class UserDetailAduanView extends StatefulWidget {
@@ -57,7 +59,7 @@ class UserDetailAduanView extends StatefulWidget {
                         ),
                         Container(
                           padding: const EdgeInsets.only(
-                              left: 10.0, right: 10.0, top: 3.0, bottom: 3.0),
+                              left: 17.0, right: 17.0, top: 3.0, bottom: 3.0),
                           decoration: BoxDecoration(
                             border: Border.all(
                               width: 1.3,
@@ -70,7 +72,7 @@ class UserDetailAduanView extends StatefulWidget {
                           child: Text(
                             "Lapor",
                             style: TextStyle(
-                              fontSize: 18.0,
+                              fontSize: 16.0,
                               color: Colors.red,
                               fontWeight: FontWeight.bold,
                             ),
@@ -200,39 +202,191 @@ class UserDetailAduanView extends StatefulWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Expanded(
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          Text(
-                            "Riwayat Aduan",
-                            style: TextStyle(
-                              fontSize: 18.0,
-                              fontWeight: FontWeight.bold,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Text(
+                          "Riwayat Aduan",
+                          style: TextStyle(
+                            fontSize: 18.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              "Status:",
+                              style: TextStyle(
+                                fontSize: 16.0,
+                              ),
                             ),
-                          ),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                "Status:",
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                ),
+                            const SizedBox(width: 5.0),
+                            Text(
+                              "Lapor",
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.red,
+                                fontWeight: FontWeight.bold,
                               ),
-                              const SizedBox(width: 5.0),
-                              Text(
-                                "Lapor",
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  color: Colors.red,
-                                ),
+                            ),
+                          ],
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10.0),
+                    Container(
+                      padding: const EdgeInsets.only(left: 10.0),
+                      child: Column(
+                        children: [
+                          TimelineTile(
+                              alignment: TimelineAlign.start,
+                              lineXY: 0.1,
+                              isFirst: true,
+                              indicatorStyle: IndicatorStyle(
+                                width: 20,
+                                color: Colors.grey,
                               ),
-                            ],
-                          ),
+                              endChild: Container(
+                                padding: EdgeInsets.all(15.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Petugas telah menyelesaikan laporan',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    Text(
+                                      '-',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )),
+                          TimelineTile(
+                              alignment: TimelineAlign.start,
+                              indicatorStyle: IndicatorStyle(
+                                width: 20,
+                                color: Colors.grey,
+                              ),
+                              endChild: Container(
+                                padding: EdgeInsets.all(15.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Petugas mengerjakan laporan',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    Text(
+                                      '-',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )),
+                          TimelineTile(
+                              alignment: TimelineAlign.start,
+                              afterLineStyle: LineStyle(
+                                color: primaryColor,
+                                thickness: 4,
+                              ),
+                              indicatorStyle: IndicatorStyle(
+                                width: 20,
+                                color: primaryColor,
+                              ),
+                              endChild: Container(
+                                padding: EdgeInsets.all(15.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Admin desa telah menerima laporan',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                        color: primaryColor,
+                                        fontWeight: FontWeight.bold,
+                                      ),
+                                    ),
+                                    Text(
+                                      '27 Maret 2024, 15:07',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: primaryColor,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )),
+                          TimelineTile(
+                              alignment: TimelineAlign.start,
+                              indicatorStyle: IndicatorStyle(
+                                width: 20,
+                                color: Colors.grey,
+                              ),
+                              endChild: Container(
+                                padding: EdgeInsets.all(15.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Laporan pengaduan diterima pemerintah desa',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    Text(
+                                      '27 Maret 2024, 14:50',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )),
+                          TimelineTile(
+                              alignment: TimelineAlign.start,
+                              lineXY: 0,
+                              isLast: true,
+                              indicatorStyle: IndicatorStyle(
+                                width: 20,
+                                color: Colors.grey,
+                              ),
+                              endChild: Container(
+                                padding: EdgeInsets.all(15.0),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Masyarakat melaporkan pengaduan',
+                                      style: TextStyle(
+                                        fontSize: 16,
+                                      ),
+                                    ),
+                                    Text(
+                                      '27 Maret 2024, 14:50',
+                                      style: TextStyle(
+                                        fontSize: 15,
+                                        color: Colors.grey,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              )),
                         ],
                       ),
-                    ),
+                    )
                   ],
                 ),
               ),

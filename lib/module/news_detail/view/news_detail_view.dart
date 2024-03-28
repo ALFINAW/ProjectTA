@@ -8,27 +8,40 @@ class NewsDetailView extends StatefulWidget {
   Widget build(context, NewsDetailController controller) {
     controller.view = this;
     return Scaffold(
-      appBar: AppBar(
-        actions: const [],
-      ),
       body: SingleChildScrollView(
-        child: Container(
+        child: SafeArea(
           child: Column(
             children: [
-              Container(
-                height: 300.0,
-                width: MediaQuery.of(context).size.width,
-                decoration: const BoxDecoration(
-                  image: DecorationImage(
-                    image: NetworkImage(
-                      "https://images.unsplash.com/photo-1561828718-3971eadec8b5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aW5jaWRlbnR8ZW58MHx8MHx8fDA%3D",
+              Stack(
+                children: [
+                  Container(
+                    height: 350.0,
+                    width: MediaQuery.of(context).size.width,
+                    decoration: const BoxDecoration(
+                      image: DecorationImage(
+                        image: NetworkImage(
+                          "https://images.unsplash.com/photo-1561828718-3971eadec8b5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aW5jaWRlbnR8ZW58MHx8MHx8fDA%3D",
+                        ),
+                        fit: BoxFit.cover,
+                      ),
                     ),
-                    fit: BoxFit.cover,
                   ),
-                ),
-              ),
-              const SizedBox(
-                height: 10.0,
+                  //circle_icon
+                  Align(
+                    alignment: Alignment.topLeft,
+                    child: Padding(
+                      padding: const EdgeInsets.only(top: 16.0, left: 10.0),
+                      child: InkWell(
+                        onTap: () => Get.back(),
+                        child: Icon(
+                          size: 28,
+                          Icons.arrow_back,
+                          color: Colors.grey[300],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
               ),
               Column(
                 children: [
