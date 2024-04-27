@@ -318,77 +318,80 @@ class UserDashboardView extends StatefulWidget {
                           physics: const ScrollPhysics(),
                           itemBuilder: (BuildContext context, int index) {
                             var item = menuItems[index];
-                            return Container(
-                              margin: const EdgeInsets.only(bottom: 10.0),
-                              padding: const EdgeInsets.all(8.0),
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                boxShadow: [
-                                  BoxShadow(
-                                    color: Color(0x19000000),
-                                    blurRadius: 24,
-                                    offset: Offset(0, 11),
-                                  ),
-                                ],
-                              ),
-                              child: Row(
-                                children: [
-                                  Image.network(
-                                    item["image"],
-                                    width: 140.0,
-                                    height: 94.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                  const SizedBox(
-                                    width: 12.0,
-                                  ),
-                                  Expanded(
-                                    child: Column(
-                                      crossAxisAlignment:
-                                          CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          item["title"],
-                                          style: const TextStyle(
-                                            fontSize: 16.0,
-                                            fontWeight: FontWeight.bold,
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          height: 4.0,
-                                        ),
-                                        Text(
-                                          item["date"],
-                                          style: TextStyle(
-                                            fontSize: 12.0,
-                                            color: Colors.grey[600],
-                                          ),
-                                        ),
-                                        const SizedBox(
-                                          height: 8.0,
-                                        ),
-                                        Align(
-                                          alignment: Alignment.bottomRight,
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.min,
-                                            children: [
-                                              Icon(
-                                                Icons.thumb_up,
-                                                color: Colors.grey[800],
-                                                size: 20.0,
-                                              ),
-                                              Text(
-                                                item["like"],
-                                                style:
-                                                    TextStyle(fontSize: 16.0),
-                                              ),
-                                            ],
-                                          ),
-                                        ),
-                                      ],
+                            return GestureDetector(
+                              onTap: () => Get.to(NewsDetailView()),
+                              child: Container(
+                                margin: const EdgeInsets.only(bottom: 10.0),
+                                padding: const EdgeInsets.all(8.0),
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color(0x19000000),
+                                      blurRadius: 24,
+                                      offset: Offset(0, 11),
                                     ),
-                                  ),
-                                ],
+                                  ],
+                                ),
+                                child: Row(
+                                  children: [
+                                    Image.network(
+                                      item["image"],
+                                      width: 140.0,
+                                      height: 94.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    const SizedBox(
+                                      width: 12.0,
+                                    ),
+                                    Expanded(
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Text(
+                                            item["title"],
+                                            style: const TextStyle(
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            height: 4.0,
+                                          ),
+                                          Text(
+                                            item["date"],
+                                            style: TextStyle(
+                                              fontSize: 12.0,
+                                              color: Colors.grey[600],
+                                            ),
+                                          ),
+                                          const SizedBox(
+                                            height: 8.0,
+                                          ),
+                                          Align(
+                                            alignment: Alignment.bottomRight,
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.min,
+                                              children: [
+                                                Icon(
+                                                  Icons.thumb_up,
+                                                  color: Colors.grey[800],
+                                                  size: 20.0,
+                                                ),
+                                                Text(
+                                                  item["like"],
+                                                  style:
+                                                      TextStyle(fontSize: 16.0),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
                               ),
                             );
                           },
@@ -424,10 +427,22 @@ class UserDashboardView extends StatefulWidget {
                           subtitle: 'Lihat semua',
                           onPressed: () => Get.to(ProductListView())),
                       const SizedBox(
-                        height: 20.0,
+                        height: 5.0,
                       ),
+                      Row(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Lihat produk usaha kecil menengah",
+                            style: TextStyle(
+                              fontSize: 15.0,
+                            ),
+                          )
+                        ],
+                      ),
+                      const SizedBox(height: 20.0),
                       SizedBox(
-                        height: 235.0,
+                        height: 260.0,
                         child: ListView.builder(
                           itemCount: 5,
                           shrinkWrap: true,
@@ -439,83 +454,128 @@ class UserDashboardView extends StatefulWidget {
                               {
                                 "nama": "Sate Ayam",
                                 "penjual": "Suwiryo",
-                                "harga": "Rp 15.000",
+                                "harga": 15000,
                                 "image":
                                     "https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aW5kb25lc2lhbiUyMGZvb2R8ZW58MHx8MHx8fDA%3D"
                               },
                               {
                                 "nama": "Gado-gado",
                                 "penjual": "Aminah",
-                                "harga": "Rp 15.000",
+                                "harga": 15000,
                                 "image":
                                     "https://images.unsplash.com/photo-1562607635-4608ff48a859?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5kb25lc2lhbiUyMGZvb2R8ZW58MHx8MHx8fDA%3D"
                               },
                               {
                                 "nama": "Pecel Lele",
                                 "penjual": "Jono",
-                                "harga": "Rp 11.000",
+                                "harga": 11000,
                                 "image":
                                     "https://images.unsplash.com/photo-1613653739328-e86ebd77c9c8?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aW5kb25lc2lhbiUyMGZvb2R8ZW58MHx8MHx8fDA%3D"
                               },
                               {
                                 "nama": "Soto",
                                 "penjual": "Pak Arya",
-                                "harga": "Rp 15.000",
+                                "harga": 15000,
                                 "image":
                                     "https://images.unsplash.com/photo-1572656631137-7935297eff55?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aW5kb25lc2lhbiUyMGZvb2R8ZW58MHx8MHx8fDA%3D"
                               },
                               {
                                 "nama": "Ramen",
                                 "penjual": "Dimas",
-                                "harga": "Rp 16.000",
+                                "harga": 16000,
                                 "image":
                                     "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGluZG9uZXNpYW4lMjBmb29kfGVufDB8fDB8fHww"
                               },
                             ];
                             var food = foods[index];
-                            return Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  height: 160.0,
-                                  width: 140.0,
+                            return GestureDetector(
+                                onTap: () => Get.to(ProductDetailView()),
+                                child: Container(
                                   margin: const EdgeInsets.only(right: 15.0),
                                   decoration: BoxDecoration(
-                                    image: DecorationImage(
-                                      image: NetworkImage(food["image"]),
-                                      fit: BoxFit.cover,
-                                    ),
-                                    borderRadius: BorderRadius.all(
-                                      Radius.circular(
-                                        8.0,
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color(0x19000000),
+                                        blurRadius: 24,
+                                        offset: Offset(0, 11),
                                       ),
-                                    ),
+                                    ],
+                                    borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(6.0),
+                                        topLeft: Radius.circular(6.0),
+                                        bottomLeft: Radius.circular(10.0),
+                                        bottomRight: Radius.circular(10.0)),
                                   ),
-                                ),
-                                const SizedBox(
-                                  height: 8.0,
-                                ),
-                                Text(
-                                  food["nama"],
-                                  style: TextStyle(
-                                    fontSize: 16.0,
-                                    fontWeight: FontWeight.bold,
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Expanded(
+                                        child: Container(
+                                          width: 150,
+                                          clipBehavior: Clip.antiAlias,
+                                          decoration: BoxDecoration(
+                                            image: DecorationImage(
+                                              image: NetworkImage(
+                                                food["image"],
+                                              ),
+                                              fit: BoxFit.cover,
+                                            ),
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(
+                                                6.0,
+                                              ),
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        height: 8.0,
+                                      ),
+                                      Row(
+                                        children: [
+                                          Padding(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                      horizontal: 8.0),
+                                              child: Column(
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Text(
+                                                    food["nama"],
+                                                    style: TextStyle(
+                                                      fontSize: 16.0,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    food["penjual"],
+                                                    style: TextStyle(
+                                                      fontSize: 14.0,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    "Rp ${NumberFormat("#,##0", "id_ID").format(food["harga"])}",
+                                                    style: TextStyle(
+                                                      fontSize: 17.0,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      color: primaryColor,
+                                                    ),
+                                                  ),
+                                                  const SizedBox(
+                                                    height: 8.0,
+                                                  ),
+                                                ],
+                                              ))
+                                        ],
+                                      ),
+                                    ],
                                   ),
-                                ),
-                                Text(
-                                  food["penjual"],
-                                  style: TextStyle(
-                                    fontSize: 14.0,
-                                  ),
-                                ),
-                                Text(
-                                  food["harga"],
-                                  style: TextStyle(
-                                    fontSize: 17.0,
-                                  ),
-                                ),
-                              ],
-                            );
+                                ));
                           },
                         ),
                       ),

@@ -56,7 +56,7 @@ class AdminDashboardView extends StatefulWidget {
                 Icons.chevron_right,
                 size: 24.0,
               ),
-              onTap: () {},
+              onTap: () => Get.to(AdminListAjuanView()),
             ),
             ListTile(
               leading: Image.network(
@@ -426,11 +426,21 @@ class AdminDashboardView extends StatefulWidget {
                         title: 'Produk Desa',
                         subtitle: 'Lihat semua',
                         onPressed: () => Get.to(ProductListView())),
-                    const SizedBox(
-                      height: 20.0,
+                    const SizedBox(height: 5.0),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Lihat produk usaha kecil menengah",
+                          style: TextStyle(
+                            fontSize: 15.0,
+                          ),
+                        )
+                      ],
                     ),
+                    const SizedBox(height: 20.0),
                     SizedBox(
-                      height: 235.0,
+                      height: 260.0,
                       child: ListView.builder(
                         itemCount: 5,
                         shrinkWrap: true,
@@ -442,82 +452,327 @@ class AdminDashboardView extends StatefulWidget {
                             {
                               "nama": "Sate Ayam",
                               "penjual": "Suwiryo",
-                              "harga": "Rp 15.000",
+                              "harga": 15000,
                               "image":
                                   "https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aW5kb25lc2lhbiUyMGZvb2R8ZW58MHx8MHx8fDA%3D"
                             },
                             {
                               "nama": "Gado-gado",
                               "penjual": "Aminah",
-                              "harga": "Rp 15.000",
+                              "harga": 15000,
                               "image":
                                   "https://images.unsplash.com/photo-1562607635-4608ff48a859?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5kb25lc2lhbiUyMGZvb2R8ZW58MHx8MHx8fDA%3D"
                             },
                             {
                               "nama": "Pecel Lele",
                               "penjual": "Jono",
-                              "harga": "Rp 11.000",
+                              "harga": 11000,
                               "image":
                                   "https://images.unsplash.com/photo-1613653739328-e86ebd77c9c8?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aW5kb25lc2lhbiUyMGZvb2R8ZW58MHx8MHx8fDA%3D"
                             },
                             {
                               "nama": "Soto",
                               "penjual": "Pak Arya",
-                              "harga": "Rp 15.000",
+                              "harga": 15000,
                               "image":
                                   "https://images.unsplash.com/photo-1572656631137-7935297eff55?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aW5kb25lc2lhbiUyMGZvb2R8ZW58MHx8MHx8fDA%3D"
                             },
                             {
                               "nama": "Ramen",
                               "penjual": "Dimas",
-                              "harga": "Rp 16.000",
+                              "harga": 16000,
                               "image":
                                   "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGluZG9uZXNpYW4lMjBmb29kfGVufDB8fDB8fHww"
                             },
                           ];
                           var food = foods[index];
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                height: 160.0,
-                                width: 140.0,
+                          return GestureDetector(
+                              onTap: () => Get.to(ProductDetailView()),
+                              child: Container(
                                 margin: const EdgeInsets.only(right: 15.0),
                                 decoration: BoxDecoration(
-                                  image: DecorationImage(
-                                    image: NetworkImage(food["image"]),
-                                    fit: BoxFit.cover,
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Color(0x19000000),
+                                      blurRadius: 24,
+                                      offset: Offset(0, 11),
+                                    ),
+                                  ],
+                                  borderRadius: BorderRadius.only(
+                                      topRight: Radius.circular(6.0),
+                                      topLeft: Radius.circular(6.0),
+                                      bottomLeft: Radius.circular(10.0),
+                                      bottomRight: Radius.circular(10.0)),
+                                ),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Expanded(
+                                      child: Container(
+                                        width: 150,
+                                        clipBehavior: Clip.antiAlias,
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: NetworkImage(
+                                              food["image"],
+                                            ),
+                                            fit: BoxFit.cover,
+                                          ),
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(
+                                              6.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      height: 8.0,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Padding(
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 8.0),
+                                            child: Column(
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Text(
+                                                  food["nama"],
+                                                  style: TextStyle(
+                                                    fontSize: 16.0,
+                                                    fontWeight: FontWeight.bold,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  food["penjual"],
+                                                  style: TextStyle(
+                                                    fontSize: 14.0,
+                                                  ),
+                                                ),
+                                                Text(
+                                                  "Rp ${NumberFormat("#,##0", "id_ID").format(food["harga"])}",
+                                                  style: TextStyle(
+                                                    fontSize: 17.0,
+                                                    fontWeight: FontWeight.bold,
+                                                    color: primaryColor,
+                                                  ),
+                                                ),
+                                                const SizedBox(
+                                                  height: 8.0,
+                                                ),
+                                              ],
+                                            ))
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ));
+                        },
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 5.0,
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 15.0),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                padding: const EdgeInsets.all(20.0),
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: const [
+                    BoxShadow(
+                      color: Color(0x19000000),
+                      blurRadius: 24,
+                      offset: Offset(0, 11),
+                    ),
+                  ],
+                  border: Border.all(
+                    width: 1.0,
+                    color: Colors.grey[300]!,
+                  ),
+                ),
+                child: Column(
+                  children: [
+                    H4(
+                        title: 'Pengaduan',
+                        subtitle: 'Lihat semua',
+                        onPressed: () => Get.to(AdminListAduanView())),
+                    const SizedBox(height: 5.0),
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text(
+                          "Pantau aduan warga",
+                          style: TextStyle(
+                            fontSize: 15.0,
+                          ),
+                        )
+                      ],
+                    ),
+                    const SizedBox(height: 20.0),
+                    SizedBox(
+                      height: 300.0,
+                      child: ListView.builder(
+                        itemCount: 5,
+                        shrinkWrap: true,
+                        scrollDirection: Axis.horizontal,
+                        padding: EdgeInsets.zero,
+                        clipBehavior: Clip.none,
+                        itemBuilder: (context, index) {
+                          List<Map<String, dynamic>> aduans = [
+                            {
+                              "judul": "Jalan Berlubang",
+                              "tanggal": "25 Maret 2024, 16:59",
+                              "deskripsi":
+                                  "Jalan berlubang ini sudah sangat parah dan mengganggu perjalanan warga yang melewati daerah tersebut, mohon segera diperbaiki.",
+                              "image":
+                                  "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG90aG9sZXN8ZW58MHx8MHx8fDA%3D"
+                            },
+                            {
+                              "judul": "Pohon Tumbang",
+                              "tanggal": "25 April 2024, 14:04",
+                              "deskripsi":
+                                  "Ada pohon tumbang yang menutupi jalan pramuka",
+                              "image":
+                                  "https://images.unsplash.com/photo-1620239864516-c7513ed7eab2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFsbGVuJTIwdHJlZXxlbnwwfHwwfHx8MA%3D%3D"
+                            },
+                            {
+                              "judul": "Sampah Laut",
+                              "tanggal": "24 April 2024, 15:04",
+                              "deskripsi":
+                                  "Di laut sodong terdapat jumlah sampah yang tidak wajar, saya harap ini segera bisa dibersihkan ",
+                              "image":
+                                  "https://images.unsplash.com/flagged/photo-1572213426852-0e4ed8f41ff6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cnViYmlzaHxlbnwwfHwwfHx8MA%3D%3D"
+                            },
+                            {
+                              "judul": "Jalan Berlubang",
+                              "tanggal": "26 April 2024, 16:04",
+                              "deskripsi":
+                                  "Jalan berlubang yang mengakibatkan genangan air, hal ini dapat membahayakan pengguna jalan",
+                              "image":
+                                  "https://images.unsplash.com/photo-1560782202-154b39d57ef2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG90aG9sZXN8ZW58MHx8MHx8fDA%3D"
+                            },
+                            {
+                              "judul": "Sampah",
+                              "tanggal": "23 April 2024, 10:04",
+                              "deskripsi":
+                                  "Truk pemungut sampah tidak mengambil sampah di rumah saya yang beralamat di jalan niaga rt/rw 01/04",
+                              "image":
+                                  "https://images.unsplash.com/photo-1592890278983-18616401d4ed?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cnViYmlzaHxlbnwwfHwwfHx8MA%3D%3D"
+                            },
+                          ];
+                          var aduan = aduans[index];
+                          return GestureDetector(
+                            onTap: () => Get.to(UserDetailAduanView()),
+                            child: Container(
+                              margin: const EdgeInsets.only(right: 25.0),
+                              width: 230,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Stack(
+                                    children: [
+                                      Container(
+                                        height: 190.0,
+                                        width: 230.0,
+                                        decoration: BoxDecoration(
+                                          image: DecorationImage(
+                                            image: NetworkImage(aduan["image"]),
+                                            fit: BoxFit.cover,
+                                          ),
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(
+                                              10.0,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        top: 0,
+                                        right: 0,
+                                        child: Container(
+                                          padding: const EdgeInsets.only(
+                                              left: 17.0,
+                                              right: 17.0,
+                                              top: 5.0,
+                                              bottom: 5.0),
+                                          decoration: BoxDecoration(
+                                            color: Colors.red,
+                                            borderRadius: BorderRadius.all(
+                                              Radius.circular(10.0),
+                                            ),
+                                          ),
+                                          child: Text(
+                                            "Lapor",
+                                            style: TextStyle(
+                                              fontSize: 15.0,
+                                              color: Colors.white,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                      Positioned(
+                                        bottom: 0,
+                                        left: 0,
+                                        right: 0,
+                                        child: Container(
+                                          padding: const EdgeInsets.all(15.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                aduan["judul"],
+                                                style: TextStyle(
+                                                  fontSize: 17.0,
+                                                  fontWeight: FontWeight.bold,
+                                                  color: Colors.white,
+                                                  shadows: [
+                                                    Shadow(
+                                                      color: Colors.black,
+                                                      blurRadius: 24,
+                                                      offset: Offset(1, 1),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    ],
                                   ),
-                                  borderRadius: BorderRadius.all(
-                                    Radius.circular(
-                                      8.0,
+                                  const SizedBox(
+                                    height: 10.0,
+                                  ),
+                                  Text(
+                                    aduan["tanggal"],
+                                    style: TextStyle(
+                                      fontSize: 14.0,
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                ),
+                                  const SizedBox(height: 8.0),
+                                  Expanded(
+                                    child: Text(
+                                      aduan["deskripsi"],
+                                      maxLines: 3,
+                                      overflow: TextOverflow.ellipsis,
+                                      style: TextStyle(
+                                        fontSize: 15.0,
+                                      ),
+                                    ),
+                                  )
+                                ],
                               ),
-                              const SizedBox(
-                                height: 8.0,
-                              ),
-                              Text(
-                                food["nama"],
-                                style: TextStyle(
-                                  fontSize: 16.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                              Text(
-                                food["penjual"],
-                                style: TextStyle(
-                                  fontSize: 14.0,
-                                ),
-                              ),
-                              Text(
-                                food["harga"],
-                                style: TextStyle(
-                                  fontSize: 17.0,
-                                ),
-                              ),
-                            ],
+                            ),
                           );
                         },
                       ),

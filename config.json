@@ -23,7 +23,10 @@
         "user_ajuan",
         "user_detail_ajuan",
         "user_aduan",
-        "user_detail_aduan"
+        "user_detail_aduan",
+        "admin_list_aduan",
+        "admin_list_ajuan",
+        "admin_detail_ajuan"
     ],
     "module_directory_name": "module",
     "experimental_mode": false,

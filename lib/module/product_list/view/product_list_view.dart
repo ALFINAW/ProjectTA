@@ -145,9 +145,6 @@ class ProductListView extends StatefulWidget {
                                             color: primaryColor,
                                           ),
                                         ),
-                                        const SizedBox(
-                                          height: 8.0,
-                                        ),
                                       ],
                                     ))
                               ],
