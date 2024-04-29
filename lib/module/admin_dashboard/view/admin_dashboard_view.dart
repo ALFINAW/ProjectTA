@@ -73,7 +73,7 @@ class AdminDashboardView extends StatefulWidget {
                 Icons.chevron_right,
                 size: 24.0,
               ),
-              onTap: () {},
+              onTap: () => Get.to(AdminTambahBeritaView()),
             ),
             ListTile(
               leading: Image.network(
@@ -90,7 +90,7 @@ class AdminDashboardView extends StatefulWidget {
                 Icons.chevron_right,
                 size: 24.0,
               ),
-              onTap: () {},
+              onTap: () => Get.to(AdminTambahProdukView()),
             ),
             ListTile(
               leading: Image.network(
@@ -107,7 +107,7 @@ class AdminDashboardView extends StatefulWidget {
                 Icons.chevron_right,
                 size: 24.0,
               ),
-              onTap: () {},
+              onTap: () => Get.to(AdminListAduanView()),
             ),
             ListTile(
               leading: Image.network(

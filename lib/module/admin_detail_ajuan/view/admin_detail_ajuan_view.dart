@@ -1,12 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
+import 'package:hyper_ui/shared/widget/form/textfield/text_field_form_dark.dart';
 import '../controller/admin_detail_ajuan_controller.dart';
 
 class AdminDetailAjuanView extends StatefulWidget {
-  const AdminDetailAjuanView({Key? key}) : super(key: key);
+  const AdminDetailAjuanView({super.key});
 
-  Widget build(context, AdminDetailAjuanController controller) {
-    controller.view = this;
+  @override
+  State<AdminDetailAjuanView> createState() => _AdminDetailAjuanViewState();
+}
+
+class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
+  bool _isMale = false;
+  bool _isFemale = false;
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Detail Pengajuan Surat",
@@ -199,27 +208,111 @@ class AdminDetailAjuanView extends StatefulWidget {
                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
                 ),
                 child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(
-                      "Keterangan",
-                      style: TextStyle(
-                        fontWeight: FontWeight.bold,
-                        fontSize: 18.0,
+                    Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Keterangan",
+                        style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          fontSize: 18.0,
+                        ),
                       ),
                     ),
                     const SizedBox(height: 10.0),
-                    //             CheckboxListTile(
-                    //   title: Text('Laki-laki'),
-                    //   value: _isMale,
-                    //   onChanged: (bool? value) {
-                    //     setState(() {
-                    //       _isMale = value ?? false;
-                    //       if (_isMale) {
-                    //         _isFemale = false;
-                    //       }
-                    //     });
-                    //   },
-                    // ),
+                    Text(
+                      "Acc :",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    CheckboxListTile(
+                      title: Text(
+                        'Silahkan datang dan ambil surat Anda di Balai Desa',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                        ),
+                      ),
+                      contentPadding: EdgeInsets.only(left: -8.0),
+                      controlAffinity: ListTileControlAffinity.leading,
+                      value: _isMale,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          _isMale = value ?? false;
+                          if (_isMale) {
+                            _isFemale = false;
+                          }
+                        });
+                      },
+                    ),
+                    const SizedBox(height: 8.0),
+                    Text(
+                      "Atau :",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 5.0),
+                    QTextFieldFormDark(
+                      label: "",
+                      onChanged: (p0) {},
+                      hint: "masukan keterengan lainnya",
+                    ),
+                    const SizedBox(height: 8.0),
+                    Text(
+                      "Tanggal :",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 5.0),
+                    QDatePicker(
+                      label: '',
+                      onChanged: (p0) {},
+                    ),
+                    const SizedBox(height: 8.0),
+                    Text(
+                      "Jam :",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    const SizedBox(height: 5.0),
+                    QTimePicker(label: '', onChanged: (p0) {}),
+                    const SizedBox(height: 8.0),
+                    Text(
+                      "Status :",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                    CheckboxListTile(
+                      title: Text(
+                        'Sudah diambil',
+                        style: TextStyle(
+                          fontSize: 16.0,
+                        ),
+                      ),
+                      contentPadding: EdgeInsets.only(left: -8.0),
+                      controlAffinity: ListTileControlAffinity.leading,
+                      value: _isMale,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          _isMale = value ?? false;
+                          if (_isMale) {
+                            _isFemale = false;
+                          }
+                        });
+                      },
+                    ),
+                    const SizedBox(height: 15.0),
+                    QButtonForm(label: "Kirim", onPressed: () {}),
                   ],
                 ),
               )
@@ -229,7 +322,4 @@ class AdminDetailAjuanView extends StatefulWidget {
       ),
     );
   }
-
-  @override
-  State<AdminDetailAjuanView> createState() => AdminDetailAjuanController();
 }

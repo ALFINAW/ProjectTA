@@ -59,8 +59,15 @@ class _QMemoFieldState extends State<QMemoField> {
       });
     }
     return Container(
-      margin: EdgeInsets.only(
-        bottom: 12.0,
+      margin: EdgeInsets.only(bottom: 12.0),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x19000000),
+            blurRadius: 24,
+            offset: Offset(0, 11),
+          ),
+        ],
       ),
       child: TextFormField(
         key: key,
@@ -75,11 +82,13 @@ class _QMemoFieldState extends State<QMemoField> {
             vertical: 24.0,
           ),
           labelText: widget.label,
-          suffixIcon: Icon(
-            Icons.text_format,
-          ),
+          // suffixIcon: Icon(
+          //   Icons.text_format,
+          // ),
           helperText: widget.helper,
           hintText: widget.hint,
+          filled: true,
+          fillColor: Colors.white,
         ),
         onChanged: widget.onChanged,
       ),

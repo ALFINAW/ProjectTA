@@ -131,55 +131,110 @@ class _UserPengajuanKk1ViewState extends State<UserPengajuanKk1View> {
                   rows: controller.familyMembers.map((member) {
                     return DataRow(
                       cells: [
-                        DataCell(TextFormField(
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
+                        DataCell(Container(
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0x19000000),
+                                blurRadius: 24,
+                                offset: Offset(0, 11),
+                              ),
+                            ],
                           ),
-                          initialValue: member.name,
-                          onChanged: (value) {
-                            member.name = value;
-                          },
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                            ),
+                            initialValue: member.name,
+                            onChanged: (value) {
+                              member.name = value;
+                            },
+                          ),
                         )),
-                        DataCell(TextFormField(
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
+                        DataCell(Container(
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0x19000000),
+                                blurRadius: 24,
+                                offset: Offset(0, 11),
+                              ),
+                            ],
                           ),
-                          initialValue: member.gender,
-                          onChanged: (value) {
-                            member.gender = value;
-                          },
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                            ),
+                            initialValue: member.gender,
+                            onChanged: (value) {
+                              member.gender = value;
+                            },
+                          ),
                         )),
-                        DataCell(TextFormField(
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
+                        DataCell(Container(
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0x19000000),
+                                blurRadius: 24,
+                                offset: Offset(0, 11),
+                              ),
+                            ],
                           ),
-                          initialValue: member.maritalStatus,
-                          onChanged: (value) {
-                            member.maritalStatus = value;
-                          },
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                            ),
+                            initialValue: member.maritalStatus,
+                            onChanged: (value) {
+                              member.maritalStatus = value;
+                            },
+                          ),
                         )),
-                        DataCell(TextFormField(
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
+                        DataCell(Container(
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0x19000000),
+                                blurRadius: 24,
+                                offset: Offset(0, 11),
+                              ),
+                            ],
                           ),
-                          initialValue: member.placeOfBirth,
-                          onChanged: (value) {
-                            member.placeOfBirth = value;
-                          },
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                            ),
+                            initialValue: member.placeOfBirth,
+                            onChanged: (value) {
+                              member.placeOfBirth = value;
+                            },
+                          ),
                         )),
-                        DataCell(TextFormField(
-                          decoration: InputDecoration(
-                            filled: true,
-                            fillColor: Colors.white,
+                        DataCell(Container(
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0x19000000),
+                                blurRadius: 24,
+                                offset: Offset(0, 11),
+                              ),
+                            ],
                           ),
-                          initialValue: member.dateOfBirth,
-                          onChanged: (value) {
-                            member.dateOfBirth = value;
-                          },
+                          child: TextFormField(
+                            decoration: InputDecoration(
+                              filled: true,
+                              fillColor: Colors.white,
+                            ),
+                            initialValue: member.dateOfBirth,
+                            onChanged: (value) {
+                              member.dateOfBirth = value;
+                            },
+                          ),
                         )),
                       ],
                     );

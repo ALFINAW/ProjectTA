@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/user_ajukan_pengaduan_controller.dart';
+import '../controller/admin_tambah_berita_controller.dart';
 
-class UserAjukanPengaduanView extends StatefulWidget {
-  const UserAjukanPengaduanView({Key? key}) : super(key: key);
+class AdminTambahBeritaView extends StatefulWidget {
+  const AdminTambahBeritaView({Key? key}) : super(key: key);
 
-  Widget build(context, UserAjukanPengaduanController controller) {
+  Widget build(context, AdminTambahBeritaController controller) {
     controller.view = this;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Ajukan Pengaduan",
+        title: const Text("Tambah Berita",
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -26,7 +26,33 @@ class UserAjukanPengaduanView extends StatefulWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                "Sertakan foto yang berguna untuk membantu pengecekan petugas :",
+                "Judul berita :",
+                style: TextStyle(
+                  fontSize: 15.0,
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              QTextFieldForm(
+                label: "",
+                onChanged: (p0) {},
+                hint: "masukan judul berita",
+              ),
+              const SizedBox(height: 10.0),
+              Text(
+                "Deskripsi :",
+                style: TextStyle(
+                  fontSize: 15.0,
+                ),
+              ),
+              const SizedBox(height: 8.0),
+              QMemoField(
+                label: '',
+                onChanged: ((p0) {}),
+                hint: "masukan deskripsi berita",
+              ),
+              const SizedBox(height: 10.0),
+              Text(
+                "Sertakan foto berita :",
                 style: TextStyle(
                   fontSize: 15.0,
                 ),
@@ -38,45 +64,6 @@ class UserAjukanPengaduanView extends StatefulWidget {
                 value: null,
                 onChanged: (value) {},
               ),
-              const SizedBox(height: 10.0),
-              Text(
-                "Judul aduan :",
-                style: TextStyle(
-                  fontSize: 15.0,
-                ),
-              ),
-              const SizedBox(height: 8.0),
-              QTextFieldForm(
-                label: "",
-                onChanged: (p0) {},
-                hint: "masukan judul aduan",
-              ),
-              const SizedBox(height: 10.0),
-              Text(
-                "Tambahkan keterangan :",
-                style: TextStyle(
-                  fontSize: 15.0,
-                ),
-              ),
-              const SizedBox(height: 8.0),
-              QTextFieldForm(
-                label: "",
-                onChanged: (p0) {},
-                hint: "masukan keterangan",
-              ),
-              const SizedBox(height: 10.0),
-              Text(
-                "Tambahkan alamat :",
-                style: TextStyle(
-                  fontSize: 15.0,
-                ),
-              ),
-              const SizedBox(height: 8.0),
-              QTextFieldForm(
-                label: "",
-                onChanged: (p0) {},
-                hint: "masukan alamat",
-              ),
               const SizedBox(height: 15.0),
               QButtonForm(label: "Kirim", onPressed: () {}),
             ],
@@ -87,6 +74,5 @@ class UserAjukanPengaduanView extends StatefulWidget {
   }
 
   @override
-  State<UserAjukanPengaduanView> createState() =>
-      UserAjukanPengaduanController();
+  State<AdminTambahBeritaView> createState() => AdminTambahBeritaController();
 }

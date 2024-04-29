@@ -40,7 +40,7 @@ class _QTimePickerState extends State<QTimePicker> {
       var mm = widget.value?.minute.toString().padLeft(2, "0");
       return "$hh:$mm";
     }
-    return "-";
+    return "";
   }
 
   getFormattedValue() {

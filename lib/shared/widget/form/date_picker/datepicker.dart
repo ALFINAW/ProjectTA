@@ -39,7 +39,7 @@ class _QDatePickerState extends State<QDatePicker> {
     if (widget.value != null) {
       return DateFormat("d MMM y").format(widget.value!);
     }
-    return "-";
+    return "";
   }
 
   getFormattedValue() {

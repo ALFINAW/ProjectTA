@@ -14,6 +14,10 @@ export 'package:hyper_ui/module/admin_list_aduan/controller/admin_list_aduan_con
 export 'package:hyper_ui/module/admin_list_aduan/view/admin_list_aduan_view.dart';
 export 'package:hyper_ui/module/admin_list_ajuan/controller/admin_list_ajuan_controller.dart';
 export 'package:hyper_ui/module/admin_list_ajuan/view/admin_list_ajuan_view.dart';
+export 'package:hyper_ui/module/admin_tambah_berita/controller/admin_tambah_berita_controller.dart';
+export 'package:hyper_ui/module/admin_tambah_berita/view/admin_tambah_berita_view.dart';
+export 'package:hyper_ui/module/admin_tambah_produk/controller/admin_tambah_produk_controller.dart';
+export 'package:hyper_ui/module/admin_tambah_produk/view/admin_tambah_produk_view.dart';
 export 'package:hyper_ui/module/news_detail/controller/news_detail_controller.dart';
 export 'package:hyper_ui/module/news_detail/view/news_detail_view.dart';
 export 'package:hyper_ui/module/news_list/controller/news_list_controller.dart';
@@ -121,6 +125,7 @@ export 'package:hyper_ui/shared/widget/form/searchfield/searchfield.dart';
 export 'package:hyper_ui/shared/widget/form/switch/switch.dart';
 export 'package:hyper_ui/shared/widget/form/textfield/text_field.dart';
 export 'package:hyper_ui/shared/widget/form/textfield/text_field_form.dart';
+export 'package:hyper_ui/shared/widget/form/textfield/text_field_form_dark.dart';
 export 'package:hyper_ui/shared/widget/form/textfield/text_field_table_form.dart';
 export 'package:hyper_ui/shared/widget/form/time_picker/timepicker.dart';
 export 'package:hyper_ui/shared/widget/list/list_view.dart';

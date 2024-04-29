@@ -123,13 +123,69 @@ class _QImagePickerASState extends State<QImagePickerAS> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 4.0),
-      margin: EdgeInsets.only(
-        bottom: 12.0,
-      ),
+      margin: EdgeInsets.only(bottom: 12.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
+          Container(
+            height: 96.0,
+            width: 96.0,
+            decoration: BoxDecoration(
+              color: loading ? Colors.blueGrey[400] : null,
+              image: loading
+                  ? null
+                  : DecorationImage(
+                      image: NetworkImage(
+                        imageUrl == null
+                            ? "https://i.ibb.co/F8BMdbL/no-image-fococlipping-standard.png"
+                            : imageUrl!,
+                      ),
+                      fit: BoxFit.cover,
+                    ),
+              borderRadius: BorderRadius.all(
+                Radius.circular(
+                  16.0,
+                ),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0x19000000),
+                  blurRadius: 24,
+                  offset: Offset(0, 11),
+                ),
+              ],
+            ),
+            child: Visibility(
+              visible: loading == true,
+              child: SizedBox(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      width: 20.0,
+                      height: 20.0,
+                      child: CircularProgressIndicator(
+                        color: Colors.orange,
+                      ),
+                    ),
+                    SizedBox(
+                      height: 6.0,
+                    ),
+                    Text(
+                      "Uploading...",
+                      style: TextStyle(
+                        fontSize: 9.0,
+                        color: Colors.white,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          const SizedBox(width: 20.0),
           Expanded(
             child: FormField(
                 initialValue: false,
@@ -142,23 +198,34 @@ class _QImagePickerASState extends State<QImagePickerAS> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
-                        child: TextFormField(
-                          controller: controller,
-                          readOnly: true,
-                          decoration: InputDecoration(
-                            labelText: widget.label,
-                            labelStyle: TextStyle(
-                              color: Colors.black,
-                            ),
-                            helperText: widget.helper,
-                            hintText: widget.hint,
-                            errorText: field.errorText,
-                            filled: true,
-                            fillColor: Colors.white,
+                        child: Container(
+                          decoration: BoxDecoration(
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0x19000000),
+                                blurRadius: 24,
+                                offset: Offset(0, 11),
+                              ),
+                            ],
                           ),
-                          onChanged: (value) {
-                            widget.onChanged(value);
-                          },
+                          child: TextFormField(
+                            controller: controller,
+                            readOnly: true,
+                            decoration: InputDecoration(
+                              labelText: widget.label,
+                              labelStyle: TextStyle(
+                                color: Colors.black,
+                              ),
+                              helperText: widget.helper,
+                              hintText: widget.hint,
+                              errorText: field.errorText,
+                              filled: true,
+                              fillColor: Colors.white,
+                            ),
+                            onChanged: (value) {
+                              widget.onChanged(value);
+                            },
+                          ),
                         ),
                       ),
                       const SizedBox(

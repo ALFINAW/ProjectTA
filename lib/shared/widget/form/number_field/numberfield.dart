@@ -57,8 +57,15 @@ class _QNumberFieldState extends State<QNumberField> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(
-        bottom: 12.0,
+      margin: const EdgeInsets.only(bottom: 12.0),
+      decoration: BoxDecoration(
+        boxShadow: [
+          BoxShadow(
+            color: Color(0x19000000),
+            blurRadius: 24,
+            offset: Offset(0, 11),
+          ),
+        ],
       ),
       constraints: BoxConstraints(
         minHeight: inputHeight,
@@ -69,11 +76,13 @@ class _QNumberFieldState extends State<QNumberField> {
         keyboardType: TextInputType.number,
         decoration: InputDecoration(
           labelText: widget.label,
-          suffixIcon: const Icon(
-            Icons.numbers,
-          ),
+          // suffixIcon: const Icon(
+          //   Icons.numbers,
+          // ),
           helperText: widget.helper,
           hintText: widget.hint,
+          filled: true,
+          fillColor: Colors.white,
         ),
         onChanged: (newValue) {
           var newValue = controller.text;

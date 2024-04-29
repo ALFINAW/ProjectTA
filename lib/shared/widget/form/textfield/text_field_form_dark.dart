@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class QTextFieldForm extends StatefulWidget {
+class QTextFieldFormDark extends StatefulWidget {
   final String? id;
   final String label;
   final String? value;
@@ -14,7 +14,7 @@ class QTextFieldForm extends StatefulWidget {
   final Function(String) onChanged;
   final Function(String)? onSubmitted;
 
-  const QTextFieldForm({
+  const QTextFieldFormDark({
     Key? key,
     required this.label,
     this.id,
@@ -30,15 +30,15 @@ class QTextFieldForm extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<QTextFieldForm> createState() => _QTextFieldState();
+  State<QTextFieldFormDark> createState() => _QTextFieldState();
 }
 
-class _QTextFieldState extends State<QTextFieldForm> {
+class _QTextFieldState extends State<QTextFieldFormDark> {
   TextEditingController textEditingController = TextEditingController();
 
   @override
   void initState() {
-    textEditingController.text = widget.value ?? "";
+    textEditingController.text = widget.value ?? "-";
     super.initState();
   }
 
@@ -63,15 +63,8 @@ class _QTextFieldState extends State<QTextFieldForm> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.only(bottom: 12.0),
-      decoration: BoxDecoration(
-        boxShadow: [
-          BoxShadow(
-            color: Color(0x19000000),
-            blurRadius: 24,
-            offset: Offset(0, 11),
-          ),
-        ],
+      margin: const EdgeInsets.only(
+        bottom: 12.0,
       ),
       child: TextFormField(
         enabled: widget.enabled,
@@ -84,8 +77,6 @@ class _QTextFieldState extends State<QTextFieldForm> {
           labelText: widget.label,
           helperText: widget.helper,
           hintText: widget.hint,
-          filled: true,
-          fillColor: Colors.white,
         ),
         onChanged: (value) {
           widget.onChanged(value);

@@ -44,7 +44,7 @@ class _QImagePickerState extends State<QImagePicker> {
   void initState() {
     imageUrl = widget.value;
     controller = TextEditingController(
-      text: widget.value ?? "-",
+      text: widget.value ?? "",
     );
     super.initState();
   }
@@ -150,6 +150,13 @@ class _QImagePickerState extends State<QImagePicker> {
                   16.0,
                 ),
               ),
+              boxShadow: [
+                BoxShadow(
+                  color: Color(0x19000000),
+                  blurRadius: 24,
+                  offset: Offset(0, 11),
+                ),
+              ],
             ),
             child: Visibility(
               visible: loading == true,
@@ -195,6 +202,16 @@ class _QImagePickerState extends State<QImagePicker> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
+                          child: Container(
+                        decoration: BoxDecoration(
+                          boxShadow: [
+                            BoxShadow(
+                              color: Color(0x19000000),
+                              blurRadius: 24,
+                              offset: Offset(0, 11),
+                            ),
+                          ],
+                        ),
                         child: TextFormField(
                           controller: controller,
                           readOnly: true,
@@ -213,7 +230,7 @@ class _QImagePickerState extends State<QImagePicker> {
                             widget.onChanged(value);
                           },
                         ),
-                      ),
+                      )),
                       const SizedBox(
                         width: 6.0,
                       ),
