@@ -89,6 +89,22 @@ class UserDetailAduanView extends StatefulWidget {
                     Row(
                       children: [
                         const Icon(
+                          Icons.person_2_outlined,
+                          size: 27.0,
+                        ),
+                        const SizedBox(width: 15.0),
+                        Text(
+                          "Alfin123",
+                          style: TextStyle(
+                            fontSize: 16.0,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 8.0),
+                    Row(
+                      children: [
+                        const Icon(
                           Icons.date_range_outlined,
                           size: 27.0,
                         ),

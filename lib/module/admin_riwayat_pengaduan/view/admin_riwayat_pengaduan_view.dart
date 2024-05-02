@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/admin_list_aduan_controller.dart';
+import '../controller/admin_riwayat_pengaduan_controller.dart';
 
-class AdminListAduanView extends StatefulWidget {
-  const AdminListAduanView({Key? key}) : super(key: key);
+class AdminRiwayatPengaduanView extends StatefulWidget {
+  const AdminRiwayatPengaduanView({Key? key}) : super(key: key);
 
-  Widget build(context, AdminListAduanController controller) {
+  Widget build(context, AdminRiwayatPengaduanController controller) {
     controller.view = this;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Daftar Pengaduan",
+        title: const Text("Riwayat Pengaduan",
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -29,7 +29,7 @@ class AdminListAduanView extends StatefulWidget {
                 itemBuilder: (BuildContext context, int index) {
                   List<Map<String, dynamic>> aduans = [
                     {
-                      "nomor_laporan": "#AW0001",
+                      "nomor_laporan": "AW0001",
                       "judul": "Jalan Berlubang",
                       "tanggal": "25 Maret 2024, 16:59",
                       "alamat": "Jl. Rajawali RT/RW 04/05 Karangrena",
@@ -39,7 +39,7 @@ class AdminListAduanView extends StatefulWidget {
                           "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG90aG9sZXN8ZW58MHx8MHx8fDA%3D"
                     },
                     {
-                      "nomor_laporan": "#AW0002",
+                      "nomor_laporan": "AW0002",
                       "judul": "Pohon Tumbang",
                       "tanggal": "25 April 2024, 14:04",
                       "alamat": "Jl. Pramuka RT/RW 03/04 Karangrena",
@@ -49,7 +49,7 @@ class AdminListAduanView extends StatefulWidget {
                           "https://images.unsplash.com/photo-1620239864516-c7513ed7eab2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFsbGVuJTIwdHJlZXxlbnwwfHwwfHx8MA%3D%3D"
                     },
                     {
-                      "nomor_laporan": "#AW0003",
+                      "nomor_laporan": "AW0003",
                       "judul": "Sampah Laut",
                       "tanggal": "24 April 2024, 15:04",
                       "alamat": "Jl. Serayu RT/RW 02/03 Karangrena",
@@ -59,7 +59,7 @@ class AdminListAduanView extends StatefulWidget {
                           "https://images.unsplash.com/flagged/photo-1572213426852-0e4ed8f41ff6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cnViYmlzaHxlbnwwfHwwfHx8MA%3D%3D"
                     },
                     {
-                      "nomor_laporan": "#AW0004",
+                      "nomor_laporan": "AW0004",
                       "judul": "Jalan Berlubang",
                       "tanggal": "26 April 2024, 16:04",
                       "alamat": "Jl. Tegong RT/RW 05/06 Karangrena",
@@ -69,7 +69,7 @@ class AdminListAduanView extends StatefulWidget {
                           "https://images.unsplash.com/photo-1560782202-154b39d57ef2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG90aG9sZXN8ZW58MHx8MHx8fDA%3D"
                     },
                     {
-                      "nomor_laporan": "#AW0005",
+                      "nomor_laporan": "AW0005",
                       "judul": "Sampah",
                       "tanggal": "23 April 2024, 10:04",
                       "alamat": "Jl. Niaga RT/RW 04/01 Karangrena",
@@ -81,7 +81,7 @@ class AdminListAduanView extends StatefulWidget {
                   ];
                   var aduan = aduans[index];
                   return InkWell(
-                    onTap: () => Get.to(AdminDetailAduanView()),
+                    onTap: () => Get.to(UserDetailAduanView()),
                     child: Container(
                       margin: const EdgeInsets.only(bottom: 13.0),
                       padding: const EdgeInsets.all(20.0),
@@ -130,17 +130,17 @@ class AdminListAduanView extends StatefulWidget {
                                 decoration: BoxDecoration(
                                   border: Border.all(
                                     width: 1.3,
-                                    color: Colors.red,
+                                    color: Colors.green,
                                   ),
                                   borderRadius: BorderRadius.all(
                                     Radius.circular(20.0),
                                   ),
                                 ),
                                 child: Text(
-                                  "Lapor",
+                                  "Selesai",
                                   style: TextStyle(
                                     fontSize: 16.0,
-                                    color: Colors.red,
+                                    color: Colors.green,
                                     fontWeight: FontWeight.bold,
                                   ),
                                 ),
@@ -198,5 +198,6 @@ class AdminListAduanView extends StatefulWidget {
   }
 
   @override
-  State<AdminListAduanView> createState() => AdminListAduanController();
+  State<AdminRiwayatPengaduanView> createState() =>
+      AdminRiwayatPengaduanController();
 }

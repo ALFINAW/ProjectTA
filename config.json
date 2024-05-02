@@ -28,7 +28,10 @@
         "admin_list_ajuan",
         "admin_detail_ajuan",
         "admin_tambah_berita",
-        "admin_tambah_produk"
+        "admin_tambah_produk",
+        "admin_riwayat_pengajuan_surat",
+        "admin_riwayat_pengaduan",
+        "admin_detail_aduan"
     ],
     "module_directory_name": "module",
     "experimental_mode": false,
