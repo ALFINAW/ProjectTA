@@ -31,47 +31,44 @@ class UserAjukanPengaduanView extends StatefulWidget {
                   fontSize: 15.0,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 5.0),
               QImagePicker(
                 label: "",
                 validator: Validator.required,
                 value: null,
                 onChanged: (value) {},
               ),
-              const SizedBox(height: 10.0),
               Text(
                 "Judul aduan :",
                 style: TextStyle(
                   fontSize: 15.0,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 5.0),
               QTextFieldForm(
                 label: "",
                 onChanged: (p0) {},
                 hint: "masukan judul aduan",
               ),
-              const SizedBox(height: 10.0),
               Text(
                 "Tambahkan keterangan :",
                 style: TextStyle(
                   fontSize: 15.0,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 5.0),
               QTextFieldForm(
                 label: "",
                 onChanged: (p0) {},
                 hint: "masukan keterangan",
               ),
-              const SizedBox(height: 10.0),
               Text(
                 "Tambahkan alamat :",
                 style: TextStyle(
                   fontSize: 15.0,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 5.0),
               QTextFieldForm(
                 label: "",
                 onChanged: (p0) {},

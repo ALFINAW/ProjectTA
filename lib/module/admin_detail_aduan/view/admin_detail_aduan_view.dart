@@ -1,13 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
+import 'package:hyper_ui/shared/widget/form/image_picker/image_picker_dark.dart';
+import 'package:hyper_ui/shared/widget/form/memo_field/memo_field_dark.dart';
 
 import '../controller/admin_detail_aduan_controller.dart';
 
 class AdminDetailAduanView extends StatefulWidget {
-  const AdminDetailAduanView({Key? key}) : super(key: key);
+  const AdminDetailAduanView({super.key});
 
-  Widget build(context, AdminDetailAduanController controller) {
-    controller.view = this;
+  @override
+  State<AdminDetailAduanView> createState() => _AdminDetailAduanViewState();
+}
+
+class _AdminDetailAduanViewState extends State<AdminDetailAduanView> {
+  bool _isMale = false;
+  bool _isFemale = false;
+
+  @override
+  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Detail Pengaduan",
@@ -220,7 +230,7 @@ class AdminDetailAduanView extends StatefulWidget {
                     Align(
                       alignment: Alignment.center,
                       child: Text(
-                        "Riwayat Aduan",
+                        "Progres Aduan",
                         style: TextStyle(
                           fontSize: 18.0,
                           fontWeight: FontWeight.bold,
@@ -228,33 +238,121 @@ class AdminDetailAduanView extends StatefulWidget {
                       ),
                     ),
                     const SizedBox(height: 10.0),
-                    
-                    Text(
-                      "Acc :",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
+                    CheckboxListTile(
+                      title: Text(
+                        'Terima laporan pengaduan',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                      ),
+                      contentPadding: EdgeInsets.only(left: -8.0),
+                      controlAffinity: ListTileControlAffinity.leading,
+                      value: _isMale,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          _isMale = value ?? false;
+                          if (_isMale) {
+                            _isFemale = false;
+                          }
+                        });
+                      },
+                    ),
+                    CheckboxListTile(
+                      title: Text(
+                        'Petugas mengerjakan laporan',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                      ),
+                      contentPadding: EdgeInsets.only(left: -8.0),
+                      controlAffinity: ListTileControlAffinity.leading,
+                      value: _isMale,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          _isMale = value ?? false;
+                          if (_isMale) {
+                            _isFemale = false;
+                          }
+                        });
+                      },
+                    ),
+                    CheckboxListTile(
+                      title: Text(
+                        'Petugas telah menyelesaikan laporan',
+                        style: TextStyle(
+                          fontSize: 15.0,
+                        ),
+                      ),
+                      contentPadding: EdgeInsets.only(left: -8.0),
+                      controlAffinity: ListTileControlAffinity.leading,
+                      value: _isMale,
+                      onChanged: (bool? value) {
+                        setState(() {
+                          _isMale = value ?? false;
+                          if (_isMale) {
+                            _isFemale = false;
+                          }
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 13.0),
+              Container(
+                padding: const EdgeInsets.all(20.0),
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                ),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Align(
+                      alignment: Alignment.center,
+                      child: Text(
+                        "Tindak Lanjut Petugas",
+                        style: TextStyle(
+                          fontSize: 18.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
-                    // CheckboxListTile(
-                    //   title: Text(
-                    //     'Silahkan datang dan ambil surat Anda di Balai Desa',
-                    //     style: TextStyle(
-                    //       fontSize: 16.0,
-                    //     ),
-                    //   ),
-                    //   contentPadding: EdgeInsets.only(left: -8.0),
-                    //   controlAffinity: ListTileControlAffinity.leading,
-                    //   value: _isMale,
-                    //   onChanged: (bool? value) {
-                    //     setState(() {
-                    //       _isMale = value ?? false;
-                    //       if (_isMale) {
-                    //         _isFemale = false;
-                    //       }
-                    //     });
-                    //   },
-                    // ),
+                    const SizedBox(height: 10.0),
+                    Text(
+                      "Nama petugas :",
+                      style: TextStyle(fontSize: 15.0),
+                    ),
+                    const SizedBox(height: 5.0),
+                    QTextFieldFormDark(
+                      label: "",
+                      onChanged: (p0) {},
+                      hint: "masukan nama petugas",
+                    ),
+                    Text(
+                      "Sertakan foto tindak lanjut :",
+                      style: TextStyle(fontSize: 15.0),
+                    ),
+                    const SizedBox(height: 5.0),
+                    QImagePickerDark(
+                      label: "",
+                      validator: Validator.required,
+                      value: null,
+                      onChanged: (value) {},
+                    ),
+                    Text(
+                      "Keterangan :",
+                      style: TextStyle(fontSize: 15.0),
+                    ),
+                    const SizedBox(height: 5.0),
+                    QMemoFieldDark(
+                      label: '',
+                      onChanged: ((p0) {}),
+                      hint: "masukan deskripsi produk",
+                    ),
+                    const SizedBox(height: 15.0),
+                    QButtonForm(label: "Kirim", onPressed: () {}),
                   ],
                 ),
               ),
@@ -264,7 +362,4 @@ class AdminDetailAduanView extends StatefulWidget {
       ),
     );
   }
-
-  @override
-  State<AdminDetailAduanView> createState() => AdminDetailAduanController();
 }

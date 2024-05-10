@@ -102,9 +102,19 @@ class SignUpView extends StatefulWidget {
                     height: 20.0,
                   ),
                   QTextField(
+                    label: "Username",
+                    validator: Validator.email,
+                    suffixIcon: Icons.person_outline,
+                    value: null,
+                    onChanged: (value) {},
+                  ),
+                  const SizedBox(
+                    height: 10.0,
+                  ),
+                  QTextField(
                     label: "Nama Lengkap",
                     validator: Validator.email,
-                    suffixIcon: Icons.person_pin,
+                    suffixIcon: Icons.account_circle,
                     value: null,
                     onChanged: (value) {},
                   ),

@@ -72,21 +72,24 @@ class UserProfileView extends StatefulWidget {
               child: Column(
                 children: [
                   //list_tittle_row_icon
-                  Container(
-                    margin: const EdgeInsets.only(bottom: 5.0),
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                          topLeft: Radius.circular(13.0),
-                          topRight: Radius.circular(13.0)),
-                    ),
-                    child: const ListTile(
-                      leading: Icon(Icons.account_box_rounded),
-                      minLeadingWidth: 0.0,
-                      title: Text("Data Akun"),
-                      trailing: Icon(
-                        Icons.chevron_right,
-                        size: 24.0,
+                  InkWell(
+                    onTap: () => Get.to(UserDataAkunView()),
+                    child: Container(
+                      margin: const EdgeInsets.only(bottom: 5.0),
+                      decoration: const BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(13.0),
+                            topRight: Radius.circular(13.0)),
+                      ),
+                      child: const ListTile(
+                        leading: Icon(Icons.account_box_rounded),
+                        minLeadingWidth: 0.0,
+                        title: Text("Data Akun"),
+                        trailing: Icon(
+                          Icons.chevron_right,
+                          size: 24.0,
+                        ),
                       ),
                     ),
                   ),

@@ -223,16 +223,13 @@ class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
                     const SizedBox(height: 10.0),
                     Text(
                       "Acc :",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: TextStyle(fontSize: 15.0),
                     ),
                     CheckboxListTile(
                       title: Text(
                         'Silahkan datang dan ambil surat Anda di Balai Desa',
                         style: TextStyle(
-                          fontSize: 16.0,
+                          fontSize: 15.0,
                         ),
                       ),
                       contentPadding: EdgeInsets.only(left: -8.0),
@@ -247,50 +244,37 @@ class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
                         });
                       },
                     ),
-                    const SizedBox(height: 8.0),
+                    const SizedBox(height: 5.0),
                     Text(
                       "Atau :",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: TextStyle(fontSize: 15.0),
                     ),
                     const SizedBox(height: 5.0),
                     QTextFieldFormDark(
                       label: "",
                       onChanged: (p0) {},
                       hint: "masukan keterengan lainnya",
+                      helper:
+                          "*kosongkan jika di acc dan isi jika tidak di acc",
                     ),
-                    const SizedBox(height: 8.0),
                     Text(
                       "Tanggal :",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: TextStyle(fontSize: 15.0),
                     ),
                     const SizedBox(height: 5.0),
                     QDatePicker(
                       label: '',
                       onChanged: (p0) {},
                     ),
-                    const SizedBox(height: 8.0),
                     Text(
                       "Jam :",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: TextStyle(fontSize: 15.0),
                     ),
                     const SizedBox(height: 5.0),
                     QTimePicker(label: '', onChanged: (p0) {}),
-                    const SizedBox(height: 8.0),
                     Text(
                       "Status :",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: TextStyle(fontSize: 15.0),
                     ),
                     CheckboxListTile(
                       title: Text(

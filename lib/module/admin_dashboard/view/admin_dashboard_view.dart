@@ -60,6 +60,23 @@ class AdminDashboardView extends StatefulWidget {
             ),
             ListTile(
               leading: Image.network(
+                "https://cdn-icons-png.flaticon.com/128/1239/1239605.png",
+                height: 30,
+                width: 30,
+                fit: BoxFit.cover,
+              ),
+              title: const Text("Daftar Pengaduan",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  )),
+              trailing: Icon(
+                Icons.chevron_right,
+                size: 24.0,
+              ),
+              onTap: () => Get.to(AdminListAduanView()),
+            ),
+            ListTile(
+              leading: Image.network(
                 "https://cdn-icons-png.flaticon.com/128/2910/2910769.png",
                 height: 30,
                 width: 30,
@@ -91,23 +108,6 @@ class AdminDashboardView extends StatefulWidget {
                 size: 24.0,
               ),
               onTap: () => Get.to(AdminTambahProdukView()),
-            ),
-            ListTile(
-              leading: Image.network(
-                "https://cdn-icons-png.flaticon.com/128/1239/1239605.png",
-                height: 30,
-                width: 30,
-                fit: BoxFit.cover,
-              ),
-              title: const Text("Daftar Pengaduan",
-                  style: TextStyle(
-                    fontWeight: FontWeight.bold,
-                  )),
-              trailing: Icon(
-                Icons.chevron_right,
-                size: 24.0,
-              ),
-              onTap: () => Get.to(AdminListAduanView()),
             ),
             ListTile(
               leading: Image.network(

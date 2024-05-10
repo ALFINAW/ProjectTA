@@ -30,95 +30,88 @@ class AdminTambahProdukView extends StatefulWidget {
                   fontSize: 15.0,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 5.0),
               QTextFieldForm(
                 label: "",
                 onChanged: (p0) {},
                 hint: "masukan nama produk",
               ),
-              const SizedBox(height: 10.0),
               Text(
                 "Deskripsi produk :",
                 style: TextStyle(
                   fontSize: 15.0,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 5.0),
               QMemoField(
                 label: '',
                 onChanged: ((p0) {}),
                 hint: "masukan deskripsi produk",
               ),
-              const SizedBox(height: 10.0),
               Text(
                 "Harga :",
                 style: TextStyle(
                   fontSize: 15.0,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 5.0),
               QNumberField(label: '', onChanged: (p0) {}),
-              const SizedBox(height: 10.0),
               Text(
                 "Sertakan foto produk :",
                 style: TextStyle(
                   fontSize: 15.0,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 5.0),
               QImagePicker(
                 label: "",
                 validator: Validator.required,
                 value: null,
                 onChanged: (value) {},
               ),
-              const SizedBox(height: 10.0),
               Text(
                 "Nama penjual :",
                 style: TextStyle(
                   fontSize: 15.0,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 5.0),
               QTextFieldForm(
                 label: "",
                 onChanged: (p0) {},
                 hint: "masukan nama penjual",
               ),
-              const SizedBox(height: 10.0),
               Text(
                 "Nomor telepon :",
                 style: TextStyle(
                   fontSize: 15.0,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 5.0),
               QTextFieldForm(
                 label: "",
                 onChanged: (p0) {},
                 hint: "masukan nomor telepon",
               ),
-              const SizedBox(height: 10.0),
               Text(
                 "Alamat penjual :",
                 style: TextStyle(
                   fontSize: 15.0,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 5.0),
               QTextFieldForm(
                 label: "",
                 onChanged: (p0) {},
                 hint: "masukan alamat penjual",
               ),
-              const SizedBox(height: 10.0),
               Text(
                 "Sertakan foto profil penjual :",
                 style: TextStyle(
                   fontSize: 15.0,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 5.0),
               QImagePicker(
                 label: "",
                 validator: Validator.required,

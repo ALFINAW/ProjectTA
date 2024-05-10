@@ -10,7 +10,7 @@ const String _CLOUDINARY_CLOUD_NAME = "dotz74j1p";
 const String _CLOUDINARY_API_KEY = "983354314759691";
 const String _CLOUDINARY_UPLOAD_PRESET = "yogjjkoh";
 
-class QImagePicker extends StatefulWidget {
+class QImagePickerDark extends StatefulWidget {
   final String label;
   final String? value;
   final String? hint;
@@ -20,7 +20,7 @@ class QImagePicker extends StatefulWidget {
   final List<String> extensions;
   final bool enabled;
 
-  QImagePicker({
+  QImagePickerDark({
     Key? key,
     required this.label,
     this.value,
@@ -33,10 +33,10 @@ class QImagePicker extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<QImagePicker> createState() => _QImagePickerState();
+  State<QImagePickerDark> createState() => _QImagePickerDarkState();
 }
 
-class _QImagePickerState extends State<QImagePicker> {
+class _QImagePickerDarkState extends State<QImagePickerDark> {
   String? imageUrl;
   bool loading = false;
   late TextEditingController controller;
@@ -123,7 +123,9 @@ class _QImagePickerState extends State<QImagePicker> {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(vertical: 4.0),
-      margin: EdgeInsets.only(bottom: 12.0),
+      margin: EdgeInsets.only(
+        bottom: 12.0,
+      ),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -138,7 +140,7 @@ class _QImagePickerState extends State<QImagePicker> {
                   : DecorationImage(
                       image: NetworkImage(
                         imageUrl == null
-                            ? "https://i.ibb.co/F8BMdbL/no-image-fococlipping-standard.png"
+                            ? "https://i.ibb.co/S32HNjD/no-image.jpg"
                             : imageUrl!,
                       ),
                       fit: BoxFit.cover,
@@ -148,13 +150,6 @@ class _QImagePickerState extends State<QImagePicker> {
                   16.0,
                 ),
               ),
-              boxShadow: [
-                BoxShadow(
-                  color: Color(0x19000000),
-                  blurRadius: 24,
-                  offset: Offset(0, 11),
-                ),
-              ],
             ),
             child: Visibility(
               visible: loading == true,
@@ -200,16 +195,6 @@ class _QImagePickerState extends State<QImagePicker> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Expanded(
-                          child: Container(
-                        decoration: BoxDecoration(
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color(0x19000000),
-                              blurRadius: 24,
-                              offset: Offset(0, 11),
-                            ),
-                          ],
-                        ),
                         child: TextFormField(
                           controller: controller,
                           readOnly: true,
@@ -221,14 +206,12 @@ class _QImagePickerState extends State<QImagePicker> {
                             helperText: widget.helper,
                             hintText: widget.hint,
                             errorText: field.errorText,
-                            filled: true,
-                            fillColor: Colors.white,
                           ),
                           onChanged: (value) {
                             widget.onChanged(value);
                           },
                         ),
-                      )),
+                      ),
                       const SizedBox(
                         width: 6.0,
                       ),

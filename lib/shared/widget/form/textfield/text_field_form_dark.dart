@@ -38,7 +38,7 @@ class _QTextFieldState extends State<QTextFieldFormDark> {
 
   @override
   void initState() {
-    textEditingController.text = widget.value ?? "-";
+    textEditingController.text = widget.value ?? "";
     super.initState();
   }
 

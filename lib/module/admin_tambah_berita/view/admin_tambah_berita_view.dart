@@ -31,33 +31,31 @@ class AdminTambahBeritaView extends StatefulWidget {
                   fontSize: 15.0,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 5.0),
               QTextFieldForm(
                 label: "",
                 onChanged: (p0) {},
                 hint: "masukan judul berita",
               ),
-              const SizedBox(height: 10.0),
               Text(
                 "Deskripsi :",
                 style: TextStyle(
                   fontSize: 15.0,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 5.0),
               QMemoField(
                 label: '',
                 onChanged: ((p0) {}),
                 hint: "masukan deskripsi berita",
               ),
-              const SizedBox(height: 10.0),
               Text(
                 "Sertakan foto berita :",
                 style: TextStyle(
                   fontSize: 15.0,
                 ),
               ),
-              const SizedBox(height: 8.0),
+              const SizedBox(height: 5.0),
               QImagePicker(
                 label: "",
                 validator: Validator.required,

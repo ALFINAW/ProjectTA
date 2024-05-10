@@ -31,7 +31,8 @@
         "admin_tambah_produk",
         "admin_riwayat_pengajuan_surat",
         "admin_riwayat_pengaduan",
-        "admin_detail_aduan"
+        "admin_detail_aduan",
+        "user_data_akun"
     ],
     "module_directory_name": "module",
     "experimental_mode": false,
