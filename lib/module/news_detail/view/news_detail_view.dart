@@ -20,7 +20,7 @@ class NewsDetailView extends StatefulWidget {
                     decoration: const BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
-                          "https://images.unsplash.com/photo-1561828718-3971eadec8b5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aW5jaWRlbnR8ZW58MHx8MHx8fDA%3D",
+                          "https://gcdnb.pbrd.co/images/GMf7NTbEjfuL.jpg?o=1",
                         ),
                         fit: BoxFit.cover,
                       ),
@@ -33,10 +33,11 @@ class NewsDetailView extends StatefulWidget {
                       padding: const EdgeInsets.only(top: 16.0, left: 10.0),
                       child: InkWell(
                         onTap: () => Get.back(),
-                        child: Icon(
-                          size: 28,
-                          Icons.arrow_back,
-                          color: Colors.grey[300],
+                        child: CircleAvatar(
+                          backgroundColor: Colors.grey[300],
+                          child: Icon(
+                            Icons.arrow_back,
+                          ),
                         ),
                       ),
                     ),
@@ -51,7 +52,7 @@ class NewsDetailView extends StatefulWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "Polisi Amankan Tiga Pemuda Hendak Bunuh Diri",
+                            "KARNAVAL TINGKAT DESA KARANGRENA TAHUN 2023",
                             style: TextStyle(
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold,
@@ -64,7 +65,7 @@ class NewsDetailView extends StatefulWidget {
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "09 Januari 2024",
+                                "19 Agustus 2023",
                                 style: TextStyle(
                                   fontSize: 15.0,
                                 ),
@@ -89,7 +90,7 @@ class NewsDetailView extends StatefulWidget {
                             height: 20.0,
                           ),
                           Text(
-                            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus nec velit ut lectus accumsan suscipit. Nulla facilisi. Proin eu nisi non felis fermentum ullamcorper. Phasellus non mi vitae nisi pharetra malesuada. Vestibulum id felis sapien. Sed tincidunt convallis nisi, sed feugiat elit molestie vel. Cras vestibulum id eros at cursus. Vivamus pulvinar posuere orci ut suscipit. Cras ultricies justo nec lorem sollicitudin, id convallis tortor fringilla.\nAliquam nec turpis a mi ullamcorper sagittis. Maecenas dignissim tristique magna. Phasellus sit amet dictum nulla. Integer auctor eros nec justo feugiat vestibulum. Phasellus eget tellus ghjahvjshvjhvjjhvjhvshvkavjhvavjhvsjhvjhsvjhvjhsvjhvshdvkjhvsdvjhasvjhvjhsavdjhvjhsvdjhvajhsvdjhvsdjhvsajhvheyksshdgfkjhgfgyddjhgfj",
+                            "   Dalam rangka memeriahkan HUR Kemerdekaan RI Ke-78, Desa Karangrena mengadakan kegiatan lomba Karnaval yang dilaksanakan oleh Panitia HUT Kemerdekaan RI Ke78 Tahun 2023 tingkat Desa Karangrena. Kegiatan dilaksanakan setelah melaksanakan Upacara Pengibaran Bendera Merah Putih di tingkat Desa juga ditingkat Kecamatan Maos. Para peserta meliputi Instansi Sekolah dr PAUD, TK, SD, RT, RW, Kelompok-kelompok Tani dan Juga umum. Bagaimana aksinya,,... yo kita lihat videonya... pada link berikut ini: https://youtu.be/aOHuCVuJgzU \n \n Hari Ulang Tahun Republik Indonesia (HUT RI) atau Hari Kemerdekaan Republik Indonesia adalah hari besar nasional yang diperingati setiap tanggal 17 Agustus untuk memperingati momen bersejarah kemerdekaan Indonesia dari penjajahan Belanda pada tahun 1945. Beberapa poin penting terkait pengertian dan makna HUT RI: Momentum Proklamasi Kemerdekaan HUT RI menandai peristiwa Proklamasi Kemerdekaan Indonesia yang dibacakan oleh Ir. Soekarno pada tanggal 17 Agustus 1945 di Jalan Pegangsaan Timur 56, Jakarta. Perjuangan Merebut Kemerdekaan HUT RI merupakan puncak dari perjuangan panjang bangsa Indonesia untuk membebaskan diri dari belenggu penjajahan dan mewujudkan kedaulatan negara. Hari Bersejarah Tanggal 17 Agustus ditetapkan sebagai hari bersejarah bangsa Indonesia yang menandai lahirnya Negara Kesatuan Republik Indonesia. Peringatan Nasional HUT RI diperingati secara nasional di seluruh wilayah Indonesia dengan berbagai upacara dan kegiatan memperingati jasa para pahlawan yang memperjuangkan kemerdekaan. Semangat Kebangsaan Peringatan HUT RI menjadi momen untuk menghargai perjuangan para pahlawan, memperkuat semangat kebangsaan, dan memupuk rasa cinta tanah air di kalangan masyarakat Indonesia. Jadi, HUT RI merupakan hari yang sangat penting dan bermakna bagi bangsa Indonesia sebagai peringatan atas perjuangan dan pengorbanan untuk merebut kemerdekaan dari penjajahan serta kelahiran Negara Kesatuan Republik Indonesia.",
                             style: TextStyle(
                               fontSize: 15.0,
                             ),

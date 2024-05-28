@@ -190,7 +190,7 @@ class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
                       ),
                     ),
                     Text(
-                      "O",
+                      "-",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),

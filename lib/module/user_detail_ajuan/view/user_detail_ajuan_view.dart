@@ -34,6 +34,17 @@ class UserDetailAjuanView extends StatefulWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: Text(
+                        "Di Acc",
+                        style: TextStyle(
+                          fontSize: 14.0,
+                          color: Colors.orange,
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 8.0),
                     Text(
                       "Nama :",
                       style: TextStyle(
@@ -42,7 +53,7 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "Alfin Andrias Wardoyo",
+                      "Rizal Mustofa Hasan",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
@@ -56,7 +67,7 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "20 Juni 2005",
+                      "Cilacap, 17 Januari 2005",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
@@ -140,7 +151,7 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "Jl. Niaga RT/RW 01/04 Karangrena, Maos, Cilacap",
+                      "Jl. Gereja RT/RW 06/03 Karangrena, Maos, Cilacap",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
@@ -182,7 +193,7 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "O",
+                      "-",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),

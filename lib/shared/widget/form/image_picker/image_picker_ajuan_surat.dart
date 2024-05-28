@@ -138,7 +138,7 @@ class _QImagePickerASState extends State<QImagePickerAS> {
                   : DecorationImage(
                       image: NetworkImage(
                         imageUrl == null
-                            ? "https://i.ibb.co/F8BMdbL/no-image-fococlipping-standard.png"
+                            ? "https://gcdnb.pbrd.co/images/Jc3b9IciGQs1.png?o=1"
                             : imageUrl!,
                       ),
                       fit: BoxFit.cover,

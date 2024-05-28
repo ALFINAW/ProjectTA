@@ -140,7 +140,7 @@ class _QImagePickerDarkState extends State<QImagePickerDark> {
                   : DecorationImage(
                       image: NetworkImage(
                         imageUrl == null
-                            ? "https://i.ibb.co/S32HNjD/no-image.jpg"
+                            ? "https://i.imgur.com/HQHW6mj.jpeg"
                             : imageUrl!,
                       ),
                       fit: BoxFit.cover,

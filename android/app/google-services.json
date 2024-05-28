@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1065123930769",
+    "project_id": "sikedes",
+    "storage_bucket": "sikedes.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065123930769:android:5f1cc14267160b0a0d5530",
+        "android_client_info": {
+          "package_name": "com.example.sikedes"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPZSJAkuBN7OLYWugpj71luOu4i96JpBQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

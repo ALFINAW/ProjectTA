@@ -39,21 +39,21 @@ class UserProfileView extends StatefulWidget {
                         CircleAvatar(
                           radius: constraint.biggest.height * 0.3,
                           backgroundImage: NetworkImage(
-                            "https://images.unsplash.com/photo-1488161628813-04466f872be2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTR8fHBlb3BsZXxlbnwwfHwwfHx8MA%3D%3D",
+                            "https://gcdnb.pbrd.co/images/M237lXQIoauo.png?o=1",
                           ),
                         ),
                         const SizedBox(
                           height: 8.0,
                         ),
                         Text(
-                          "Alfin Andrias Wardoyo",
+                          "Rizal Mustofa Hasan",
                           style: TextStyle(
                               fontSize: 18.0,
                               fontWeight: FontWeight.bold,
                               color: Colors.white),
                         ),
                         Text(
-                          "alfinandrias20@gmail.com",
+                          "rizalmus23@gmail.com",
                           style: TextStyle(fontSize: 16.0, color: Colors.white),
                         ),
                       ],

@@ -44,7 +44,7 @@ class _QImagePickerState extends State<QImagePicker> {
   void initState() {
     imageUrl = widget.value;
     controller = TextEditingController(
-      text: widget.value ?? "",
+      text: widget.value ?? "-",
     );
     super.initState();
   }
@@ -138,7 +138,7 @@ class _QImagePickerState extends State<QImagePicker> {
                   : DecorationImage(
                       image: NetworkImage(
                         imageUrl == null
-                            ? "https://i.ibb.co/F8BMdbL/no-image-fococlipping-standard.png"
+                            ? "https://gcdnb.pbrd.co/images/Jc3b9IciGQs1.png?o=1"
                             : imageUrl!,
                       ),
                       fit: BoxFit.cover,

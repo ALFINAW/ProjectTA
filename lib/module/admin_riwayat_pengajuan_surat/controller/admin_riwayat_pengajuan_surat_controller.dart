@@ -18,4 +18,32 @@ class AdminRiwayatPengajuanSuratController
 
   @override
   Widget build(BuildContext context) => widget.build(context, this);
+
+  List<Map<String, String>> riwayatAjuan = [
+    {
+      "surat": "KTP",
+      "nama": "Danu Hartono",
+      "tanggal": "23 Maret 2024",
+    },
+    {
+      "surat": "KK",
+      "nama": "Deni Sudirwo",
+      "tanggal": "12 Frebuari 2024",
+    },
+    {
+      "surat": "KTP",
+      "nama": "Soif Nur Hidayat",
+      "tanggal": "12 Januari 2024",
+    },
+    {
+      "surat": "SKCK",
+      "nama": "Yasin Rohim Makumuloh",
+      "tanggal": "27 Desember 2023",
+    },
+    {
+      "surat": "SKCK",
+      "nama": "Yudika Ranja",
+      "tanggal": "25 Desember 2023",
+    },
+  ];
 }

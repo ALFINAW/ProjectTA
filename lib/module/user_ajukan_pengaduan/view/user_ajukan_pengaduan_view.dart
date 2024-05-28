@@ -57,11 +57,7 @@ class UserAjukanPengaduanView extends StatefulWidget {
                 ),
               ),
               const SizedBox(height: 5.0),
-              QTextFieldForm(
-                label: "",
-                onChanged: (p0) {},
-                hint: "masukan keterangan",
-              ),
+              QMemoField(label: "", onChanged: (p0) {}),
               Text(
                 "Tambahkan alamat :",
                 style: TextStyle(

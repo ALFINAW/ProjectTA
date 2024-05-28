@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/admin_riwayat_pengajuan_surat_controller.dart';
+import '../controller/admin_data_warga_controller.dart';
 
-class AdminRiwayatPengajuanSuratView extends StatefulWidget {
-  const AdminRiwayatPengajuanSuratView({Key? key}) : super(key: key);
+class AdminDataWargaView extends StatefulWidget {
+  const AdminDataWargaView({Key? key}) : super(key: key);
 
-  Widget build(context, AdminRiwayatPengajuanSuratController controller) {
+  Widget build(context, AdminDataWargaController controller) {
     controller.view = this;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Riwayat Pengajuan Surat",
+        title: const Text("Data Warga",
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -21,10 +21,10 @@ class AdminRiwayatPengajuanSuratView extends StatefulWidget {
         padding: const EdgeInsets.all(13.0),
         color: backgroundColor,
         child: ListView.builder(
-          itemCount: controller.riwayatAjuan.length,
+          itemCount: controller.dataWarga.length,
           physics: const ScrollPhysics(),
           itemBuilder: (BuildContext context, int index) {
-            var item = controller.riwayatAjuan[index];
+            var item = controller.dataWarga[index];
             return InkWell(
               onTap: () => Get.to(AdminDetailAjuanView()),
               child: Container(
@@ -45,38 +45,37 @@ class AdminRiwayatPengajuanSuratView extends StatefulWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Text(
-                      "Pengajuan Surat Pengantar " + item["surat"]!,
+                      item["username"]!,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
                         fontSize: 17.0,
                         fontWeight: FontWeight.bold,
                       ),
                     ),
-                    const SizedBox(height: 12.0),
+                    const SizedBox(height: 10.0),
                     Text(
-                      item["nama"]!,
+                      item["nama lengkap"]!,
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
                     ),
-                    const SizedBox(height: 12.0),
-                    Text(
-                      item["tanggal"]!,
-                      style: TextStyle(
-                        fontSize: 14.0,
-                      ),
-                    ),
-                    const SizedBox(height: 12.0),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Text(
-                        "Selesai",
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          color: Colors.green,
+                    const SizedBox(height: 10.0),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            item["email"]!,
+                            style: TextStyle(
+                              fontSize: 14.0,
+                            ),
+                          ),
                         ),
-                      ),
-                    )
+                        const Icon(
+                          Icons.more_horiz,
+                          size: 24.0,
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
@@ -88,6 +87,5 @@ class AdminRiwayatPengajuanSuratView extends StatefulWidget {
   }
 
   @override
-  State<AdminRiwayatPengajuanSuratView> createState() =>
-      AdminRiwayatPengajuanSuratController();
+  State<AdminDataWargaView> createState() => AdminDataWargaController();
 }

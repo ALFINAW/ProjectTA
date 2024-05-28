@@ -24,22 +24,22 @@ class AdminRiwayatPengaduanView extends StatefulWidget {
           children: [
             Expanded(
               child: ListView.builder(
-                itemCount: 5,
+                itemCount: 4,
                 physics: const ScrollPhysics(),
                 itemBuilder: (BuildContext context, int index) {
                   List<Map<String, dynamic>> aduans = [
+                    // {
+                    //   "nomor_laporan": "AW0001",
+                    //   "judul": "Jalan Berlubang",
+                    //   "tanggal": "25 Maret 2024, 16:59",
+                    //   "alamat": "Jl. Rajawali RT/RW 04/05 Karangrena",
+                    //   "deskripsi":
+                    //       "Jalan berlubang ini sudah sangat parah dan mengganggu perjalanan warga yang melewati daerah tersebut, mohon segera diperbaiki.",
+                    //   "image":
+                    //       "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG90aG9sZXN8ZW58MHx8MHx8fDA%3D"
+                    // },
                     {
-                      "nomor_laporan": "AW0001",
-                      "judul": "Jalan Berlubang",
-                      "tanggal": "25 Maret 2024, 16:59",
-                      "alamat": "Jl. Rajawali RT/RW 04/05 Karangrena",
-                      "deskripsi":
-                          "Jalan berlubang ini sudah sangat parah dan mengganggu perjalanan warga yang melewati daerah tersebut, mohon segera diperbaiki.",
-                      "image":
-                          "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG90aG9sZXN8ZW58MHx8MHx8fDA%3D"
-                    },
-                    {
-                      "nomor_laporan": "AW0002",
+                      "nomor_laporan": "#AW0008",
                       "judul": "Pohon Tumbang",
                       "tanggal": "25 April 2024, 14:04",
                       "alamat": "Jl. Pramuka RT/RW 03/04 Karangrena",
@@ -47,6 +47,16 @@ class AdminRiwayatPengaduanView extends StatefulWidget {
                           "Ada pohon tumbang yang menutupi jalan pramuka",
                       "image":
                           "https://images.unsplash.com/photo-1620239864516-c7513ed7eab2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8ZmFsbGVuJTIwdHJlZXxlbnwwfHwwfHx8MA%3D%3D"
+                    },
+                    {
+                      "nomor_laporan": "#AW0007",
+                      "judul": "Sampah",
+                      "tanggal": "23 April 2024, 10:04",
+                      "alamat": "Jl. Niaga RT/RW 04/01 Karangrena",
+                      "deskripsi":
+                          "Truk pemungut sampah tidak mengambil sampah di rumah saya yang beralamat di jalan niaga rt/rw 01/04",
+                      "image":
+                          "https://images.unsplash.com/photo-1592890278983-18616401d4ed?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8cnViYmlzaHxlbnwwfHwwfHx8MA%3D%3D"
                     },
                     {
                       "nomor_laporan": "AW0003",

@@ -48,7 +48,7 @@ class UserDetailAduanView extends StatefulWidget {
                                 ),
                               ),
                               Text(
-                                "#AW0001",
+                                "#AW0005",
                                 style: TextStyle(
                                   fontSize: 18.0,
                                   fontWeight: FontWeight.bold,
@@ -94,7 +94,7 @@ class UserDetailAduanView extends StatefulWidget {
                         ),
                         const SizedBox(width: 15.0),
                         Text(
-                          "Alfin123",
+                          "Rizal",
                           style: TextStyle(
                             fontSize: 16.0,
                           ),
@@ -157,7 +157,7 @@ class UserDetailAduanView extends StatefulWidget {
                             decoration: const BoxDecoration(
                               image: DecorationImage(
                                 image: NetworkImage(
-                                  "https://images.unsplash.com/photo-1515162816999-a0c47dc192f7?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cG90aG9sZXN8ZW58MHx8MHx8fDA%3D",
+                                  "https://images.unsplash.com/photo-1560782202-154b39d57ef2?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8cG90aG9sZXN8ZW58MHx8MHx8fDA%3D",
                                 ),
                                 fit: BoxFit.cover,
                               ),
@@ -255,68 +255,69 @@ class UserDetailAduanView extends StatefulWidget {
                       padding: const EdgeInsets.only(left: 10.0),
                       child: Column(
                         children: [
-                          TimelineTile(
-                              alignment: TimelineAlign.start,
-                              lineXY: 0.1,
-                              isFirst: true,
-                              indicatorStyle: IndicatorStyle(
-                                width: 20,
-                                color: Colors.grey,
-                              ),
-                              endChild: Container(
-                                padding: EdgeInsets.all(15.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Petugas telah menyelesaikan laporan',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    Text(
-                                      '-',
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.grey,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )),
-                          TimelineTile(
-                              alignment: TimelineAlign.start,
-                              indicatorStyle: IndicatorStyle(
-                                width: 20,
-                                color: Colors.grey,
-                              ),
-                              endChild: Container(
-                                padding: EdgeInsets.all(15.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Petugas mengerjakan laporan',
-                                      style: TextStyle(
-                                        fontSize: 16,
-                                      ),
-                                    ),
-                                    Text(
-                                      '-',
-                                      style: TextStyle(
-                                        fontSize: 15,
-                                        color: Colors.grey,
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )),
+                          // TimelineTile(
+                          //     alignment: TimelineAlign.start,
+                          //     lineXY: 0.1,
+                          //     isFirst: true,
+                          //     indicatorStyle: IndicatorStyle(
+                          //       width: 20,
+                          //       color: Colors.grey,
+                          //     ),
+                          //     endChild: Container(
+                          //       padding: EdgeInsets.all(15.0),
+                          //       child: Column(
+                          //         crossAxisAlignment: CrossAxisAlignment.start,
+                          //         children: [
+                          //           Text(
+                          //             'Petugas telah menyelesaikan laporan',
+                          //             style: TextStyle(
+                          //               fontSize: 16,
+                          //             ),
+                          //           ),
+                          //           Text(
+                          //             '-',
+                          //             style: TextStyle(
+                          //               fontSize: 15,
+                          //               color: Colors.grey,
+                          //             ),
+                          //           ),
+                          //         ],
+                          //       ),
+                          //     )),
+                          // TimelineTile(
+                          //     alignment: TimelineAlign.start,
+                          //     indicatorStyle: IndicatorStyle(
+                          //       width: 20,
+                          //       color: Colors.grey,
+                          //     ),
+                          //     endChild: Container(
+                          //       padding: EdgeInsets.all(15.0),
+                          //       child: Column(
+                          //         crossAxisAlignment: CrossAxisAlignment.start,
+                          //         children: [
+                          //           Text(
+                          //             'Petugas mengerjakan laporan',
+                          //             style: TextStyle(
+                          //               fontSize: 16,
+                          //             ),
+                          //           ),
+                          //           Text(
+                          //             '-',
+                          //             style: TextStyle(
+                          //               fontSize: 15,
+                          //               color: Colors.grey,
+                          //             ),
+                          //           ),
+                          //         ],
+                          //       ),
+                          //     )),
                           TimelineTile(
                               alignment: TimelineAlign.start,
                               afterLineStyle: LineStyle(
                                 color: primaryColor,
                                 thickness: 4,
                               ),
+                              isFirst: true,
                               indicatorStyle: IndicatorStyle(
                                 width: 20,
                                 color: primaryColor,
@@ -335,7 +336,7 @@ class UserDetailAduanView extends StatefulWidget {
                                       ),
                                     ),
                                     Text(
-                                      '27 Maret 2024, 15:07',
+                                      '25 Maret 2024, 17:03',
                                       style: TextStyle(
                                         fontSize: 15,
                                         color: primaryColor,
@@ -362,7 +363,7 @@ class UserDetailAduanView extends StatefulWidget {
                                       ),
                                     ),
                                     Text(
-                                      '27 Maret 2024, 14:50',
+                                      '25 Maret 2024, 16:59',
                                       style: TextStyle(
                                         fontSize: 15,
                                         color: Colors.grey,
@@ -391,7 +392,7 @@ class UserDetailAduanView extends StatefulWidget {
                                       ),
                                     ),
                                     Text(
-                                      '27 Maret 2024, 14:50',
+                                      '25 Maret 2024, 16:59',
                                       style: TextStyle(
                                         fontSize: 15,
                                         color: Colors.grey,

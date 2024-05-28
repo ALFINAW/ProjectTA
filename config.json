@@ -32,7 +32,8 @@
         "admin_riwayat_pengajuan_surat",
         "admin_riwayat_pengaduan",
         "admin_detail_aduan",
-        "user_data_akun"
+        "user_data_akun",
+        "admin_data_warga"
     ],
     "module_directory_name": "module",
     "experimental_mode": false,

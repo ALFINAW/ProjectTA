@@ -27,7 +27,7 @@ class UserDashboardView extends StatefulWidget {
                         ),
                       ),
                       Text(
-                        "Alfin",
+                        "Rizal",
                         style: TextStyle(
                           color: primaryColor,
                           fontSize: 16.0,
@@ -290,10 +290,10 @@ class UserDashboardView extends StatefulWidget {
                         List menuItems = [
                           {
                             "image":
-                                "https://images.unsplash.com/photo-1561828718-3971eadec8b5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aW5jaWRlbnR8ZW58MHx8MHx8fDA%3D",
+                                "https://gcdnb.pbrd.co/images/GMf7NTbEjfuL.jpg?o=1",
                             "title":
-                                "Polisis amankan tiga pemuda hendak bunuh diri",
-                            "date": "09 Januari 2024",
+                                "KARNAVAL TINGKAT DESA KARANGRENA TAHUN 2023",
+                            "date": "19 Agustus 2023",
                             "like": "15"
                           },
                           {

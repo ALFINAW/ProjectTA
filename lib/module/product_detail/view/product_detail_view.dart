@@ -21,7 +21,7 @@ class ProductDetailView extends StatefulWidget {
                         decoration: const BoxDecoration(
                           image: DecorationImage(
                             image: NetworkImage(
-                                "https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aW5kb25lc2lhbiUyMGZvb2R8ZW58MHx8MHx8fDA%3D"),
+                                "https://gcdnb.pbrd.co/images/NWhCKZZRvx0G.jpg?o=1"),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -61,7 +61,7 @@ class ProductDetailView extends StatefulWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Sate Ayam',
+                          'Ayam Krispi',
                           style: TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold,
@@ -71,7 +71,7 @@ class ProductDetailView extends StatefulWidget {
                           height: 10.0,
                         ),
                         Text(
-                          'Rp 15.000',
+                          'Rp 12.000',
                           style: TextStyle(
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold,
@@ -92,10 +92,12 @@ class ProductDetailView extends StatefulWidget {
                         ),
                         const SizedBox(height: 10.0),
                         Text(
-                          "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+                          "Rasakan sensasi kelezatan sejati dengan Ayam Krispi kami yang begitu menggugah selera. Daging ayam segar pilihan terbaik dimasak dengan sempurna, dibalut dengan tepung renyah yang dibumbui dengan rempah-rempah rahasia warisan turun-temurun. Setiap gigitan akan membawa Anda pada petualangan rasa yang tak terlupakan. Kulit ayam yang digoreng hingga garing di luar namun tetap lembut dan juicy di dalam, menciptakan tekstur sempurna yang akan memanjakan lidah Anda. Rempah-rempah khas kami yang terdiri dari campuran bumbu rahasia memberikan sentuhan aroma harum yang menggugah selera dan rasa yang kaya akan citarasa.",
                           style: TextStyle(
                             fontSize: 16.0,
                           ),
+                          maxLines: 7,
+                          overflow: TextOverflow.ellipsis,
                         ),
                         const SizedBox(height: 10.0),
                       ],
@@ -132,7 +134,7 @@ class ProductDetailView extends StatefulWidget {
                             CircleAvatar(
                               radius: 35.0,
                               backgroundImage: NetworkImage(
-                                "https://i.ibb.co/PGv8ZzG/me.jpg",
+                                "https://gcdnb.pbrd.co/images/o5WOc5cCdP6W.jpg?o=1",
                               ),
                             ),
                             const SizedBox(width: 15.0),
@@ -140,7 +142,7 @@ class ProductDetailView extends StatefulWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Suwiryo",
+                                  "Bang Jay",
                                   style: TextStyle(
                                     fontSize: 17.0,
                                     fontWeight: FontWeight.bold,
@@ -155,7 +157,7 @@ class ProductDetailView extends StatefulWidget {
                                     ),
                                     const SizedBox(width: 5.0),
                                     Text(
-                                      "Jl. Niaga RT/RW 01/04",
+                                      "Jl. Rajawali RT/RW 06/04",
                                       style: TextStyle(
                                         fontSize: 16.0,
                                       ),

@@ -145,6 +145,23 @@ class AdminDashboardView extends StatefulWidget {
             ),
             ListTile(
               leading: Image.network(
+                "https://cdn-icons-png.flaticon.com/128/9304/9304688.png",
+                height: 30,
+                width: 30,
+                fit: BoxFit.cover,
+              ),
+              title: const Text("Data Warga",
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  )),
+              trailing: Icon(
+                Icons.chevron_right,
+                size: 24.0,
+              ),
+              onTap: () => Get.to(AdminDataWargaView()),
+            ),
+            ListTile(
+              leading: Image.network(
                 "https://cdn-icons-png.flaticon.com/128/182/182448.png",
                 height: 30,
                 width: 30,
@@ -294,9 +311,9 @@ class AdminDashboardView extends StatefulWidget {
                       List menuItems = [
                         {
                           "image":
-                              "https://images.unsplash.com/photo-1561828718-3971eadec8b5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aW5jaWRlbnR8ZW58MHx8MHx8fDA%3D",
+                              "https://gcdnb.pbrd.co/images/GMf7NTbEjfuL.jpg?o=1",
                           "title":
-                              "Polisis amankan tiga pemuda hendak bunuh diri",
+                              "KARNAVAL TINGKAT DESA KARANGRENA TAHUN 2023",
                           "date": "09 Januari 2024",
                           "like": "15"
                         },

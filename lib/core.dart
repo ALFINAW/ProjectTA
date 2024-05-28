@@ -8,6 +8,8 @@ export 'package:hyper_ui/core_package.dart';
 export 'package:hyper_ui/demo.dart';
 export 'package:hyper_ui/module/admin_dashboard/controller/admin_dashboard_controller.dart';
 export 'package:hyper_ui/module/admin_dashboard/view/admin_dashboard_view.dart';
+export 'package:hyper_ui/module/admin_data_warga/controller/admin_data_warga_controller.dart';
+export 'package:hyper_ui/module/admin_data_warga/view/admin_data_warga_view.dart';
 export 'package:hyper_ui/module/admin_detail_aduan/controller/admin_detail_aduan_controller.dart';
 export 'package:hyper_ui/module/admin_detail_aduan/view/admin_detail_aduan_view.dart';
 export 'package:hyper_ui/module/admin_detail_ajuan/controller/admin_detail_ajuan_controller.dart';
