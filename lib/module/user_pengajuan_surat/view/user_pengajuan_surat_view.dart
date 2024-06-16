@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 import '../controller/user_pengajuan_surat_controller.dart';
@@ -24,7 +26,9 @@ class UserPengajuanSuratView extends StatefulWidget {
         child: Column(
           children: [
             InkWell(
-              onTap: () => Get.to(UserPengajuanKtpView()),
+              onTap: () => Get.to(UserPengajuanFormView(
+                jenisSurat: "Surat Pengantar KTP",
+              )),
               child: Container(
                 padding: const EdgeInsets.all(15.0),
                 height: 80,
@@ -49,11 +53,13 @@ class UserPengajuanSuratView extends StatefulWidget {
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 15.0),
-                    Text(
-                      "Pengajuan Surat Pengantar KTP",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
+                    Expanded(
+                      child: Text(
+                        "Pengajuan Surat Pengantar KTP",
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
@@ -62,7 +68,9 @@ class UserPengajuanSuratView extends StatefulWidget {
             ),
             const SizedBox(height: 15.0),
             InkWell(
-              onTap: () => Get.to(UserPengajuanKk1View()),
+              onTap: () => Get.to(UserPengajuanFormView(
+                jenisSurat: "Surat Pengantar KK",
+              )),
               child: Container(
                 padding: const EdgeInsets.all(15.0),
                 height: 80,
@@ -87,11 +95,13 @@ class UserPengajuanSuratView extends StatefulWidget {
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 15.0),
-                    Text(
-                      "Pengajuan Surat Pengantar KK",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
+                    Expanded(
+                      child: Text(
+                        "Pengajuan Surat Pengantar KK",
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],
@@ -100,7 +110,9 @@ class UserPengajuanSuratView extends StatefulWidget {
             ),
             const SizedBox(height: 15.0),
             InkWell(
-              onTap: () => Get.to(UserPengajuanSkckView()),
+              onTap: () => Get.to(UserPengajuanFormView(
+                jenisSurat: "Surat Pengantar SKCK",
+              )),
               child: Container(
                 padding: const EdgeInsets.all(15.0),
                 height: 80,
@@ -125,11 +137,13 @@ class UserPengajuanSuratView extends StatefulWidget {
                       fit: BoxFit.cover,
                     ),
                     const SizedBox(width: 15.0),
-                    Text(
-                      "Pengajuan Surat Pengantar SKCK",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                        fontWeight: FontWeight.bold,
+                    Expanded(
+                      child: Text(
+                        "Pengajuan Surat Pengantar SKCK",
+                        style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ),
                   ],

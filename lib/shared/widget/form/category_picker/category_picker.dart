@@ -134,7 +134,10 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
                           ),
                           child: ElevatedButton(
                             style: selected
-                                ? null
+                                ? ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.black,
+                                    elevation: 0.0,
+                                  )
                                 : ElevatedButton.styleFrom(
                                     backgroundColor:
                                         Theme.of(context).disabledColor,

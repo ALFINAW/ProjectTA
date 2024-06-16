@@ -1,16 +1,25 @@
-# project_ta
+- fitur pertama ada pengajuan surat, jadi user bisa mengajukan pembuatan surat
 
-A new Flutter project.
+- admin hanya melakukan acc pembuatan surat, disini ada 3 surat yg bisa diajuin yaitu surat pengantar KTP, KK, dan SKCK
 
-## Getting Started
+------------------------------
 
-This project is a starting point for a Flutter application.
+- fitur kedua ada berita desa jadi nanti admin bisa menambah berita baru dan user bisa melihat berita tersebut
+- dan melakukan interaksi berupa menyukai berita tersebut
 
-A few resources to get you started if this is your first Flutter project:
+------------------------------
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+- fitur ketiga ada produk desa jadi nanti admin bisa menambah produk baru dan 
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+- user bisa melihat dan menghubungi penjual ke wa jika ingin membelinya
+
+------------------------------
+
+- fitur keempat ada pengaduan desa jadi nanti user bisa mengajukan pengaduan dan 
+
+- admin mengisi progres aduannya
+
+------------------------------
+
+
+- fitur login by user & admin

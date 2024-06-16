@@ -160,6 +160,7 @@ class UserDashboardView extends StatefulWidget {
                             "image":
                                 "https://cdn-icons-png.flaticon.com/128/3131/3131598.png",
                             "label": "Pengajuan\nSurat",
+                            "view": UserPengajuanSuratListView(),
                           },
                           {
                             "image":
@@ -199,6 +200,10 @@ class UserDashboardView extends StatefulWidget {
                             var item = menuItems[index];
                             return InkWell(
                               onTap: () {
+                                if (item["view"] != null) {
+                                  Get.to(item["view"]);
+                                  return;
+                                }
                                 // Menggunakan Navigator.pushNamed untuk pindah halaman
                                 if (index == 0) {
                                   Navigator.pushNamed(

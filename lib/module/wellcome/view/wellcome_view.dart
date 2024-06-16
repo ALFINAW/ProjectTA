@@ -34,7 +34,7 @@ class WellcomeView extends StatefulWidget {
               children: [
                 Container(
                   padding: const EdgeInsets.all(10.0),
-                  height: MediaQuery.of(context).size.height * 0.5,
+                  height: MediaQuery.of(context).size.height * 0.4,
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
                     color: backgroundColor,

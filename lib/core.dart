@@ -6,6 +6,7 @@ it means you have to rename it to something more unique.
 export 'package:hyper_ui/config.dart';
 export 'package:hyper_ui/core_package.dart';
 export 'package:hyper_ui/demo.dart';
+export 'package:hyper_ui/firebase_options.dart';
 export 'package:hyper_ui/module/admin_dashboard/controller/admin_dashboard_controller.dart';
 export 'package:hyper_ui/module/admin_dashboard/view/admin_dashboard_view.dart';
 export 'package:hyper_ui/module/admin_data_warga/controller/admin_data_warga_controller.dart';
@@ -28,6 +29,8 @@ export 'package:hyper_ui/module/admin_tambah_produk/controller/admin_tambah_prod
 export 'package:hyper_ui/module/admin_tambah_produk/view/admin_tambah_produk_view.dart';
 export 'package:hyper_ui/module/news_detail/controller/news_detail_controller.dart';
 export 'package:hyper_ui/module/news_detail/view/news_detail_view.dart';
+export 'package:hyper_ui/module/news_form/controller/news_form_controller.dart';
+export 'package:hyper_ui/module/news_form/view/news_form_view.dart';
 export 'package:hyper_ui/module/news_list/controller/news_list_controller.dart';
 export 'package:hyper_ui/module/news_list/view/news_list_view.dart';
 export 'package:hyper_ui/module/product_detail/controller/product_detail_controller.dart';
@@ -56,15 +59,12 @@ export 'package:hyper_ui/module/user_informasi_desa/controller/user_informasi_de
 export 'package:hyper_ui/module/user_informasi_desa/view/user_informasi_desa_view.dart';
 export 'package:hyper_ui/module/user_main_navigation/controller/user_main_navigation_controller.dart';
 export 'package:hyper_ui/module/user_main_navigation/view/user_main_navigation_view.dart';
-export 'package:hyper_ui/module/user_pengajuan_kk1/controller/family_member_controller.dart';
-export 'package:hyper_ui/module/user_pengajuan_kk1/controller/user_pengajuan_kk1_controller.dart';
-export 'package:hyper_ui/module/user_pengajuan_kk1/view/user_pengajuan_kk1_view.dart';
-export 'package:hyper_ui/module/user_pengajuan_ktp/controller/user_pengajuan_ktp_controller.dart';
-export 'package:hyper_ui/module/user_pengajuan_ktp/view/user_pengajuan_ktp_view.dart';
-export 'package:hyper_ui/module/user_pengajuan_skck/controller/user_pengajuan_skck_controller.dart';
-export 'package:hyper_ui/module/user_pengajuan_skck/view/user_pengajuan_skck_view.dart';
+export 'package:hyper_ui/module/user_pengajuan_form/controller/user_pengajuan_form_controller.dart';
+export 'package:hyper_ui/module/user_pengajuan_form/view/user_pengajuan_form_view.dart';
 export 'package:hyper_ui/module/user_pengajuan_surat/controller/user_pengajuan_surat_controller.dart';
 export 'package:hyper_ui/module/user_pengajuan_surat/view/user_pengajuan_surat_view.dart';
+export 'package:hyper_ui/module/user_pengajuan_surat_list/controller/user_pengajuan_surat_list_controller.dart';
+export 'package:hyper_ui/module/user_pengajuan_surat_list/view/user_pengajuan_surat_list_view.dart';
 export 'package:hyper_ui/module/user_profile/controller/user_profile_controller.dart';
 export 'package:hyper_ui/module/user_profile/view/user_profile_view.dart';
 export 'package:hyper_ui/module/user_profile_bantuan/controller/user_profile_bantuan_controller.dart';
@@ -75,6 +75,7 @@ export 'package:hyper_ui/module/user_profile_tentang_aplikasi/controller/user_pr
 export 'package:hyper_ui/module/user_profile_tentang_aplikasi/view/user_profile_tentang_aplikasi_view.dart';
 export 'package:hyper_ui/module/wellcome/controller/wellcome_controller.dart';
 export 'package:hyper_ui/module/wellcome/view/wellcome_view.dart';
+export 'package:hyper_ui/service/auth_service.dart';
 export 'package:hyper_ui/setup.dart';
 export 'package:hyper_ui/shared/theme/theme.dart';
 export 'package:hyper_ui/shared/theme/theme_config.dart';

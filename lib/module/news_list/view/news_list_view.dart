@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 import '../controller/news_list_controller.dart';
@@ -19,108 +20,175 @@ class NewsListView extends StatefulWidget {
         centerTitle: true,
         actions: const [],
       ),
+      floatingActionButton: !isAdmin
+          ? null
+          : FloatingActionButton(
+              child: const Icon(Icons.add),
+              onPressed: () async {
+                await Get.to(NewsFormView());
+              },
+            ),
       body: Container(
         color: backgroundColor,
         padding: const EdgeInsets.all(13.0),
         child: Column(
           children: [
-            // Container(
-            //   decoration: BoxDecoration(
-            //     boxShadow: [
-            //       BoxShadow(
-            //         color: Color(0x19000000),
-            //         blurRadius: 24,
-            //         offset: Offset(0, 11),
-            //       ),
-            //     ],
-            //   ),
-            //   child: TextField(
-            //     decoration: InputDecoration(
-            //       hintText: 'Search',
-            //       filled: true,
-            //       fillColor: Colors.white,
-            //       enabledBorder: OutlineInputBorder(
-            //           borderRadius: BorderRadius.circular(8.0),
-            //           borderSide: BorderSide(
-            //             color: Colors.grey[300]!,
-            //           )),
-            //       prefixIcon: Icon(
-            //         Icons.search,
-            //         color: Colors.blueGrey[900],
-            //       ),
-            //       suffixIcon: Container(
-            //         padding: const EdgeInsets.all(8.0),
-            //         child: Icon(
-            //           Icons.sort,
-            //           color: Colors.blueGrey[900],
-            //         ),
-            //       ),
-            //     ),
-            //   ),
-            // ),
-
             Expanded(
-              child: Builder(builder: (context) {
-                List menuItems = [
-                  {
-                    "image":
-                        "https://images.unsplash.com/photo-1561828718-3971eadec8b5?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aW5jaWRlbnR8ZW58MHx8MHx8fDA%3D",
-                    "title": "Polisi amankan tiga pemuda hendak bunuh diri",
-                    "date": "09 Januari 2024",
-                    "like": "15"
-                  },
-                  {
-                    "image":
-                        "https://images.unsplash.com/photo-1626030952277-9fbe79141a31?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5jaWRlbnR8ZW58MHx8MHx8fDA%3D",
-                    "title": "Kecelakaan beruntun di jl.Garuda",
-                    "date": "23 Januari 2024",
-                    "like": "18"
-                  },
-                  {
-                    "image":
-                        "https://plus.unsplash.com/premium_photo-1686397308706-9547f8cc4e32?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW5jaWRlbnR8ZW58MHx8MHx8fDA%3D",
-                    "title": "Penyelamatan pemuda tenggelam di laut",
-                    "date": "08 Februari 2024",
-                    "like": "20"
-                  },
-                  {
-                    "image":
-                        "https://images.unsplash.com/photo-1604275689235-fdc521556c16?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8Zmxvb2R8ZW58MHx8MHx8fDA%3D",
-                    "title": "Banjir di desa karangsari tidak kunjung surut",
-                    "date": "26 Januari 2024",
-                    "like": "11"
-                  },
-                  {
-                    "image":
-                        "https://images.unsplash.com/photo-1560956737-3428333ba83f?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aW5jaWRlbnR8ZW58MHx8MHx8fDA%3D",
-                    "title": "Kebakaran di pasar pahing maos",
-                    "date": "15 Januari 2024",
-                    "like": "22"
-                  },
-                  {
-                    "image":
-                        "https://plus.unsplash.com/premium_photo-1664197368374-605ce8ec8f54?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NXx8bmV3c3xlbnwwfHwwfHx8MA%3D%3D",
-                    "title": "Saham beras bulog diancam turun",
-                    "date": "21 Februari 2024",
-                    "like": "10"
+              child: StreamBuilder<QuerySnapshot>(
+                stream:
+                    FirebaseFirestore.instance.collection("news").snapshots(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasError) return const Text("Error");
+                  if (snapshot.data == null) return Container();
+                  if (snapshot.data!.docs.isEmpty) {
+                    return const Text("No Data");
                   }
-                ];
+                  final data = snapshot.data!;
+                  var items = data.docs;
+                  return ListView.builder(
+                    padding: EdgeInsets.zero,
+                    itemCount: items.length,
+                    shrinkWrap: true,
+                    physics: const ScrollPhysics(),
+                    itemBuilder: (BuildContext context, int index) {
+                      var item = items[index];
+                      bool isFirstItem = index == 0;
 
-                return ListView.builder(
-                  padding: EdgeInsets.zero,
-                  itemCount: menuItems.length,
-                  shrinkWrap: true,
-                  physics: const ScrollPhysics(),
-                  itemBuilder: (BuildContext context, int index) {
-                    var item = menuItems[index];
-                    bool isFirstItem = index == 0;
+                      if (isFirstItem) {
+                        return GestureDetector(
+                          onTap: () => Get.to(NewsDetailView()),
+                          child: Container(
+                            margin: const EdgeInsets.only(bottom: 10.0),
+                            padding: const EdgeInsets.only(bottom: 8.0),
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Color(0x19000000),
+                                  blurRadius: 24,
+                                  offset: Offset(0, 11),
+                                ),
+                              ],
+                            ),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Stack(
+                                  children: [
+                                    Image.network(
+                                      item["photo"],
+                                      width: double.infinity,
+                                      height: 270.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                    Positioned(
+                                      bottom: 0,
+                                      left: 0,
+                                      right: 0,
+                                      child: Container(
+                                        padding: const EdgeInsets.all(15.0),
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              item["title"],
+                                              style: TextStyle(
+                                                fontSize: 18.0,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                                shadows: [
+                                                  Shadow(
+                                                    color: Colors.black,
+                                                    blurRadius: 24,
+                                                    offset: Offset(1, 1),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                const SizedBox(height: 8.0),
+                                Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 8.0, right: 8.0),
+                                  child: Row(
+                                    mainAxisAlignment:
+                                        MainAxisAlignment.spaceBetween,
+                                    children: [
+                                      Text(
+                                        DateFormat("d MMMM").format(
+                                            item['created_at']?.toDate()),
+                                        style: TextStyle(
+                                          fontSize: 15.0,
+                                        ),
+                                      ),
+                                      InkWell(
+                                        onTap: () async {
+                                          var snapshot = await FirebaseFirestore
+                                              .instance
+                                              .collection("news_likes")
+                                              .where("news_id",
+                                                  isEqualTo: item.id)
+                                              .where("user_id",
+                                                  isEqualTo: currentUser!.uid)
+                                              .get();
+                                          if (snapshot.docs.isNotEmpty) {
+                                            se("Kamu sudah pernah like postingan ini");
+                                            return;
+                                          }
 
-                    if (isFirstItem) {
+                                          await FirebaseFirestore.instance
+                                              .collection("news")
+                                              .doc(item.id)
+                                              .update({
+                                            "like_count":
+                                                FieldValue.increment(1),
+                                          });
+                                          await FirebaseFirestore.instance
+                                              .collection("news_likes")
+                                              .add({
+                                            "news_id": item.id,
+                                            "user_id": currentUser!.uid,
+                                          });
+                                        },
+                                        child: Row(
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.end,
+                                          children: [
+                                            Icon(
+                                              Icons.thumb_up,
+                                              color: Colors.grey[800],
+                                              size: 19.0,
+                                            ),
+                                            const SizedBox(
+                                              width: 4.0,
+                                            ),
+                                            Text(
+                                              "${item["like_count"]}",
+                                              style: TextStyle(fontSize: 15.0),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      }
+
                       return GestureDetector(
                         onTap: () => Get.to(NewsDetailView()),
                         child: Container(
                           margin: const EdgeInsets.only(bottom: 10.0),
-                          padding: const EdgeInsets.only(bottom: 8.0),
+                          padding: const EdgeInsets.all(8.0),
                           decoration: BoxDecoration(
                             color: Colors.white,
                             boxShadow: [
@@ -131,75 +199,91 @@ class NewsListView extends StatefulWidget {
                               ),
                             ],
                           ),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
+                          child: Row(
                             children: [
-                              Stack(
-                                children: [
-                                  Image.network(
-                                    item["image"],
-                                    width: double.infinity,
-                                    height: 270.0,
-                                    fit: BoxFit.cover,
-                                  ),
-                                  Positioned(
-                                    bottom: 0,
-                                    left: 0,
-                                    right: 0,
-                                    child: Container(
-                                      padding: const EdgeInsets.all(15.0),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            item["title"],
-                                            style: TextStyle(
-                                              fontSize: 18.0,
-                                              fontWeight: FontWeight.bold,
-                                              color: Colors.white,
-                                              shadows: [
-                                                Shadow(
-                                                  color: Colors.black,
-                                                  blurRadius: 24,
-                                                  offset: Offset(1, 1),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ),
-                                ],
+                              Image.network(
+                                item["photo"],
+                                width: 140.0,
+                                height: 94.0,
+                                fit: BoxFit.cover,
                               ),
-                              const SizedBox(height: 8.0),
-                              Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 8.0, right: 8.0),
-                                child: Row(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                              const SizedBox(
+                                width: 12.0,
+                              ),
+                              Expanded(
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
                                   children: [
                                     Text(
-                                      item['date'],
-                                      style: TextStyle(
-                                        fontSize: 15.0,
+                                      item["title"],
+                                      style: const TextStyle(
+                                        fontSize: 16.0,
+                                        fontWeight: FontWeight.bold,
                                       ),
                                     ),
-                                    Row(
-                                      mainAxisAlignment: MainAxisAlignment.end,
-                                      children: [
-                                        Icon(
-                                          Icons.thumb_up,
-                                          color: Colors.grey[800],
-                                          size: 19.0,
+                                    const SizedBox(
+                                      height: 4.0,
+                                    ),
+                                    Text(
+                                      DateFormat("d MMMM")
+                                          .format(item['created_at']?.toDate()),
+                                      style: TextStyle(
+                                        fontSize: 14.0,
+                                        color: Colors.grey[600],
+                                      ),
+                                    ),
+                                    const SizedBox(
+                                      height: 8.0,
+                                    ),
+                                    Align(
+                                      alignment: Alignment.bottomRight,
+                                      child: InkWell(
+                                        onTap: () async {
+                                          var snapshot = await FirebaseFirestore
+                                              .instance
+                                              .collection("news_likes")
+                                              .where("news_id",
+                                                  isEqualTo: item.id)
+                                              .where("user_id",
+                                                  isEqualTo: currentUser!.uid)
+                                              .get();
+                                          if (snapshot.docs.isNotEmpty) {
+                                            se("Kamu sudah pernah like postingan ini");
+                                            return;
+                                          }
+
+                                          await FirebaseFirestore.instance
+                                              .collection("news")
+                                              .doc(item.id)
+                                              .update({
+                                            "like_count":
+                                                FieldValue.increment(1),
+                                          });
+                                          await FirebaseFirestore.instance
+                                              .collection("news_likes")
+                                              .add({
+                                            "news_id": item.id,
+                                            "user_id": currentUser!.uid,
+                                          });
+                                        },
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.min,
+                                          children: [
+                                            Icon(
+                                              Icons.thumb_up,
+                                              color: Colors.grey[800],
+                                              size: 19.0,
+                                            ),
+                                            const SizedBox(
+                                              width: 4.0,
+                                            ),
+                                            Text(
+                                              item["like_count"].toString(),
+                                              style: TextStyle(fontSize: 15.0),
+                                            ),
+                                          ],
                                         ),
-                                        Text(
-                                          "15",
-                                          style: TextStyle(fontSize: 15.0),
-                                        ),
-                                      ],
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -208,86 +292,11 @@ class NewsListView extends StatefulWidget {
                           ),
                         ),
                       );
-                    }
-
-                    return GestureDetector(
-                      onTap: () => Get.to(NewsDetailView()),
-                      child: Container(
-                        margin: const EdgeInsets.only(bottom: 10.0),
-                        padding: const EdgeInsets.all(8.0),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          boxShadow: [
-                            BoxShadow(
-                              color: Color(0x19000000),
-                              blurRadius: 24,
-                              offset: Offset(0, 11),
-                            ),
-                          ],
-                        ),
-                        child: Row(
-                          children: [
-                            Image.network(
-                              item["image"],
-                              width: 140.0,
-                              height: 94.0,
-                              fit: BoxFit.cover,
-                            ),
-                            const SizedBox(
-                              width: 12.0,
-                            ),
-                            Expanded(
-                              child: Column(
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Text(
-                                    item["title"],
-                                    style: const TextStyle(
-                                      fontSize: 16.0,
-                                      fontWeight: FontWeight.bold,
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 4.0,
-                                  ),
-                                  Text(
-                                    item["date"],
-                                    style: TextStyle(
-                                      fontSize: 14.0,
-                                      color: Colors.grey[600],
-                                    ),
-                                  ),
-                                  const SizedBox(
-                                    height: 8.0,
-                                  ),
-                                  Align(
-                                    alignment: Alignment.bottomRight,
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.min,
-                                      children: [
-                                        Icon(
-                                          Icons.thumb_up,
-                                          color: Colors.grey[800],
-                                          size: 19.0,
-                                        ),
-                                        Text(
-                                          item["like"],
-                                          style: TextStyle(fontSize: 15.0),
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                    );
-                  },
-                );
-              }),
-            )
+                    },
+                  );
+                },
+              ),
+            ),
           ],
         ),
       ),

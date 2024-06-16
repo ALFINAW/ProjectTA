@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
+import 'package:hyper_ui/service/auth_service.dart';
 import '../view/sign_in_view.dart';
 
 class SignInController extends State<SignInView> {
@@ -18,9 +19,21 @@ class SignInController extends State<SignInView> {
   @override
   Widget build(BuildContext context) => widget.build(context, this);
 
+  String email = "user@demo.com";
+  String password = "123456";
   login() async {
-    //logic utk login
-    Get.offAll(UserMainNavigationView());
-    // Get.offAll(AdminDashboardView());
+    showLoading();
+    try {
+      await AuthService().login(
+        email: email,
+        password: password,
+      );
+      hideLoading();
+      Get.offAll(UserMainNavigationView());
+    } on Exception catch (err) {
+      hideLoading();
+      print(err);
+      se(err.toString());
+    }
   }
 }
