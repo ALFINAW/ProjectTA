@@ -21,7 +21,6 @@ class QOutlineButtonProductDark extends StatelessWidget {
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
           backgroundColor: Colors.white,
-          padding: EdgeInsets.only(left: 20.0),
           side: BorderSide(
             color: primaryColor,
             width: 1.0,
@@ -32,6 +31,7 @@ class QOutlineButtonProductDark extends StatelessWidget {
         ),
         onPressed: () => onPressed(),
         child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             if (icon != null)
               Icon(

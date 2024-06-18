@@ -1,6 +1,6 @@
 {
     "modules": [
-        "news_form"
+        "product_form"
     ],
     "module_directory_name": "module",
     "experimental_mode": false,

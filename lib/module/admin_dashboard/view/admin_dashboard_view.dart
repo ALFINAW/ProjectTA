@@ -504,7 +504,9 @@ class AdminDashboardView extends StatefulWidget {
                           ];
                           var food = foods[index];
                           return GestureDetector(
-                              onTap: () => Get.to(ProductDetailView()),
+                              onTap: () => Get.to(ProductDetailView(
+                                    item: {},
+                                  )),
                               child: Container(
                                 margin: const EdgeInsets.only(right: 15.0),
                                 decoration: BoxDecoration(

@@ -88,7 +88,7 @@ class _QMemoFieldState extends State<QMemoField> {
           helperText: widget.helper,
           hintText: widget.hint,
           filled: true,
-          fillColor: Colors.white,
+          fillColor: Colors.grey[300],
         ),
         onChanged: widget.onChanged,
       ),

@@ -3,7 +3,11 @@ import 'package:hyper_ui/core.dart';
 import '../controller/product_detail_controller.dart';
 
 class ProductDetailView extends StatefulWidget {
-  const ProductDetailView({Key? key}) : super(key: key);
+  final Map<String, dynamic> item;
+  const ProductDetailView({
+    Key? key,
+    required this.item,
+  }) : super(key: key);
 
   Widget build(context, ProductDetailController controller) {
     controller.view = this;
@@ -18,10 +22,10 @@ class ProductDetailView extends StatefulWidget {
                     children: [
                       Container(
                         height: 400.0,
-                        decoration: const BoxDecoration(
+                        decoration: BoxDecoration(
                           image: DecorationImage(
-                            image: NetworkImage(
-                                "https://gcdnb.pbrd.co/images/NWhCKZZRvx0G.jpg?o=1"),
+                            image: NetworkImage(item["photo"] ??
+                                "https://res.cloudinary.com/dotz74j1p/image/upload/v1715660683/no-image.jpg"),
                             fit: BoxFit.cover,
                           ),
                         ),
@@ -61,7 +65,7 @@ class ProductDetailView extends StatefulWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          'Ayam Krispi',
+                          item["product_name"] ?? "-",
                           style: TextStyle(
                             fontSize: 18.0,
                             fontWeight: FontWeight.bold,
@@ -71,7 +75,7 @@ class ProductDetailView extends StatefulWidget {
                           height: 10.0,
                         ),
                         Text(
-                          'Rp 12.000',
+                          "${(item["price"] as double).currency}",
                           style: TextStyle(
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold,
@@ -92,7 +96,7 @@ class ProductDetailView extends StatefulWidget {
                         ),
                         const SizedBox(height: 10.0),
                         Text(
-                          "Rasakan sensasi kelezatan sejati dengan Ayam Krispi kami yang begitu menggugah selera. Daging ayam segar pilihan terbaik dimasak dengan sempurna, dibalut dengan tepung renyah yang dibumbui dengan rempah-rempah rahasia warisan turun-temurun. Setiap gigitan akan membawa Anda pada petualangan rasa yang tak terlupakan. Kulit ayam yang digoreng hingga garing di luar namun tetap lembut dan juicy di dalam, menciptakan tekstur sempurna yang akan memanjakan lidah Anda. Rempah-rempah khas kami yang terdiri dari campuran bumbu rahasia memberikan sentuhan aroma harum yang menggugah selera dan rasa yang kaya akan citarasa.",
+                          "${item["description"]}",
                           style: TextStyle(
                             fontSize: 16.0,
                           ),
@@ -134,7 +138,8 @@ class ProductDetailView extends StatefulWidget {
                             CircleAvatar(
                               radius: 35.0,
                               backgroundImage: NetworkImage(
-                                "https://gcdnb.pbrd.co/images/o5WOc5cCdP6W.jpg?o=1",
+                                item["seller_photo"] ??
+                                    "https://res.cloudinary.com/dotz74j1p/image/upload/v1715660683/no-image.jpg",
                               ),
                             ),
                             const SizedBox(width: 15.0),
@@ -142,7 +147,7 @@ class ProductDetailView extends StatefulWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  "Bang Jay",
+                                  item["seller_name"],
                                   style: TextStyle(
                                     fontSize: 17.0,
                                     fontWeight: FontWeight.bold,
@@ -157,7 +162,7 @@ class ProductDetailView extends StatefulWidget {
                                     ),
                                     const SizedBox(width: 5.0),
                                     Text(
-                                      "Jl. Rajawali RT/RW 06/04",
+                                      item["seller_address"],
                                       style: TextStyle(
                                         fontSize: 16.0,
                                       ),
@@ -189,16 +194,31 @@ class ProductDetailView extends StatefulWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 //row_button
                 children: [
-                  QButtonProductDark(
-                      label: "Chat Penjual",
+                  Expanded(
+                    child: QButtonProductDark(
+                      label: "Chat",
                       icon: Icons.chat_outlined,
-                      onPressed: () {}),
+                      onPressed: () async {
+                        var number = item["seller_whatsapp_number"]
+                            .toString()
+                            .replaceAll("+", "");
+                        launchUrl(Uri.parse("https://wa.me/$number"));
+                      },
+                    ),
+                  ),
                   const SizedBox(width: 5.0),
                   Expanded(
-                      child: QOutlineButtonProductDark(
-                          label: "Hubungi Penjual",
-                          icon: Icons.phone_in_talk_rounded,
-                          onPressed: () {})),
+                    child: QOutlineButtonProductDark(
+                      label: "Call",
+                      icon: Icons.phone_in_talk_rounded,
+                      onPressed: () async {
+                        var number = item["seller_phone_number"]
+                            .toString()
+                            .replaceAll("+", "");
+                        launchUrl(Uri.parse("tel:$number"));
+                      },
+                    ),
+                  ),
                 ],
               ),
             ),

@@ -20,7 +20,7 @@ class NewsListView extends StatefulWidget {
         centerTitle: true,
         actions: const [],
       ),
-      floatingActionButton: !isAdmin
+      floatingActionButton: isUser
           ? null
           : FloatingActionButton(
               child: const Icon(Icons.add),
@@ -51,12 +51,15 @@ class NewsListView extends StatefulWidget {
                     shrinkWrap: true,
                     physics: const ScrollPhysics(),
                     itemBuilder: (BuildContext context, int index) {
-                      var item = items[index];
+                      var item = items[index].data() as Map<String, dynamic>;
+                      item["id"] = items[index].id;
                       bool isFirstItem = index == 0;
 
                       if (isFirstItem) {
                         return GestureDetector(
-                          onTap: () => Get.to(NewsDetailView()),
+                          onTap: () => Get.to(NewsDetailView(
+                            item: item,
+                          )),
                           child: Container(
                             margin: const EdgeInsets.only(bottom: 10.0),
                             padding: const EdgeInsets.only(bottom: 8.0),
@@ -133,7 +136,7 @@ class NewsListView extends StatefulWidget {
                                               .instance
                                               .collection("news_likes")
                                               .where("news_id",
-                                                  isEqualTo: item.id)
+                                                  isEqualTo: item["id"])
                                               .where("user_id",
                                                   isEqualTo: currentUser!.uid)
                                               .get();
@@ -144,7 +147,7 @@ class NewsListView extends StatefulWidget {
 
                                           await FirebaseFirestore.instance
                                               .collection("news")
-                                              .doc(item.id)
+                                              .doc(item["id"])
                                               .update({
                                             "like_count":
                                                 FieldValue.increment(1),
@@ -152,7 +155,7 @@ class NewsListView extends StatefulWidget {
                                           await FirebaseFirestore.instance
                                               .collection("news_likes")
                                               .add({
-                                            "news_id": item.id,
+                                            "news_id": item["id"],
                                             "user_id": currentUser!.uid,
                                           });
                                         },
@@ -185,7 +188,9 @@ class NewsListView extends StatefulWidget {
                       }
 
                       return GestureDetector(
-                        onTap: () => Get.to(NewsDetailView()),
+                        onTap: () => Get.to(NewsDetailView(
+                          item: item,
+                        )),
                         child: Container(
                           margin: const EdgeInsets.only(bottom: 10.0),
                           padding: const EdgeInsets.all(8.0),
@@ -243,7 +248,7 @@ class NewsListView extends StatefulWidget {
                                               .instance
                                               .collection("news_likes")
                                               .where("news_id",
-                                                  isEqualTo: item.id)
+                                                  isEqualTo: item["id"])
                                               .where("user_id",
                                                   isEqualTo: currentUser!.uid)
                                               .get();
@@ -254,7 +259,7 @@ class NewsListView extends StatefulWidget {
 
                                           await FirebaseFirestore.instance
                                               .collection("news")
-                                              .doc(item.id)
+                                              .doc(item["id"])
                                               .update({
                                             "like_count":
                                                 FieldValue.increment(1),
@@ -262,7 +267,7 @@ class NewsListView extends StatefulWidget {
                                           await FirebaseFirestore.instance
                                               .collection("news_likes")
                                               .add({
-                                            "news_id": item.id,
+                                            "news_id": item["id"],
                                             "user_id": currentUser!.uid,
                                           });
                                         },

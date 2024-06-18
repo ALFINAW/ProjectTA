@@ -25,7 +25,9 @@ class AdminListAjuanView extends StatefulWidget {
           physics: const ScrollPhysics(),
           itemBuilder: (BuildContext context, int index) {
             return InkWell(
-              onTap: () => Get.to(AdminDetailAjuanView()),
+              onTap: () => Get.to(AdminDetailAjuanView(
+                item: {},
+              )),
               child: Container(
                 margin: const EdgeInsets.only(bottom: 13.0),
                 padding: const EdgeInsets.all(20.0),

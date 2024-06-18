@@ -1,3 +1,5 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 import '../controller/user_dashboard_controller.dart';
@@ -291,117 +293,151 @@ class UserDashboardView extends StatefulWidget {
                       const SizedBox(
                         height: 20.0,
                       ),
-                      Builder(builder: (context) {
-                        List menuItems = [
-                          {
-                            "image":
-                                "https://gcdnb.pbrd.co/images/GMf7NTbEjfuL.jpg?o=1",
-                            "title":
-                                "KARNAVAL TINGKAT DESA KARANGRENA TAHUN 2023",
-                            "date": "19 Agustus 2023",
-                            "like": "15"
-                          },
-                          {
-                            "image":
-                                "https://images.unsplash.com/photo-1626030952277-9fbe79141a31?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5jaWRlbnR8ZW58MHx8MHx8fDA%3D",
-                            "title": "Kecelakaan beruntun di jl.Garuda",
-                            "date": "23 Januari 2024",
-                            "like": "18"
-                          },
-                          {
-                            "image":
-                                "https://plus.unsplash.com/premium_photo-1686397308706-9547f8cc4e32?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8aW5jaWRlbnR8ZW58MHx8MHx8fDA%3D",
-                            "title": "Penyelamatan pemuda tenggelam di laut",
-                            "date": "08 Februari 2024",
-                            "like": "20"
-                          },
-                        ];
-                        return ListView.builder(
-                          padding: EdgeInsets.zero,
-                          itemCount: menuItems.length,
-                          shrinkWrap: true,
-                          physics: const ScrollPhysics(),
-                          itemBuilder: (BuildContext context, int index) {
-                            var item = menuItems[index];
-                            return GestureDetector(
-                              onTap: () => Get.to(NewsDetailView()),
-                              child: Container(
-                                margin: const EdgeInsets.only(bottom: 10.0),
-                                padding: const EdgeInsets.all(8.0),
-                                decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  boxShadow: [
-                                    BoxShadow(
-                                      color: Color(0x19000000),
-                                      blurRadius: 24,
-                                      offset: Offset(0, 11),
-                                    ),
-                                  ],
-                                ),
-                                child: Row(
-                                  children: [
-                                    Image.network(
-                                      item["image"],
-                                      width: 140.0,
-                                      height: 94.0,
-                                      fit: BoxFit.cover,
-                                    ),
-                                    const SizedBox(
-                                      width: 12.0,
-                                    ),
-                                    Expanded(
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Text(
-                                            item["title"],
-                                            style: const TextStyle(
-                                              fontSize: 16.0,
-                                              fontWeight: FontWeight.bold,
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            height: 4.0,
-                                          ),
-                                          Text(
-                                            item["date"],
-                                            style: TextStyle(
-                                              fontSize: 12.0,
-                                              color: Colors.grey[600],
-                                            ),
-                                          ),
-                                          const SizedBox(
-                                            height: 8.0,
-                                          ),
-                                          Align(
-                                            alignment: Alignment.bottomRight,
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.min,
-                                              children: [
-                                                Icon(
-                                                  Icons.thumb_up,
-                                                  color: Colors.grey[800],
-                                                  size: 20.0,
-                                                ),
-                                                Text(
-                                                  item["like"],
-                                                  style:
-                                                      TextStyle(fontSize: 16.0),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
+                      StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection("news")
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasError) return const Text("Error");
+                          if (snapshot.data == null) return Container();
+                          if (snapshot.data!.docs.isEmpty) {
+                            return const Text("No Data");
+                          }
+                          final data = snapshot.data!;
+                          var items = data.docs;
+                          return ListView.builder(
+                            padding: EdgeInsets.zero,
+                            itemCount: items.length,
+                            shrinkWrap: true,
+                            physics: const ScrollPhysics(),
+                            itemBuilder: (BuildContext context, int index) {
+                              var item =
+                                  items[index].data() as Map<String, dynamic>;
+                              item["id"] = items[index].id;
+                              return GestureDetector(
+                                onTap: () => Get.to(NewsDetailView(
+                                  item: item,
+                                )),
+                                child: Container(
+                                  margin: const EdgeInsets.only(bottom: 10.0),
+                                  padding: const EdgeInsets.all(8.0),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: Color(0x19000000),
+                                        blurRadius: 24,
+                                        offset: Offset(0, 11),
                                       ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
+                                  child: Row(
+                                    children: [
+                                      Image.network(
+                                        item["photo"] ??
+                                            "https://res.cloudinary.com/dotz74j1p/image/upload/v1715660683/no-image.jpg",
+                                        width: 120.0,
+                                        height: 80.0,
+                                        fit: BoxFit.cover,
+                                      ),
+                                      const SizedBox(
+                                        width: 12.0,
+                                      ),
+                                      Expanded(
+                                        child: Column(
+                                          crossAxisAlignment:
+                                              CrossAxisAlignment.start,
+                                          children: [
+                                            Text(
+                                              item["title"],
+                                              style: const TextStyle(
+                                                fontSize: 16.0,
+                                                fontWeight: FontWeight.bold,
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 4.0,
+                                            ),
+                                            Text(
+                                              (item["created_at"].toDate()
+                                                      as DateTime)
+                                                  .dMMMykkmmss,
+                                              style: TextStyle(
+                                                fontSize: 12.0,
+                                                color: Colors.grey[600],
+                                              ),
+                                            ),
+                                            const SizedBox(
+                                              height: 8.0,
+                                            ),
+                                            Align(
+                                              alignment: Alignment.bottomRight,
+                                              child: InkWell(
+                                                onTap: () async {
+                                                  var snapshot =
+                                                      await FirebaseFirestore
+                                                          .instance
+                                                          .collection(
+                                                              "news_likes")
+                                                          .where("news_id",
+                                                              isEqualTo:
+                                                                  item["id"])
+                                                          .where("user_id",
+                                                              isEqualTo:
+                                                                  currentUser!
+                                                                      .uid)
+                                                          .get();
+                                                  if (snapshot
+                                                      .docs.isNotEmpty) {
+                                                    se("Kamu sudah pernah like postingan ini");
+                                                    return;
+                                                  }
+
+                                                  await FirebaseFirestore
+                                                      .instance
+                                                      .collection("news")
+                                                      .doc(item["id"])
+                                                      .update({
+                                                    "like_count":
+                                                        FieldValue.increment(1),
+                                                  });
+                                                  await FirebaseFirestore
+                                                      .instance
+                                                      .collection("news_likes")
+                                                      .add({
+                                                    "news_id": item["id"],
+                                                    "user_id": currentUser!.uid,
+                                                  });
+                                                },
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.min,
+                                                  children: [
+                                                    Icon(
+                                                      Icons.thumb_up,
+                                                      color: Colors.grey[800],
+                                                      size: 20.0,
+                                                    ),
+                                                    Text(
+                                                      "${item["like_count"]}",
+                                                      style: TextStyle(
+                                                          fontSize: 16.0),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                    ],
+                                  ),
                                 ),
-                              ),
-                            );
-                          },
-                        );
-                      }),
+                              );
+                            },
+                          );
+                        },
+                      ),
                     ],
                   ),
                 ),
@@ -446,143 +482,129 @@ class UserDashboardView extends StatefulWidget {
                         ],
                       ),
                       const SizedBox(height: 20.0),
-                      SizedBox(
-                        height: 260.0,
-                        child: ListView.builder(
-                          itemCount: 5,
-                          shrinkWrap: true,
-                          scrollDirection: Axis.horizontal,
-                          padding: EdgeInsets.zero,
-                          clipBehavior: Clip.none,
-                          itemBuilder: (context, index) {
-                            List<Map<String, dynamic>> foods = [
-                              {
-                                "nama": "Sate Ayam",
-                                "penjual": "Suwiryo",
-                                "harga": 15000,
-                                "image":
-                                    "https://images.unsplash.com/photo-1529563021893-cc83c992d75d?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aW5kb25lc2lhbiUyMGZvb2R8ZW58MHx8MHx8fDA%3D"
-                              },
-                              {
-                                "nama": "Gado-gado",
-                                "penjual": "Aminah",
-                                "harga": 15000,
-                                "image":
-                                    "https://images.unsplash.com/photo-1562607635-4608ff48a859?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8aW5kb25lc2lhbiUyMGZvb2R8ZW58MHx8MHx8fDA%3D"
-                              },
-                              {
-                                "nama": "Pecel Lele",
-                                "penjual": "Jono",
-                                "harga": 11000,
-                                "image":
-                                    "https://images.unsplash.com/photo-1613653739328-e86ebd77c9c8?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NHx8aW5kb25lc2lhbiUyMGZvb2R8ZW58MHx8MHx8fDA%3D"
-                              },
-                              {
-                                "nama": "Soto",
-                                "penjual": "Pak Arya",
-                                "harga": 15000,
-                                "image":
-                                    "https://images.unsplash.com/photo-1572656631137-7935297eff55?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Nnx8aW5kb25lc2lhbiUyMGZvb2R8ZW58MHx8MHx8fDA%3D"
-                              },
-                              {
-                                "nama": "Ramen",
-                                "penjual": "Dimas",
-                                "harga": 16000,
-                                "image":
-                                    "https://images.unsplash.com/photo-1569718212165-3a8278d5f624?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGluZG9uZXNpYW4lMjBmb29kfGVufDB8fDB8fHww"
-                              },
-                            ];
-                            var food = foods[index];
-                            return GestureDetector(
-                                onTap: () => Get.to(ProductDetailView()),
-                                child: Container(
-                                  margin: const EdgeInsets.only(right: 15.0),
-                                  decoration: BoxDecoration(
-                                    color: Colors.white,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        color: Color(0x19000000),
-                                        blurRadius: 24,
-                                        offset: Offset(0, 11),
+                      StreamBuilder<QuerySnapshot>(
+                        stream: FirebaseFirestore.instance
+                            .collection("products")
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (snapshot.hasError) return const Text("Error");
+                          if (snapshot.data == null) return Container();
+                          if (snapshot.data!.docs.isEmpty) {
+                            return const Text("No Data");
+                          }
+                          final data = snapshot.data!;
+                          var items = data.docs;
+                          return SizedBox(
+                            height: 260.0,
+                            child: ListView.builder(
+                              itemCount: items.length,
+                              shrinkWrap: true,
+                              scrollDirection: Axis.horizontal,
+                              padding: EdgeInsets.zero,
+                              clipBehavior: Clip.none,
+                              itemBuilder: (context, index) {
+                                var item =
+                                    items[index].data() as Map<String, dynamic>;
+                                item["id"] = items[index].id;
+
+                                return GestureDetector(
+                                    onTap: () => Get.to(ProductDetailView(
+                                          item: item,
+                                        )),
+                                    child: Container(
+                                      margin:
+                                          const EdgeInsets.only(right: 15.0),
+                                      decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            color: Color(0x19000000),
+                                            blurRadius: 24,
+                                            offset: Offset(0, 11),
+                                          ),
+                                        ],
+                                        borderRadius: BorderRadius.only(
+                                            topRight: Radius.circular(6.0),
+                                            topLeft: Radius.circular(6.0),
+                                            bottomLeft: Radius.circular(10.0),
+                                            bottomRight: Radius.circular(10.0)),
                                       ),
-                                    ],
-                                    borderRadius: BorderRadius.only(
-                                        topRight: Radius.circular(6.0),
-                                        topLeft: Radius.circular(6.0),
-                                        bottomLeft: Radius.circular(10.0),
-                                        bottomRight: Radius.circular(10.0)),
-                                  ),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Expanded(
-                                        child: Container(
-                                          width: 150,
-                                          clipBehavior: Clip.antiAlias,
-                                          decoration: BoxDecoration(
-                                            image: DecorationImage(
-                                              image: NetworkImage(
-                                                food["image"],
-                                              ),
-                                              fit: BoxFit.cover,
-                                            ),
-                                            borderRadius: BorderRadius.all(
-                                              Radius.circular(
-                                                6.0,
+                                      child: Column(
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            child: Container(
+                                              width: 150,
+                                              clipBehavior: Clip.antiAlias,
+                                              decoration: BoxDecoration(
+                                                image: DecorationImage(
+                                                  image: NetworkImage(
+                                                    item["photo"] ??
+                                                        "https://res.cloudinary.com/dotz74j1p/image/upload/v1715660683/no-image.jpg",
+                                                  ),
+                                                  fit: BoxFit.cover,
+                                                ),
+                                                borderRadius: BorderRadius.all(
+                                                  Radius.circular(
+                                                    6.0,
+                                                  ),
+                                                ),
                                               ),
                                             ),
                                           ),
-                                        ),
-                                      ),
-                                      SizedBox(
-                                        height: 8.0,
-                                      ),
-                                      Row(
-                                        children: [
-                                          Padding(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
+                                          SizedBox(
+                                            height: 8.0,
+                                          ),
+                                          Row(
+                                            children: [
+                                              Padding(
+                                                  padding: const EdgeInsets
+                                                      .symmetric(
                                                       horizontal: 8.0),
-                                              child: Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Text(
-                                                    food["nama"],
-                                                    style: TextStyle(
-                                                      fontSize: 16.0,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    food["penjual"],
-                                                    style: TextStyle(
-                                                      fontSize: 14.0,
-                                                    ),
-                                                  ),
-                                                  Text(
-                                                    "Rp ${NumberFormat("#,##0", "id_ID").format(food["harga"])}",
-                                                    style: TextStyle(
-                                                      fontSize: 17.0,
-                                                      fontWeight:
-                                                          FontWeight.bold,
-                                                      color: primaryColor,
-                                                    ),
-                                                  ),
-                                                  const SizedBox(
-                                                    height: 8.0,
-                                                  ),
-                                                ],
-                                              ))
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                        CrossAxisAlignment
+                                                            .start,
+                                                    children: [
+                                                      Text(
+                                                        item["product_name"] ??
+                                                            "-",
+                                                        style: TextStyle(
+                                                          fontSize: 16.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        item["seller_name"],
+                                                        style: TextStyle(
+                                                          fontSize: 14.0,
+                                                        ),
+                                                      ),
+                                                      Text(
+                                                        "${(item["price"] as double).currency}",
+                                                        style: TextStyle(
+                                                          fontSize: 17.0,
+                                                          fontWeight:
+                                                              FontWeight.bold,
+                                                          color: primaryColor,
+                                                        ),
+                                                      ),
+                                                      const SizedBox(
+                                                        height: 8.0,
+                                                      ),
+                                                    ],
+                                                  ))
+                                            ],
+                                          ),
                                         ],
                                       ),
-                                    ],
-                                  ),
-                                ));
-                          },
-                        ),
+                                    ));
+                              },
+                            ),
+                          );
+                        },
                       ),
                       const SizedBox(
                         height: 5.0,

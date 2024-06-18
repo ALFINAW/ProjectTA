@@ -69,7 +69,7 @@ class UserPengajuanFormController extends State<UserPengajuanFormView> {
       "alamat": alamat,
       "fotokopi_kk": fotokopiKK,
       "keperluan": keperluan,
-      "golonganDarah": golonganDarah,
+      "golongan_darah": golonganDarah,
       "jenis_surat": widget.jenisSurat,
       "status": status,
       "created_at": Timestamp.now(),

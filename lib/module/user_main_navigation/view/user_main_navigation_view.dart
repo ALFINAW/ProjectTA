@@ -23,7 +23,7 @@ class UserMainNavigationView extends StatefulWidget {
           index: controller.selectedIndex,
           children: [
             UserDashboardView(),
-            UserAjuanView(),
+            UserPengajuanSuratListView(),
             UserAduanView(),
             UserProfileView()
           ],

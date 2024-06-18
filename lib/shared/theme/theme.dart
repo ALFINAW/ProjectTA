@@ -11,8 +11,10 @@ ThemeData getDefaultTheme() {
       elevation: 0.6,
       titleTextStyle: GoogleFonts.ibmPlexSans(
         color: Color(0xff495057),
+        fontSize: 16,
         fontWeight: FontWeight.bold,
       ),
+      centerTitle: true,
       backgroundColor: Color(0xffffffff),
       iconTheme: IconThemeData(color: Color(0xff495057)),
       actionsIconTheme: IconThemeData(

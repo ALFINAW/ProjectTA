@@ -30,18 +30,4 @@ class UserPengajuanSuratListController
     filterStatus = value;
     setState(() {});
   }
-
-  approve(String id) async {
-    await FirebaseFirestore.instance.collection("user_request").doc(id).update({
-      "status": "Approved",
-    });
-    ss("Berhasil approve");
-  }
-
-  reject(String id) async {
-    await FirebaseFirestore.instance.collection("user_request").doc(id).update({
-      "status": "Rejected",
-    });
-    ss("Berhasil reject");
-  }
 }

@@ -1,10 +1,16 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 import 'package:hyper_ui/shared/widget/form/textfield/text_field_form_dark.dart';
 import '../controller/admin_detail_ajuan_controller.dart';
 
 class AdminDetailAjuanView extends StatefulWidget {
-  const AdminDetailAjuanView({super.key});
+  final Map<String, dynamic> item;
+  const AdminDetailAjuanView({
+    super.key,
+    required this.item,
+  });
 
   @override
   State<AdminDetailAjuanView> createState() => _AdminDetailAjuanViewState();
@@ -13,6 +19,22 @@ class AdminDetailAjuanView extends StatefulWidget {
 class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
   bool _isMale = false;
   bool _isFemale = false;
+
+  approve(String id) async {
+    await FirebaseFirestore.instance.collection("user_request").doc(id).update({
+      "status": "Approved",
+    });
+    Get.back();
+    ss("Berhasil approve");
+  }
+
+  reject(String id) async {
+    await FirebaseFirestore.instance.collection("user_request").doc(id).update({
+      "status": "Rejected",
+    });
+    Get.back();
+    ss("Berhasil reject");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,7 +72,7 @@ class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
                       ),
                     ),
                     Text(
-                      "Alfin Andrias Wardoyo",
+                      "${widget.item["nama"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
@@ -64,7 +86,7 @@ class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
                       ),
                     ),
                     Text(
-                      "20 Juni 2005",
+                      "${widget.item["tempat_lahir"]}, ${(widget.item["tanggal_lahir"].toDate() as DateTime).dMMMy}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
@@ -78,7 +100,7 @@ class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
                       ),
                     ),
                     Text(
-                      "17",
+                      "${widget.item["umur"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
@@ -92,7 +114,7 @@ class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
                       ),
                     ),
                     Text(
-                      "WNI",
+                      "${widget.item["warga_negara"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
@@ -106,7 +128,7 @@ class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
                       ),
                     ),
                     Text(
-                      "Islam",
+                      "${widget.item["agama"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
@@ -120,7 +142,7 @@ class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
                       ),
                     ),
                     Text(
-                      "Laki-laki",
+                      "${widget.item["jenis_kelamin"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
@@ -134,7 +156,7 @@ class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
                       ),
                     ),
                     Text(
-                      "Belum kerja",
+                      "${widget.item["pekerjaan"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
@@ -148,7 +170,7 @@ class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
                       ),
                     ),
                     Text(
-                      "Jl. Niaga RT/RW 01/04 Karangrena, Maos, Cilacap",
+                      "${widget.item["alamat"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
@@ -161,11 +183,12 @@ class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
                         fontSize: 16.0,
                       ),
                     ),
-                    Text(
-                      "KK.png",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                      ),
+                    Image.network(
+                      widget.item["fotokopi_kk"] ??
+                          "https://res.cloudinary.com/dotz74j1p/image/upload/v1715660683/no-image.jpg",
+                      width: 200.0,
+                      height: 200.0,
+                      fit: BoxFit.cover,
                     ),
                     const SizedBox(height: 8.0),
                     Text(
@@ -176,7 +199,7 @@ class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
                       ),
                     ),
                     Text(
-                      "Ajuan pembuatan KTP",
+                      "${widget.item["keperluan"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
@@ -190,116 +213,82 @@ class _AdminDetailAjuanViewState extends State<AdminDetailAjuanView> {
                       ),
                     ),
                     Text(
-                      "-",
+                      "${widget.item["golongan_darah"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
                     ),
                     const SizedBox(height: 8.0),
+                    Text(
+                      "Status :",
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    Text(
+                      "${widget.item["status"]}",
+                      style: TextStyle(
+                        fontSize: 16.0,
+                      ),
+                    ),
+                    const SizedBox(height: 8.0),
+                    Divider(),
+                    const SizedBox(height: 8.0),
+                    AbsorbPointer(
+                      absorbing: isAdmin,
+                      child: QMemoField(
+                        label: "Keterangan",
+                        validator: Validator.required,
+                        value: widget.item["keterangan"] ?? "",
+                        onChanged: (value) {
+                          FirebaseFirestore.instance
+                              .collection("user_request")
+                              .doc(widget.item["id"])
+                              .update({
+                            "keterangan": value,
+                            "price": 25,
+                          });
+                        },
+                      ),
+                    ),
+                    const SizedBox(height: 8.0),
+                    if (widget.item["status"] == "Pending" && isAdmin)
+                      Container(
+                        margin: const EdgeInsets.only(
+                          top: 12.0,
+                        ),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.end,
+                          children: [
+                            Expanded(
+                              child: ElevatedButton(
+                                onPressed: () => approve(widget.item["id"]),
+                                child: Text('Approve'),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.white,
+                                  foregroundColor: Colors.green,
+                                ),
+                              ),
+                            ),
+                            SizedBox(width: 12),
+                            Expanded(
+                              child: ElevatedButton(
+                                onPressed: () => reject(widget.item["id"]),
+                                child: Text('Reject'),
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: Colors.white,
+                                  foregroundColor: Colors.red,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
                   ],
                 ),
               ),
               const SizedBox(height: 13.0),
-              Container(
-                padding: const EdgeInsets.all(20.0),
-                width: MediaQuery.of(context).size.width,
-                decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.all(Radius.circular(8.0)),
-                ),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Align(
-                      alignment: Alignment.center,
-                      child: Text(
-                        "Keterangan",
-                        style: TextStyle(
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18.0,
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 10.0),
-                    Text(
-                      "Acc :",
-                      style: TextStyle(fontSize: 15.0),
-                    ),
-                    CheckboxListTile(
-                      title: Text(
-                        'Silahkan datang dan ambil surat Anda di Balai Desa',
-                        style: TextStyle(
-                          fontSize: 15.0,
-                        ),
-                      ),
-                      contentPadding: EdgeInsets.only(left: -8.0),
-                      controlAffinity: ListTileControlAffinity.leading,
-                      value: _isMale,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          _isMale = value ?? false;
-                          if (_isMale) {
-                            _isFemale = false;
-                          }
-                        });
-                      },
-                    ),
-                    const SizedBox(height: 5.0),
-                    Text(
-                      "Atau :",
-                      style: TextStyle(fontSize: 15.0),
-                    ),
-                    const SizedBox(height: 5.0),
-                    QTextFieldFormDark(
-                      label: "",
-                      onChanged: (p0) {},
-                      hint: "masukan keterengan lainnya",
-                      helper:
-                          "*kosongkan jika di acc dan isi jika tidak di acc",
-                    ),
-                    Text(
-                      "Tanggal :",
-                      style: TextStyle(fontSize: 15.0),
-                    ),
-                    const SizedBox(height: 5.0),
-                    QDatePicker(
-                      label: '',
-                      onChanged: (p0) {},
-                    ),
-                    Text(
-                      "Jam :",
-                      style: TextStyle(fontSize: 15.0),
-                    ),
-                    const SizedBox(height: 5.0),
-                    QTimePicker(label: '', onChanged: (p0) {}),
-                    Text(
-                      "Status :",
-                      style: TextStyle(fontSize: 15.0),
-                    ),
-                    CheckboxListTile(
-                      title: Text(
-                        'Sudah diambil',
-                        style: TextStyle(
-                          fontSize: 16.0,
-                        ),
-                      ),
-                      contentPadding: EdgeInsets.only(left: -8.0),
-                      controlAffinity: ListTileControlAffinity.leading,
-                      value: _isMale,
-                      onChanged: (bool? value) {
-                        setState(() {
-                          _isMale = value ?? false;
-                          if (_isMale) {
-                            _isFemale = false;
-                          }
-                        });
-                      },
-                    ),
-                    const SizedBox(height: 15.0),
-                    QButtonForm(label: "Kirim", onPressed: () {}),
-                  ],
-                ),
-              )
             ],
           ),
         ),

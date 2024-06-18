@@ -10,7 +10,7 @@ class UserPengajuanSuratListView extends StatefulWidget {
     controller.view = this;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("UserPengajuanSuratList"),
+        title: const Text("Daftar Ajuan Surat"),
         actions: [],
       ),
       floatingActionButton: FloatingActionButton(
@@ -91,6 +91,71 @@ class UserPengajuanSuratListView extends StatefulWidget {
                         return Colors.orange;
                       }
 
+                      return InkWell(
+                        onTap: () => Get.to(AdminDetailAjuanView(
+                          item: item,
+                        )),
+                        child: Container(
+                          margin: const EdgeInsets.only(bottom: 13.0),
+                          padding: const EdgeInsets.all(20.0),
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius:
+                                BorderRadius.all(Radius.circular(8.0)),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Color(0x19000000),
+                                blurRadius: 24,
+                                offset: Offset(0, 11),
+                              ),
+                            ],
+                          ),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                "${item["jenis_surat"]}",
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                  fontSize: 17.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                              const SizedBox(height: 12.0),
+                              Text(
+                                "${item["nama"]}",
+                                style: TextStyle(
+                                  fontSize: 16.0,
+                                ),
+                              ),
+                              const SizedBox(height: 12.0),
+                              Text(
+                                "${(item["created_at"].toDate() as DateTime).dMMMykkmmss}",
+                                style: TextStyle(
+                                  fontSize: 14.0,
+                                ),
+                              ),
+                              const SizedBox(height: 12.0),
+                              Text(
+                                "${item["keterangan"] ?? "-"}",
+                                style: TextStyle(
+                                  fontSize: 14.0,
+                                  color: Colors.orange,
+                                ),
+                              ),
+                              const SizedBox(height: 12.0),
+                              Text(
+                                "${item["status"]}",
+                                style: TextStyle(
+                                  fontSize: 14.0,
+                                  color: Colors.blue,
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+
                       return QDismissible(
                         onDismiss: () async {
                           await FirebaseFirestore.instance
@@ -142,39 +207,6 @@ class UserPengajuanSuratListView extends StatefulWidget {
                                   ],
                                 ),
                               ),
-                              if (item["status"] == "Pending" && isAdmin)
-                                Container(
-                                  color: Colors.grey[200],
-                                  padding: const EdgeInsets.all(12.0),
-                                  child: Row(
-                                    mainAxisAlignment: MainAxisAlignment.end,
-                                    children: [
-                                      Expanded(
-                                        child: ElevatedButton(
-                                          onPressed: () =>
-                                              controller.approve(item["id"]),
-                                          child: Text('Approve'),
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.white,
-                                            foregroundColor: Colors.green,
-                                          ),
-                                        ),
-                                      ),
-                                      SizedBox(width: 8),
-                                      Expanded(
-                                        child: ElevatedButton(
-                                          onPressed: () =>
-                                              controller.reject(item["id"]),
-                                          child: Text('Reject'),
-                                          style: ElevatedButton.styleFrom(
-                                            backgroundColor: Colors.white,
-                                            foregroundColor: Colors.red,
-                                          ),
-                                        ),
-                                      ),
-                                    ],
-                                  ),
-                                ),
                             ],
                           ),
                         ),

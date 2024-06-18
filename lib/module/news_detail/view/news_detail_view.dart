@@ -1,9 +1,14 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 import '../controller/news_detail_controller.dart';
 
 class NewsDetailView extends StatefulWidget {
-  const NewsDetailView({Key? key}) : super(key: key);
+  final Map<String, dynamic> item;
+  NewsDetailView({
+    Key? key,
+    required this.item,
+  }) : super(key: key);
 
   Widget build(context, NewsDetailController controller) {
     controller.view = this;
@@ -17,10 +22,11 @@ class NewsDetailView extends StatefulWidget {
                   Container(
                     height: 350.0,
                     width: MediaQuery.of(context).size.width,
-                    decoration: const BoxDecoration(
+                    decoration: BoxDecoration(
                       image: DecorationImage(
                         image: NetworkImage(
-                          "https://gcdnb.pbrd.co/images/GMf7NTbEjfuL.jpg?o=1",
+                          item["photo"] ??
+                              "https://res.cloudinary.com/dotz74j1p/image/upload/v1715660683/no-image.jpg",
                         ),
                         fit: BoxFit.cover,
                       ),
@@ -30,7 +36,7 @@ class NewsDetailView extends StatefulWidget {
                   Align(
                     alignment: Alignment.topLeft,
                     child: Padding(
-                      padding: const EdgeInsets.only(top: 16.0, left: 10.0),
+                      padding: EdgeInsets.only(top: 16.0, left: 10.0),
                       child: InkWell(
                         onTap: () => Get.back(),
                         child: CircleAvatar(
@@ -47,56 +53,85 @@ class NewsDetailView extends StatefulWidget {
               Column(
                 children: [
                   Container(
-                      margin: const EdgeInsets.all(15.0),
+                      margin: EdgeInsets.all(15.0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Text(
-                            "KARNAVAL TINGKAT DESA KARANGRENA TAHUN 2023",
+                            item["title"],
                             style: TextStyle(
                               fontSize: 20.0,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          const SizedBox(
+                          SizedBox(
                             height: 10.0,
                           ),
                           Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                "19 Agustus 2023",
+                                (item["created_at"].toDate() as DateTime)
+                                    .dMMMykkmmss,
                                 style: TextStyle(
                                   fontSize: 15.0,
                                 ),
                               ),
-                              Row(
-                                mainAxisAlignment: MainAxisAlignment.end,
-                                children: [
-                                  Icon(
-                                    Icons.thumb_up,
-                                    color: Colors.grey[800],
-                                    size: 19.0,
-                                  ),
-                                  Text(
-                                    "15",
-                                    style: TextStyle(fontSize: 15.0),
-                                  ),
-                                ],
+                              InkWell(
+                                onTap: () async {
+                                  var snapshot = await FirebaseFirestore
+                                      .instance
+                                      .collection("news_likes")
+                                      .where("news_id", isEqualTo: item["id"])
+                                      .where("user_id",
+                                          isEqualTo: currentUser!.uid)
+                                      .get();
+                                  if (snapshot.docs.isNotEmpty) {
+                                    se("Kamu sudah pernah like postingan ini");
+                                    return;
+                                  }
+
+                                  await FirebaseFirestore.instance
+                                      .collection("news")
+                                      .doc(item["id"])
+                                      .update({
+                                    "like_count": FieldValue.increment(1),
+                                  });
+                                  await FirebaseFirestore.instance
+                                      .collection("news_likes")
+                                      .add({
+                                    "news_id": item["id"],
+                                    "user_id": currentUser!.uid,
+                                  });
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Icon(
+                                      Icons.thumb_up,
+                                      color: Colors.grey[800],
+                                      size: 19.0,
+                                    ),
+                                    Text(
+                                      "${item["like_count"]}",
+                                      style: TextStyle(fontSize: 15.0),
+                                    ),
+                                  ],
+                                ),
                               ),
                             ],
                           ),
-                          const SizedBox(
+                          SizedBox(
                             height: 20.0,
                           ),
                           Text(
-                            "   Dalam rangka memeriahkan HUR Kemerdekaan RI Ke-78, Desa Karangrena mengadakan kegiatan lomba Karnaval yang dilaksanakan oleh Panitia HUT Kemerdekaan RI Ke78 Tahun 2023 tingkat Desa Karangrena. Kegiatan dilaksanakan setelah melaksanakan Upacara Pengibaran Bendera Merah Putih di tingkat Desa juga ditingkat Kecamatan Maos. Para peserta meliputi Instansi Sekolah dr PAUD, TK, SD, RT, RW, Kelompok-kelompok Tani dan Juga umum. Bagaimana aksinya,,... yo kita lihat videonya... pada link berikut ini: https://youtu.be/aOHuCVuJgzU \n \n Hari Ulang Tahun Republik Indonesia (HUT RI) atau Hari Kemerdekaan Republik Indonesia adalah hari besar nasional yang diperingati setiap tanggal 17 Agustus untuk memperingati momen bersejarah kemerdekaan Indonesia dari penjajahan Belanda pada tahun 1945. Beberapa poin penting terkait pengertian dan makna HUT RI: Momentum Proklamasi Kemerdekaan HUT RI menandai peristiwa Proklamasi Kemerdekaan Indonesia yang dibacakan oleh Ir. Soekarno pada tanggal 17 Agustus 1945 di Jalan Pegangsaan Timur 56, Jakarta. Perjuangan Merebut Kemerdekaan HUT RI merupakan puncak dari perjuangan panjang bangsa Indonesia untuk membebaskan diri dari belenggu penjajahan dan mewujudkan kedaulatan negara. Hari Bersejarah Tanggal 17 Agustus ditetapkan sebagai hari bersejarah bangsa Indonesia yang menandai lahirnya Negara Kesatuan Republik Indonesia. Peringatan Nasional HUT RI diperingati secara nasional di seluruh wilayah Indonesia dengan berbagai upacara dan kegiatan memperingati jasa para pahlawan yang memperjuangkan kemerdekaan. Semangat Kebangsaan Peringatan HUT RI menjadi momen untuk menghargai perjuangan para pahlawan, memperkuat semangat kebangsaan, dan memupuk rasa cinta tanah air di kalangan masyarakat Indonesia. Jadi, HUT RI merupakan hari yang sangat penting dan bermakna bagi bangsa Indonesia sebagai peringatan atas perjuangan dan pengorbanan untuk merebut kemerdekaan dari penjajahan serta kelahiran Negara Kesatuan Republik Indonesia.",
+                            item["body"] ?? "-",
                             style: TextStyle(
                               fontSize: 15.0,
                             ),
                             textAlign: TextAlign.justify,
                           ),
-                          const SizedBox(
+                          SizedBox(
                             height: 20.0,
                           ),
                         ],

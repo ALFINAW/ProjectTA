@@ -20,61 +20,69 @@ class UserAjukanPengaduanView extends StatefulWidget {
       body: SingleChildScrollView(
         child: Container(
           color: backgroundColor,
-          height: MediaQuery.of(context).size.height,
           padding: const EdgeInsets.all(20.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Sertakan foto yang berguna untuk membantu pengecekan petugas :",
-                style: TextStyle(
-                  fontSize: 15.0,
+          child: Form(
+            key: controller.formKey,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Sertakan foto yang berguna untuk membantu pengecekan petugas :",
+                  style: TextStyle(
+                    fontSize: 15.0,
+                  ),
                 ),
-              ),
-              const SizedBox(height: 5.0),
-              QImagePicker(
-                label: "",
-                validator: Validator.required,
-                value: null,
-                onChanged: (value) {},
-              ),
-              Text(
-                "Judul aduan :",
-                style: TextStyle(
-                  fontSize: 15.0,
+                const SizedBox(height: 5.0),
+                QImagePicker(
+                  label: "",
+                  validator: Validator.required,
+                  value: controller.photo,
+                  onChanged: (value) {
+                    controller.photo = value;
+                  },
                 ),
-              ),
-              const SizedBox(height: 5.0),
-              QTextFieldForm(
-                label: "",
-                onChanged: (p0) {},
-                hint: "masukan judul aduan",
-              ),
-              Text(
-                "Tambahkan keterangan :",
-                style: TextStyle(
-                  fontSize: 15.0,
+                QTextField(
+                  label: "Judul aduan",
+                  validator: Validator.required,
+                  value: controller.title,
+                  onChanged: (value) {
+                    controller.title = value;
+                  },
                 ),
-              ),
-              const SizedBox(height: 5.0),
-              QMemoField(label: "", onChanged: (p0) {}),
-              Text(
-                "Tambahkan alamat :",
-                style: TextStyle(
-                  fontSize: 15.0,
+                QMemoField(
+                  label: "Alamat aduan",
+                  validator: Validator.required,
+                  value: controller.address,
+                  onChanged: (value) {
+                    controller.address = value;
+                  },
                 ),
-              ),
-              const SizedBox(height: 5.0),
-              QTextFieldForm(
-                label: "",
-                onChanged: (p0) {},
-                hint: "masukan alamat",
-              ),
-              const SizedBox(height: 15.0),
-              QButtonForm(label: "Kirim", onPressed: () {}),
-            ],
+                const SizedBox(
+                  height: 12.0,
+                ),
+                QMemoField(
+                  label: "Keterangan",
+                  validator: Validator.required,
+                  value: controller.notes,
+                  onChanged: (value) {
+                    controller.notes = value;
+                  },
+                ),
+              ],
+            ),
           ),
         ),
+      ),
+      bottomNavigationBar: QActionButton(
+        label: "Kirim",
+        onPressed: () async {
+          bool isNotValid =
+              controller.formKey.currentState!.validate() == false;
+          if (isNotValid) {
+            return;
+          }
+          controller.submit();
+        },
       ),
     );
   }
