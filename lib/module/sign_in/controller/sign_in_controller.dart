@@ -19,8 +19,8 @@ class SignInController extends State<SignInView> {
   @override
   Widget build(BuildContext context) => widget.build(context, this);
 
-  String email = "user@demo.com";
-  String password = "123456";
+  String email = "";
+  String password = "";
   login() async {
     showLoading();
     try {

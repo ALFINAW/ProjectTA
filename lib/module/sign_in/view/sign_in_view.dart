@@ -97,42 +97,6 @@ class SignInView extends StatefulWidget {
                           fontWeight: FontWeight.bold,
                         ),
                       ),
-                      const SizedBox(
-                        width: 12.0,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          controller.email = "admin@demo.com";
-                          controller.password = "123456";
-                          controller.login();
-                        },
-                        child: Text(
-                          "Admin",
-                          style: TextStyle(
-                            fontSize: 12.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.red,
-                          ),
-                        ),
-                      ),
-                      const SizedBox(
-                        width: 6.0,
-                      ),
-                      InkWell(
-                        onTap: () {
-                          controller.email = "user@demo.com";
-                          controller.password = "123456";
-                          controller.login();
-                        },
-                        child: Text(
-                          "User",
-                          style: TextStyle(
-                            fontSize: 12.0,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.red,
-                          ),
-                        ),
-                      ),
                     ],
                   ),
                   const SizedBox(
