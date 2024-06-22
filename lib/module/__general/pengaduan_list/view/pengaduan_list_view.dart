@@ -19,8 +19,15 @@ class PengaduanListView extends StatefulWidget {
         centerTitle: true,
         actions: const [],
       ),
+      floatingActionButton: FloatingActionButton(
+        child: const Icon(Icons.add),
+        onPressed: () async {
+          await Get.to(UserAjukanPengaduanView());
+        },
+      ),
       body: Container(
         padding: const EdgeInsets.all(13.0),
+        width: MediaQuery.of(context).size.width,
         color: backgroundColor,
         child: Column(
           children: [

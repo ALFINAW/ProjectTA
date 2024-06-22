@@ -26,9 +26,7 @@ class AdminDataWargaView extends StatefulWidget {
           itemBuilder: (BuildContext context, int index) {
             var item = controller.dataWarga[index];
             return InkWell(
-              onTap: () => Get.to(AdminDetailAjuanView(
-                item: {},
-              )),
+              // onTap: () => Get.to(Container()),
               child: Container(
                 margin: const EdgeInsets.only(bottom: 13.0),
                 padding: const EdgeInsets.all(20.0),
