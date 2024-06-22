@@ -165,7 +165,7 @@ class PengaduanTerbaruWidget extends StatelessWidget {
                             const SizedBox(height: 8.0),
                             Expanded(
                               child: Text(
-                                item["description"],
+                                item["notes"],
                                 maxLines: 3,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
