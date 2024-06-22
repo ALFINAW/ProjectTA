@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/user_ajukan_pengaduan_controller.dart';
+import '../controller/pengaduan_form_controller.dart';
 
-class UserAjukanPengaduanView extends StatefulWidget {
-  const UserAjukanPengaduanView({Key? key}) : super(key: key);
+class PengaduanFormView extends StatefulWidget {
+  const PengaduanFormView({Key? key}) : super(key: key);
 
-  Widget build(context, UserAjukanPengaduanController controller) {
+  Widget build(context, PengaduanFormController controller) {
     controller.view = this;
     return Scaffold(
       appBar: AppBar(
@@ -88,6 +88,5 @@ class UserAjukanPengaduanView extends StatefulWidget {
   }
 
   @override
-  State<UserAjukanPengaduanView> createState() =>
-      UserAjukanPengaduanController();
+  State<PengaduanFormView> createState() => PengaduanFormController();
 }

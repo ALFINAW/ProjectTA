@@ -49,10 +49,10 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
     return MaterialApp(
       title: 'Capek Ngoding',
       routes: {
-        '/pengajuan_surat': (context) => UserPengajuanSuratView(),
+        '/pengajuan_surat': (context) => PengajuanFormOptionView(),
         '/berita_desa': (context) => BeritaListView(),
         '/produk_desa': (context) => ProductListView(),
-        '/ajukan_pengaduan': (context) => UserAjukanPengaduanView(),
+        '/ajukan_pengaduan': (context) => PengaduanFormView(),
         '/info_desa': (context) => UserInformasiDesaView(),
       },
       navigatorKey: Get.navigatorKey,

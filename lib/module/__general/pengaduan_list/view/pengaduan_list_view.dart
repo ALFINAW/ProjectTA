@@ -22,7 +22,7 @@ class PengaduanListView extends StatefulWidget {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () async {
-          await Get.to(UserAjukanPengaduanView());
+          await Get.to(PengaduanFormView());
         },
       ),
       body: Container(

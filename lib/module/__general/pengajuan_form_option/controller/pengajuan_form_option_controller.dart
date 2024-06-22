@@ -1,11 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../view/user_pengajuan_surat_view.dart';
+import '../view/pengajuan_form_option_view.dart';
 
-class UserPengajuanSuratController extends State<UserPengajuanSuratView> {
-  static late UserPengajuanSuratController instance;
-  late UserPengajuanSuratView view;
+class PengajuanFormOptionController extends State<PengajuanFormOptionView> {
+  static late PengajuanFormOptionController instance;
+  late PengajuanFormOptionView view;
 
   @override
   void initState() {

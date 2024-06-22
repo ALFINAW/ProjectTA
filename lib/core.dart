@@ -15,8 +15,8 @@ export 'package:hyper_ui/module/auth/sign_in/controller/sign_in_controller.dart'
 export 'package:hyper_ui/module/auth/sign_in/view/sign_in_view.dart';
 export 'package:hyper_ui/module/auth/sign_up/controller/sign_up_controller.dart';
 export 'package:hyper_ui/module/auth/sign_up/view/sign_up_view.dart';
-export 'package:hyper_ui/module/user/user_ajukan_pengaduan/controller/user_ajukan_pengaduan_controller.dart';
-export 'package:hyper_ui/module/user/user_ajukan_pengaduan/view/user_ajukan_pengaduan_view.dart';
+export 'package:hyper_ui/module/__general/pengaduan_form/controller/pengaduan_form_controller.dart';
+export 'package:hyper_ui/module/__general/pengaduan_form/view/pengaduan_form_view.dart';
 export 'package:hyper_ui/module/user/user_dashboard/controller/user_dashboard_controller.dart';
 export 'package:hyper_ui/module/user/user_dashboard/view/user_dashboard_view.dart';
 export 'package:hyper_ui/module/user/user_data_akun/controller/user_data_akun_controller.dart';
@@ -29,8 +29,8 @@ export 'package:hyper_ui/module/user/user_informasi_desa/controller/user_informa
 export 'package:hyper_ui/module/user/user_informasi_desa/view/user_informasi_desa_view.dart';
 export 'package:hyper_ui/module/user/user_main_navigation/controller/user_main_navigation_controller.dart';
 export 'package:hyper_ui/module/user/user_main_navigation/view/user_main_navigation_view.dart';
-export 'package:hyper_ui/module/user/user_pengajuan_surat/controller/user_pengajuan_surat_controller.dart';
-export 'package:hyper_ui/module/user/user_pengajuan_surat/view/user_pengajuan_surat_view.dart';
+export 'package:hyper_ui/module/__general/pengajuan_form_option/controller/pengajuan_form_option_controller.dart';
+export 'package:hyper_ui/module/__general/pengajuan_form_option/view/pengajuan_form_option_view.dart';
 export 'package:hyper_ui/module/user/user_profile/controller/user_profile_controller.dart';
 export 'package:hyper_ui/module/user/user_profile/view/user_profile_view.dart';
 export 'package:hyper_ui/module/user/user_profile_bantuan/controller/user_profile_bantuan_controller.dart';

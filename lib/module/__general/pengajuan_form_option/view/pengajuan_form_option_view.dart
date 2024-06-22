@@ -2,12 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/user_pengajuan_surat_controller.dart';
+import '../controller/pengajuan_form_option_controller.dart';
 
-class UserPengajuanSuratView extends StatefulWidget {
-  const UserPengajuanSuratView({Key? key}) : super(key: key);
+class PengajuanFormOptionView extends StatefulWidget {
+  const PengajuanFormOptionView({Key? key}) : super(key: key);
 
-  Widget build(context, UserPengajuanSuratController controller) {
+  Widget build(context, PengajuanFormOptionController controller) {
     controller.view = this;
     return Scaffold(
       appBar: AppBar(
@@ -157,5 +157,6 @@ class UserPengajuanSuratView extends StatefulWidget {
   }
 
   @override
-  State<UserPengajuanSuratView> createState() => UserPengajuanSuratController();
+  State<PengajuanFormOptionView> createState() =>
+      PengajuanFormOptionController();
 }

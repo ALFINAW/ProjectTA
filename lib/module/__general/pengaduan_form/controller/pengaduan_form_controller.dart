@@ -4,11 +4,11 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../view/user_ajukan_pengaduan_view.dart';
+import '../view/pengaduan_form_view.dart';
 
-class UserAjukanPengaduanController extends State<UserAjukanPengaduanView> {
-  static late UserAjukanPengaduanController instance;
-  late UserAjukanPengaduanView view;
+class PengaduanFormController extends State<PengaduanFormView> {
+  static late PengaduanFormController instance;
+  late PengaduanFormView view;
 
   @override
   void initState() {
