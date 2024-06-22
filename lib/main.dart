@@ -50,7 +50,7 @@ class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
       title: 'Capek Ngoding',
       routes: {
         '/pengajuan_surat': (context) => UserPengajuanSuratView(),
-        '/berita_desa': (context) => NewsListView(),
+        '/berita_desa': (context) => BeritaListView(),
         '/produk_desa': (context) => ProductListView(),
         '/ajukan_pengaduan': (context) => UserAjukanPengaduanView(),
         '/info_desa': (context) => UserInformasiDesaView(),
