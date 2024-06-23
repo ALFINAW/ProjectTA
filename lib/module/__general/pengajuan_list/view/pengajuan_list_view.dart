@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/pengajuan_list_controller.dart';
 
 class PengajuanListView extends StatefulWidget {
   const PengajuanListView({Key? key}) : super(key: key);
@@ -146,62 +145,6 @@ class PengajuanListView extends StatefulWidget {
                                 style: TextStyle(
                                   fontSize: 14.0,
                                   color: Colors.blue,
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      );
-
-                      return QDismissible(
-                        onDismiss: () async {
-                          await FirebaseFirestore.instance
-                              .collection("user_request")
-                              .doc(item["id"])
-                              .delete();
-                        },
-                        child: Card(
-                          clipBehavior: Clip.antiAlias,
-                          color: Colors.white,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Container(
-                                padding: const EdgeInsets.all(12.0),
-                                child: Column(
-                                  crossAxisAlignment: CrossAxisAlignment.start,
-                                  children: [
-                                    Text(
-                                      'Nama: ${item["nama"]}',
-                                      style: TextStyle(
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                    const SizedBox(
-                                      height: 4.0,
-                                    ),
-                                    Text('Umur: ${item["umur"]}'),
-                                    const SizedBox(
-                                      height: 4.0,
-                                    ),
-                                    Text(
-                                      'Created At: ${DateFormat('dd MMMM yyyy').format(item["created_at"]?.toDate())}',
-                                    ),
-                                    const SizedBox(
-                                      height: 4.0,
-                                    ),
-                                    Text('Jenis surat: ${item["jenis_surat"]}'),
-                                    const SizedBox(
-                                      height: 4.0,
-                                    ),
-                                    Text(
-                                      'Status: ${item["status"]}',
-                                      style: TextStyle(
-                                        fontSize: 14.0,
-                                        fontWeight: FontWeight.bold,
-                                        color: getColorByStatus(item["status"]),
-                                      ),
-                                    ),
-                                  ],
                                 ),
                               ),
                             ],

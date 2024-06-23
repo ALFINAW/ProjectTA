@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/user_data_akun_controller.dart';
 
 class UserDataAkunView extends StatefulWidget {
   const UserDataAkunView({Key? key}) : super(key: key);

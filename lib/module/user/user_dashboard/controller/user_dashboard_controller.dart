@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../view/user_dashboard_view.dart';
 
 class UserDashboardController extends State<UserDashboardView> {
   static late UserDashboardController instance;

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/product_form_controller.dart';
 
 class ProductFormView extends StatefulWidget {
   ProductFormView({Key? key}) : super(key: key);

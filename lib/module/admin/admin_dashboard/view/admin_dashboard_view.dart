@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 import 'package:hyper_ui/module/__general/app_widget/berita_desa_terbaru_widget.dart';
 import 'package:hyper_ui/module/__general/app_widget/produk_desa_terbaru_widget.dart';
-import '../controller/admin_dashboard_controller.dart';
 import '../../../__general/app_widget/pengaduan_terbaru_widget.dart';
 
 class AdminDashboardView extends StatefulWidget {

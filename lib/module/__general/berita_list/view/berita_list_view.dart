@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/berita_list_controller.dart';
 
 class BeritaListView extends StatefulWidget {
   const BeritaListView({Key? key}) : super(key: key);

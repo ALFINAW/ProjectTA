@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/user_detail_ajuan_controller.dart';
 
 class UserDetailAjuanView extends StatefulWidget {
   const UserDetailAjuanView({Key? key}) : super(key: key);

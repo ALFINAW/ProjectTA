@@ -1,8 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/pengaduan_list_controller.dart';
 
 class PengaduanListView extends StatefulWidget {
   const PengaduanListView({Key? key}) : super(key: key);

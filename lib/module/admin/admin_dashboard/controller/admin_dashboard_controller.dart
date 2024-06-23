@@ -1,7 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../view/admin_dashboard_view.dart';
 
 class AdminDashboardController extends State<AdminDashboardView> {
   static late AdminDashboardController instance;

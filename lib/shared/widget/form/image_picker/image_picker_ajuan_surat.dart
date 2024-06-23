@@ -1,10 +1,7 @@
 import 'dart:io';
-import 'package:dio/dio.dart';
-import 'package:file_picker/file_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import 'package:image_picker/image_picker.dart';
 
 const String _CLOUDINARY_CLOUD_NAME = "dotz74j1p";
 const String _CLOUDINARY_API_KEY = "983354314759691";

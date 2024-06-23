@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../view/user_profile_view.dart';
 
 class UserProfileController extends State<UserProfileView> {
   static late UserProfileController instance;

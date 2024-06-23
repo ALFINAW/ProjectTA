@@ -5,7 +5,6 @@ import 'package:faker_dart/faker_dart.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../view/product_form_view.dart';
 
 class ProductFormController extends State<ProductFormView> {
   static late ProductFormController instance;
