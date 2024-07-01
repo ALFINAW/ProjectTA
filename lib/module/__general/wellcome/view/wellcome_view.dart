@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
-import '../controller/wellcome_controller.dart';
-
 class WellcomeView extends StatefulWidget {
   const WellcomeView({Key? key}) : super(key: key);
 

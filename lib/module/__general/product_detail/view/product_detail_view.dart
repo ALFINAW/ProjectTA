@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/product_detail_controller.dart';
 
 class ProductDetailView extends StatefulWidget {
   final Map<String, dynamic> item;

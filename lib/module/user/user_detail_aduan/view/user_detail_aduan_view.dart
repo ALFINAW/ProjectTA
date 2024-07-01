@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 import 'package:timeline_tile/timeline_tile.dart';
 
-import '../controller/user_detail_aduan_controller.dart';
-
 class UserDetailAduanView extends StatefulWidget {
   const UserDetailAduanView({Key? key}) : super(key: key);
 

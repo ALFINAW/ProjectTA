@@ -1,11 +1,8 @@
 import 'dart:math';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:faker_dart/faker_dart.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../view/berita_form_view.dart';
 
 class BeritFormController extends State<BeritaFormView> {
   static late BeritFormController instance;

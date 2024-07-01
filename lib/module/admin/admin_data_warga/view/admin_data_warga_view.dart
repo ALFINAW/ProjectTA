@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/admin_data_warga_controller.dart';
 
 class AdminDataWargaView extends StatefulWidget {
   const AdminDataWargaView({Key? key}) : super(key: key);

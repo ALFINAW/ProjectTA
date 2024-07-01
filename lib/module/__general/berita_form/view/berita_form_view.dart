@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import '../controller/berita_form_controller.dart';
 
 class BeritaFormView extends StatefulWidget {
   BeritaFormView({Key? key}) : super(key: key);

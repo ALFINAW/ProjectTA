@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
-import 'package:hyper_ui/service/auth_service.dart';
-import '../view/sign_in_view.dart';
 
 class SignInController extends State<SignInView> {
   static late SignInController instance;
