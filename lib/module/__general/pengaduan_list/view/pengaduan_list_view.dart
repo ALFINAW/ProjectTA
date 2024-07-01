@@ -20,6 +20,8 @@ class PengaduanListView extends StatefulWidget {
         actions: const [],
       ),
       floatingActionButton: FloatingActionButton(
+        key: UniqueKey(),
+        heroTag: UniqueKey(),
         child: const Icon(Icons.add),
         onPressed: () async {
           await Get.to(PengaduanFormView());

@@ -14,6 +14,8 @@ class PengajuanListView extends StatefulWidget {
         actions: [],
       ),
       floatingActionButton: FloatingActionButton(
+        key: UniqueKey(),
+        heroTag: UniqueKey(),
         child: const Icon(Icons.add),
         onPressed: () async {
           await Get.to(PengajuanFormOptionView());

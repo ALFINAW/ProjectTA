@@ -21,6 +21,8 @@ class ProductListView extends StatefulWidget {
       floatingActionButton: isUser
           ? null
           : FloatingActionButton(
+              key: UniqueKey(),
+              heroTag: UniqueKey(),
               child: const Icon(Icons.add),
               onPressed: () async {
                 await Get.to(ProductFormView());

@@ -4,8 +4,9 @@ Widget FloatingAction({
   required Function onPressed,
 }) {
   return FloatingActionButton(
-    child: Icon(Icons.add),
+    key: UniqueKey(),
     heroTag: UniqueKey(),
+    child: Icon(Icons.add),
     onPressed: () => onPressed(),
   );
 }

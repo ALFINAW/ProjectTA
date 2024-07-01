@@ -413,6 +413,8 @@ class _QNavigationState extends State<QNavigation> {
           ),
           floatingActionButton: Container(
             child: FloatingActionButton(
+              key: UniqueKey(),
+              heroTag: UniqueKey(),
               backgroundColor: Theme.of(context).primaryColor,
               onPressed: () {},
               child: Icon(Icons.point_of_sale),
