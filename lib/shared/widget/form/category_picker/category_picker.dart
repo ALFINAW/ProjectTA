@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hyper_ui/core.dart';
 
 class QCategoryPicker extends StatefulWidget {
   final List<Map<String, dynamic>> items;
@@ -128,23 +129,30 @@ class _QCategoryPickerState extends State<QCategoryPicker> {
                           });
                         }
 
-                        return Container(
-                          margin: const EdgeInsets.only(
-                            right: 12.0,
-                          ),
-                          child: ElevatedButton(
-                            style: selected
-                                ? ElevatedButton.styleFrom(
-                                    backgroundColor: Colors.black,
-                                    elevation: 0.0,
-                                  )
-                                : ElevatedButton.styleFrom(
-                                    backgroundColor:
-                                        Theme.of(context).disabledColor,
-                                    elevation: 0.0,
-                                  ),
-                            onPressed: () => updateIndex(index),
-                            child: Text(item["label"]),
+                        return InkWell(
+                          onTap: () => updateIndex(index),
+                          child: Container(
+                            padding: const EdgeInsets.symmetric(
+                              horizontal: 8.0,
+                              vertical: 8.0,
+                            ),
+                            margin: const EdgeInsets.only(
+                              right: 12.0,
+                            ),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(12.0),
+                              ),
+                              color: selected ? primaryColor : disabledColor,
+                            ),
+                            child: Text(
+                              "${item["label"]}",
+                              style: TextStyle(
+                                fontSize: 12.0,
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
                           ),
                         );
                       }),

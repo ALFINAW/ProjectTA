@@ -1,30 +1,34 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:hyper_ui/core.dart';
 
 class UserDetailAjuanView extends StatefulWidget {
-  const UserDetailAjuanView({Key? key}) : super(key: key);
+  final Map<String, dynamic> item;
+  UserDetailAjuanView({
+    Key? key,
+    required this.item,
+  }) : super(key: key);
 
   Widget build(context, UserDetailAjuanController controller) {
     controller.view = this;
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Detail Ajuan Surat",
+        title: Text("Detail Ajuan Surat",
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
             )),
         centerTitle: true,
-        actions: const [],
+        actions: [],
       ),
       body: SingleChildScrollView(
         child: Container(
-          padding: const EdgeInsets.all(13.0),
+          padding: EdgeInsets.all(13.0),
           color: backgroundColor,
           child: Column(
             children: [
               Container(
-                padding: const EdgeInsets.all(20.0),
-                height: MediaQuery.of(context).size.height,
+                padding: EdgeInsets.all(20.0),
                 width: MediaQuery.of(context).size.width,
                 decoration: BoxDecoration(
                   color: Colors.white,
@@ -33,17 +37,29 @@ class UserDetailAjuanView extends StatefulWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: Text(
-                        "Di Acc",
-                        style: TextStyle(
-                          fontSize: 14.0,
-                          color: Colors.orange,
+                    Row(
+                      children: [
+                        Expanded(
+                          child: Text(
+                            "${item!["jenis_surat"]}",
+                            overflow: TextOverflow.ellipsis,
+                            style: TextStyle(
+                              fontSize: 14.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
                         ),
-                      ),
+                        Text(
+                          "${item!["status"]}",
+                          style: TextStyle(
+                            fontSize: 14.0,
+                            color: Colors.orange[900],
+                            fontWeight: FontWeight.bold,
+                          ),
+                        )
+                      ],
                     ),
-                    const SizedBox(height: 8.0),
+                    Divider(),
                     Text(
                       "Nama :",
                       style: TextStyle(
@@ -52,12 +68,12 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "Rizal Mustofa Hasan",
+                      item["nama"],
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
                     ),
-                    const SizedBox(height: 8.0),
+                    SizedBox(height: 8.0),
                     Text(
                       "Tempat / Tanggal Lahir :",
                       style: TextStyle(
@@ -66,12 +82,12 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "Cilacap, 17 Januari 2005",
+                      "${item["tempat_lahir"]}, ${(item["tanggal_lahir"].toDate() as DateTime).dMMMy}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
                     ),
-                    const SizedBox(height: 8.0),
+                    SizedBox(height: 8.0),
                     Text(
                       "Umur :",
                       style: TextStyle(
@@ -80,12 +96,12 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "17",
+                      "${item["umur"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
                     ),
-                    const SizedBox(height: 8.0),
+                    SizedBox(height: 8.0),
                     Text(
                       "Warga Negara :",
                       style: TextStyle(
@@ -94,12 +110,12 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "WNI",
+                      "${item["warga_negara"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
                     ),
-                    const SizedBox(height: 8.0),
+                    SizedBox(height: 8.0),
                     Text(
                       "Agama :",
                       style: TextStyle(
@@ -108,12 +124,12 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "Islam",
+                      "${item["agama"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
                     ),
-                    const SizedBox(height: 8.0),
+                    SizedBox(height: 8.0),
                     Text(
                       "Jenis Kelamin :",
                       style: TextStyle(
@@ -122,12 +138,12 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "Laki-laki",
+                      "${item["jenis_kelamin"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
                     ),
-                    const SizedBox(height: 8.0),
+                    SizedBox(height: 8.0),
                     Text(
                       "Pekerjaan :",
                       style: TextStyle(
@@ -141,7 +157,7 @@ class UserDetailAjuanView extends StatefulWidget {
                         fontSize: 16.0,
                       ),
                     ),
-                    const SizedBox(height: 8.0),
+                    SizedBox(height: 8.0),
                     Text(
                       "Alamat / Tempat Tinggal :",
                       style: TextStyle(
@@ -150,12 +166,12 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "Jl. Gereja RT/RW 06/03 Karangrena, Maos, Cilacap",
+                      item["alamat"],
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
                     ),
-                    const SizedBox(height: 8.0),
+                    SizedBox(height: 8.0),
                     Text(
                       "Fotokopi KK :",
                       style: TextStyle(
@@ -163,13 +179,14 @@ class UserDetailAjuanView extends StatefulWidget {
                         fontSize: 16.0,
                       ),
                     ),
-                    Text(
-                      "KK.png",
-                      style: TextStyle(
-                        fontSize: 16.0,
-                      ),
+                    Image.network(
+                      item["fotokopi_kk"] ??
+                          "https://res.cloudinary.com/dotz74j1p/image/upload/v1715660683/no-image.jpg",
+                      width: 200.0,
+                      height: 200.0,
+                      fit: BoxFit.cover,
                     ),
-                    const SizedBox(height: 8.0),
+                    SizedBox(height: 8.0),
                     Text(
                       "Keperluan :",
                       style: TextStyle(
@@ -178,12 +195,12 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "Ajuan pembuatan KTP",
+                      item["keperluan"] ?? "-",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
                     ),
-                    const SizedBox(height: 8.0),
+                    SizedBox(height: 8.0),
                     Text(
                       "Golongan Darah :",
                       style: TextStyle(
@@ -192,12 +209,12 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "-",
+                      "${item["golongan_darah"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
                     ),
-                    const SizedBox(height: 8.0),
+                    SizedBox(height: 8.0),
                     Text(
                       "Keterangan :",
                       style: TextStyle(
@@ -206,10 +223,52 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "Silahkan datang dan ambil surat Anda di Balai Desa pada tanggal 25/03/2024, jam 09:30",
+                      "${item["keterangan"] ?? "-"}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
+                    ),
+                    const SizedBox(
+                      height: 12.0,
+                    ),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: QButton(
+                            label: "Reject",
+                            color: dangerColor,
+                            onPressed: () {
+                              FirebaseFirestore.instance
+                                  .collection("user_request")
+                                  .doc(item["id"])
+                                  .update({
+                                "status": "Rejected",
+                              });
+                              Get.back();
+                              ss("Reject berhasil!");
+                            },
+                          ),
+                        ),
+                        const SizedBox(
+                          width: 12.0,
+                        ),
+                        Expanded(
+                          child: QButton(
+                            label: "Approve",
+                            color: successColor,
+                            onPressed: () async {
+                              FirebaseFirestore.instance
+                                  .collection("user_request")
+                                  .doc(item["id"])
+                                  .update({
+                                "status": "Approved",
+                              });
+                              Get.back();
+                              ss("Approve berhasil!");
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),

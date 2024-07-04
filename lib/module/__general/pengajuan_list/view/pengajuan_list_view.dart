@@ -22,35 +22,31 @@ class PengajuanListView extends StatefulWidget {
       ),
       body: Column(
         children: [
-          Transform.scale(
-            scaleX: 0.8,
-            scaleY: 0.8,
-            alignment: Alignment.centerLeft,
-            child: QCategoryPicker(
-              items: [
-                {
-                  "label": "All",
-                  "value": "",
-                },
-                {
-                  "label": "Pending",
-                  "value": "Pending",
-                },
-                {
-                  "label": "Approved",
-                  "value": "Approved",
-                },
-                {
-                  "label": "Rejected",
-                  "value": "Rejected",
-                },
-              ],
-              value: controller.filterStatus,
-              validator: Validator.required,
-              onChanged: (index, label, value, item) {
-                controller.updateFilterStatus(value);
+          QCategoryPicker(
+            items: [
+              {
+                "label": "All",
+                "value": "All",
               },
-            ),
+              {
+                "label": "Pending",
+                "value": "Pending",
+              },
+              {
+                "label": "Approved",
+                "value": "Approved",
+              },
+              {
+                "label": "Rejected",
+                "value": "Rejected",
+              },
+            ],
+            value: controller.filterStatus,
+            validator: Validator.required,
+            onChanged: (index, label, value, item) {
+              print("clicked?");
+              controller.updateFilterStatus(value);
+            },
           ),
           Expanded(
             child: Builder(builder: (context) {
@@ -93,6 +89,14 @@ class PengajuanListView extends StatefulWidget {
                       }
 
                       return InkWell(
+                        onTap: () async {
+                          // await Get.to(PengajuanFormView(
+                          //   jenisSurat: item["jenis_surat"],
+                          // ));
+                          await Get.to(UserDetailAjuanView(
+                            item: item,
+                          ));
+                        },
                         child: Container(
                           margin: const EdgeInsets.only(bottom: 13.0),
                           padding: const EdgeInsets.all(20.0),

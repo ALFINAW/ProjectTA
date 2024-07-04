@@ -24,25 +24,6 @@ class MainApp extends StatefulWidget {
 
 class _MainAppState extends State<MainApp> with WidgetsBindingObserver {
   @override
-  void initState() {
-    super.initState();
-    WidgetsBinding.instance.addObserver(this);
-  }
-
-  @override
-  void dispose() {
-    WidgetsBinding.instance.removeObserver(this);
-    super.dispose();
-  }
-
-  @override
-  void didChangeAppLifecycleState(AppLifecycleState state) {
-    if (state == AppLifecycleState.resumed) {
-      Navigator.of(context).pushReplacementNamed('/profile');
-    }
-  }
-
-  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Capek Ngoding',
