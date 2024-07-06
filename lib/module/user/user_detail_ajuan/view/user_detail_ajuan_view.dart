@@ -231,48 +231,124 @@ class UserDetailAjuanView extends StatefulWidget {
                     const SizedBox(
                       height: 12.0,
                     ),
-                    Row(
-                      children: [
-                        Expanded(
-                          child: QButton(
-                            label: "Reject",
-                            color: dangerColor,
-                            onPressed: () {
-                              FirebaseFirestore.instance
-                                  .collection("user_request")
-                                  .doc(item["id"])
-                                  .update({
-                                "status": "Rejected",
-                              });
-                              Get.back();
-                              ss("Reject berhasil!");
-                            },
-                          ),
-                        ),
-                        const SizedBox(
-                          width: 12.0,
-                        ),
-                        Expanded(
-                          child: QButton(
-                            label: "Approve",
-                            color: successColor,
-                            onPressed: () async {
-                              FirebaseFirestore.instance
-                                  .collection("user_request")
-                                  .doc(item["id"])
-                                  .update({
-                                "status": "Approved",
-                              });
-                              Get.back();
-                              ss("Approve berhasil!");
-                            },
-                          ),
-                        ),
-                      ],
-                    ),
                   ],
                 ),
-              )
+              ),
+              const SizedBox(
+                height: 12.0,
+              ),
+              AbsorbPointer(
+                absorbing: !isAdmin,
+                child: Container(
+                  padding: EdgeInsets.all(20.0),
+                  width: MediaQuery.of(context).size.width,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(8.0)),
+                  ),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        child: Text(
+                          "Keterangan",
+                          textAlign: TextAlign.center,
+                          style: TextStyle(
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 12.0,
+                      ),
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: controller.isApprove,
+                            onChanged: (value) {
+                              controller.isApprove = value ?? false;
+                              controller.refresh();
+                            },
+                          ),
+                          Expanded(
+                            child: Text(
+                              "Silahkan datang dan ambil surat anda di balai desa",
+                              style: TextStyle(
+                                fontSize: 16.0,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(
+                        height: 12.0,
+                      ),
+                      QTextField(
+                        label: "Atau",
+                        value: controller.rejectedNotes,
+                        onChanged: (value) {
+                          controller.rejectedNotes;
+                          controller.refresh();
+                        },
+                      ),
+                      Text(
+                        "* Kosongkan jika di acc, isi jika tidak di acc",
+                        style: TextStyle(
+                          fontSize: 10.0,
+                        ),
+                      ),
+                      QDatePicker(
+                        label: "Tanggal",
+                        validator: Validator.required,
+                        value: controller.date,
+                        onChanged: (value) {
+                          print("value: $value");
+                          controller.date = value;
+                        },
+                      ),
+                      QTimePicker(
+                        label: "Jam",
+                        validator: Validator.required,
+                        value: controller.time,
+                        onChanged: (value) {
+                          print("value: $value");
+                          controller.time = value;
+                        },
+                      ),
+                      Row(
+                        children: [
+                          Checkbox(
+                            value: true,
+                            onChanged: (value) {},
+                          ),
+                          Expanded(
+                            child: Text(
+                              "Sudah diambil?",
+                              style: TextStyle(
+                                fontSize: 16.0,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      if (isAdmin)
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.black,
+                              foregroundColor: Colors.white,
+                            ),
+                            onPressed: () => controller.save(),
+                            child: const Text("Save"),
+                          ),
+                        ),
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
