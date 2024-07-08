@@ -50,7 +50,7 @@ class UserDetailAjuanView extends StatefulWidget {
                           ),
                         ),
                         Text(
-                          "${item!["status"]}",
+                          "${item!["status"] == "Approved" ? "Di Acc" : ""}",
                           style: TextStyle(
                             fontSize: 14.0,
                             color: Colors.orange[900],
@@ -223,7 +223,9 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "${item["keterangan"] ?? "-"}",
+                      (item["date"] == null || item["time"] == null)
+                          ? "-"
+                          : "Silahkan datang dan ambil surat anda di ${item["tempat"]} pada ${(item["date"].toDate() as DateTime).dMMMy}, jam ${item["time"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
@@ -237,9 +239,8 @@ class UserDetailAjuanView extends StatefulWidget {
               const SizedBox(
                 height: 12.0,
               ),
-              AbsorbPointer(
-                absorbing: !isAdmin,
-                child: Container(
+              if (isAdmin)
+                Container(
                   padding: EdgeInsets.all(20.0),
                   width: MediaQuery.of(context).size.width,
                   decoration: BoxDecoration(
@@ -320,8 +321,11 @@ class UserDetailAjuanView extends StatefulWidget {
                       Row(
                         children: [
                           Checkbox(
-                            value: true,
-                            onChanged: (value) {},
+                            value: controller.isSudahDiambil,
+                            onChanged: (value) {
+                              controller.isSudahDiambil = value ?? false;
+                              controller.refresh();
+                            },
                           ),
                           Expanded(
                             child: Text(
@@ -348,7 +352,6 @@ class UserDetailAjuanView extends StatefulWidget {
                     ],
                   ),
                 ),
-              ),
             ],
           ),
         ),

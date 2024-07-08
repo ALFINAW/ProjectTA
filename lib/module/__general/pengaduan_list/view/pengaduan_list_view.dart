@@ -51,7 +51,7 @@ class PengaduanListView extends StatefulWidget {
                       item["id"] = items[index].id;
 
                       return InkWell(
-                        onTap: () => Get.to(UserDetailAduanView()),
+                        onTap: () => Get.to(UserDetailAduanView(item: item)),
                         child: Container(
                           margin: const EdgeInsets.only(bottom: 13.0),
                           padding: const EdgeInsets.all(20.0),

@@ -11,6 +11,7 @@ class UserDetailAjuanController extends State<UserDetailAjuanView> {
   void initState() {
     instance = this;
     super.initState();
+    isSudahDiambil = widget.item["sudah_diambil"] == "Sudah";
     isApprove = widget.item["status"] == "Approved";
     rejectedNotes = widget.item["rejected_notes"] ?? "";
     date = widget.item["date"]?.toDate();
@@ -32,6 +33,7 @@ class UserDetailAjuanController extends State<UserDetailAjuanView> {
   Widget build(BuildContext context) => widget.build(context, this);
 
   bool isApprove = false;
+  bool isSudahDiambil = false;
   String rejectedNotes = "";
   DateTime? date;
   TimeOfDay? time;
@@ -43,6 +45,7 @@ class UserDetailAjuanController extends State<UserDetailAjuanView> {
         .doc(view.item["id"])
         .update({
       "status": isApprove ? "Approved" : "Rejected",
+      "sudah_diambil": isSudahDiambil ? "Sudah" : "Belum",
       "rejected_notes": isApprove ? null : rejectedNotes,
       "date": date == null ? null : date,
       "time": time == null ? null : "${time?.hour}:${time?.minute}",

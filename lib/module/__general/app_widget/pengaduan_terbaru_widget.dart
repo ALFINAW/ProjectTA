@@ -71,7 +71,7 @@ class PengaduanTerbaruWidget extends StatelessWidget {
                     item["id"] = items[index].id;
 
                     return GestureDetector(
-                      onTap: () => Get.to(UserDetailAduanView()),
+                      // onTap: () => Get.to(UserDetailAduanView()),
                       child: Container(
                         margin: const EdgeInsets.only(right: 25.0),
                         width: 230,

@@ -129,7 +129,7 @@ class PengajuanListView extends StatefulWidget {
                                     ),
                                   ),
                                   Text(
-                                    "${item["status"]}",
+                                    "${item["status"] == "Approved" ? "Di Acc" : ""}",
                                     overflow: TextOverflow.ellipsis,
                                     style: TextStyle(
                                       fontSize: 16.0,
@@ -162,7 +162,7 @@ class PengajuanListView extends StatefulWidget {
                               ),
                               const SizedBox(height: 12.0),
                               Text(
-                                "${item["status"]}",
+                                "${item["status"] == "Approved" ? "Di Acc" : ""}",
                                 style: TextStyle(
                                   fontSize: 14.0,
                                   color: Colors.blue,
