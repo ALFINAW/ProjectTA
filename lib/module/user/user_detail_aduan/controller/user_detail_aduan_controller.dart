@@ -19,6 +19,7 @@ class UserDetailAduanController extends State<UserDetailAduanView> {
     namaPetugas = widget.item["nama_petugas"];
     photoPetugas = widget.item["photo_petugas"];
     keterangan = widget.item["keterangan"];
+    status = widget.item["status"];
   }
 
   @override
@@ -34,6 +35,7 @@ class UserDetailAduanController extends State<UserDetailAduanView> {
   String? namaPetugas;
   String? photoPetugas;
   String? keterangan;
+  String? status;
 
   refresh() {
     setState(() {});
@@ -52,6 +54,7 @@ class UserDetailAduanController extends State<UserDetailAduanView> {
       "nama_petugas": namaPetugas,
       "photo_petugas": photoPetugas,
       "keterangan": keterangan,
+      "status": status,
     });
     Get.back();
     ss("Berhasil mengupdate aduan!");

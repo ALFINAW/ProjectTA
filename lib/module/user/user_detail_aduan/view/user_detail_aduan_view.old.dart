@@ -23,13 +23,7 @@
 //           color: backgroundColor,
 //           child: Column(
 //             children: [
-//               Container(
-//                 padding: const EdgeInsets.all(20.0),
-//                 width: MediaQuery.of(context).size.width,
-//                 decoration: BoxDecoration(
-//                   color: Colors.white,
-//                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
-//                 ),
+//               BaseContainer(
 //                 child: Column(
 //                   crossAxisAlignment: CrossAxisAlignment.start,
 //                   children: [
@@ -135,13 +129,7 @@
 //                 ),
 //               ),
 //               const SizedBox(height: 13.0),
-//               Container(
-//                 padding: const EdgeInsets.all(20.0),
-//                 width: MediaQuery.of(context).size.width,
-//                 decoration: BoxDecoration(
-//                   color: Colors.white,
-//                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
-//                 ),
+//               BaseContainer(
 //                 child: Column(
 //                   crossAxisAlignment: CrossAxisAlignment.start,
 //                   children: [
@@ -206,13 +194,7 @@
 //                 ),
 //               ),
 //               const SizedBox(height: 13.0),
-//               Container(
-//                 padding: const EdgeInsets.all(20.0),
-//                 width: MediaQuery.of(context).size.width,
-//                 decoration: BoxDecoration(
-//                   color: Colors.white,
-//                   borderRadius: BorderRadius.all(Radius.circular(8.0)),
-//                 ),
+//               BaseContainer(
 //                 child: Column(
 //                   crossAxisAlignment: CrossAxisAlignment.start,
 //                   children: [

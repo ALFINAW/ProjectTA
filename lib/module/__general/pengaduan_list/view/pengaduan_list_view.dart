@@ -109,7 +109,7 @@ class PengaduanListView extends StatefulWidget {
                                       ),
                                     ),
                                     child: Text(
-                                      "Lapor",
+                                      "${item["status"]}",
                                       style: TextStyle(
                                         fontSize: 16.0,
                                         color: Colors.red,
