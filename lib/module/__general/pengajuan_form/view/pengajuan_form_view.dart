@@ -81,15 +81,6 @@ class PengajuanFormView extends StatefulWidget {
                   },
                   hint: "masukan agama anda",
                 ),
-                QTextFieldForm(
-                  label: "Jenis Kelamin:",
-                  validator: Validator.required,
-                  value: controller.jenisKelamin,
-                  onChanged: (value) {
-                    controller.jenisKelamin = value;
-                  },
-                  hint: "masukan jenis kelamin anda",
-                ),
                 QDropdownField(
                   label: "Jenis Kelamin:",
                   items: [

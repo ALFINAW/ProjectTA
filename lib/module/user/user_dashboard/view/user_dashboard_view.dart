@@ -161,7 +161,7 @@ class UserDashboardView extends StatefulWidget {
                             "image":
                                 "https://cdn-icons-png.flaticon.com/128/3131/3131598.png",
                             "label": "Pengajuan\nSurat",
-                            "view": PengajuanListView(),
+                            "view": PengajuanFormOptionView(),
                           },
                           {
                             "image":

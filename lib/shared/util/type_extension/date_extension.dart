@@ -11,6 +11,10 @@ extension DateTimeExtension on DateTime {
     return DateFormat('d MMM y kk:mm:ss').format(toLocal().toLocal());
   }
 
+  String get ddMMyyyy {
+    return DateFormat('dd-MM-yyyy').format(toLocal().toLocal());
+  }
+
   String get dMMMy {
     return DateFormat('d MMM y').format(toLocal().toLocal());
   }
