@@ -10,9 +10,10 @@ class PengajuanFormView extends StatefulWidget {
 
   Widget build(context, PengajuanFormController controller) {
     controller.view = this;
+
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Pengajuan Surat Pengantar KTP",
+        title: Text("Pengajuan $jenisSurat",
             style: TextStyle(
               fontSize: 16,
               fontWeight: FontWeight.bold,
@@ -37,6 +38,32 @@ class PengajuanFormView extends StatefulWidget {
                   },
                   hint: "masukan nama lengkap anda",
                 ),
+                if (controller.isSuratPengajuanSkck) ...[
+                  QTextFieldForm(
+                    label: "NIK",
+                    validator: Validator.required,
+                    value: controller.nik,
+                    onChanged: (value) {
+                      controller.nik = value;
+                    },
+                  ),
+                  QTextFieldForm(
+                    label: "No. KK",
+                    validator: Validator.required,
+                    value: controller.kk,
+                    onChanged: (value) {
+                      controller.kk = value;
+                    },
+                  ),
+                  QTextFieldForm(
+                    label: "Kepala keluarga",
+                    validator: Validator.required,
+                    value: controller.kepalaKeluarga,
+                    onChanged: (value) {
+                      controller.kepalaKeluarga = value;
+                    },
+                  ),
+                ],
                 QTextFieldForm(
                   label: "Tempat lahir:",
                   validator: Validator.required,
@@ -54,23 +81,28 @@ class PengajuanFormView extends StatefulWidget {
                     controller.tanggalLahir = value;
                   },
                 ),
-                QNumberField(
-                  label: "Umur:",
-                  validator: Validator.required,
-                  value: controller.umur?.toString(),
-                  onChanged: (value) {
-                    controller.umur = int.tryParse(value) ?? 0;
-                  },
-                  hint: "masukan umur anda",
-                ),
-                QTextFieldForm(
-                  label: "Warga Negara:",
-                  validator: Validator.required,
-                  value: controller.wargaNegara,
-                  onChanged: (value) {
-                    controller.wargaNegara = value;
-                  },
-                  hint: "masukan warga negara anda",
+                if (controller.isSuratPengajuanKtp)
+                  QNumberField(
+                    label: "Umur:",
+                    validator: Validator.required,
+                    value: controller.umur?.toString(),
+                    onChanged: (value) {
+                      controller.umur = int.tryParse(value) ?? 0;
+                    },
+                    hint: "masukan umur anda",
+                  ),
+                Visibility(
+                  visible: controller.isSuratPengajuanKtp ||
+                      controller.isSuratPengajuanSkck,
+                  child: QTextFieldForm(
+                    label: "Warga Negara:",
+                    validator: Validator.required,
+                    value: controller.wargaNegara,
+                    onChanged: (value) {
+                      controller.wargaNegara = value;
+                    },
+                    hint: "masukan warga negara anda",
+                  ),
                 ),
                 QTextFieldForm(
                   label: "Agama:",
@@ -80,15 +112,6 @@ class PengajuanFormView extends StatefulWidget {
                     controller.agama = value;
                   },
                   hint: "masukan agama anda",
-                ),
-                QTextFieldForm(
-                  label: "Jenis Kelamin:",
-                  validator: Validator.required,
-                  value: controller.jenisKelamin,
-                  onChanged: (value) {
-                    controller.jenisKelamin = value;
-                  },
-                  hint: "masukan jenis kelamin anda",
                 ),
                 QDropdownField(
                   label: "Jenis Kelamin:",
@@ -108,6 +131,40 @@ class PengajuanFormView extends StatefulWidget {
                     controller.jenisKelamin = value;
                   },
                 ),
+                Visibility(
+                  visible: controller.isSuratPengajuanKk ||
+                      controller.isSuratPengajuanSkck,
+                  child: QDropdownField(
+                    label: "Status Perkawinan:",
+                    items: [
+                      {
+                        "label": "Lajang",
+                        "value": "Lajang",
+                      },
+                      {
+                        "label": "Menikah",
+                        "value": "Menikah",
+                      }
+                    ],
+                    validator: Validator.required,
+                    value: controller.statusPerkawinan,
+                    onChanged: (value, label) {
+                      controller.jenisKelamin = value;
+                    },
+                  ),
+                ),
+                Visibility(
+                  visible: controller.isSuratPengajuanSkck,
+                  child: QTextFieldForm(
+                    label: "Pendidikan:",
+                    validator: Validator.required,
+                    value: controller.pendidikan,
+                    onChanged: (value) {
+                      controller.pendidikan = value;
+                    },
+                    hint: "masukan pekerjaan anda",
+                  ),
+                ),
                 QTextFieldForm(
                   label: "Pekerjaan:",
                   validator: Validator.required,
@@ -126,15 +183,16 @@ class PengajuanFormView extends StatefulWidget {
                   },
                   hint: "masukan alamat lengkap anda",
                 ),
-                QImagePickerAS(
-                  label: "Fotokopi KK:",
-                  value: controller.fotokopiKK,
-                  validator: Validator.required,
-                  onChanged: (value) {
-                    controller.fotokopiKK = value;
-                  },
-                  hint: "upload fotokopi kk",
-                ),
+                if (controller.isSuratPengajuanKtp)
+                  QImagePickerAS(
+                    label: "Fotokopi KK:",
+                    value: controller.fotokopiKK,
+                    validator: Validator.required,
+                    onChanged: (value) {
+                      controller.fotokopiKK = value;
+                    },
+                    hint: "upload fotokopi kk",
+                  ),
                 QTextFieldForm(
                   label: "Keperluan:",
                   value: controller.keperluan,
@@ -144,15 +202,139 @@ class PengajuanFormView extends StatefulWidget {
                   validator: Validator.required,
                   hint: "masukan keperluan anda",
                 ),
-                QTextFieldForm(
-                  label: "Golongan Darah:",
-                  value: controller.golonganDarah,
-                  validator: Validator.required,
-                  onChanged: (value) {
-                    controller.golonganDarah = value;
-                  },
-                  hint: "masukan golongan darah anda",
-                ),
+                if (controller.isSuratPengajuanKtp)
+                  QTextFieldForm(
+                    label: "Golongan Darah:",
+                    value: controller.golonganDarah,
+                    validator: Validator.required,
+                    onChanged: (value) {
+                      controller.golonganDarah = value;
+                    },
+                    hint: "masukan golongan darah anda",
+                  ),
+                if (controller.isSuratPengajuanKk) ...[
+                  Row(
+                    children: [
+                      Expanded(
+                        child: H6(
+                          title: "Keluarga yang ikut:",
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          controller.addKeluarga();
+                        },
+                        icon: const Icon(
+                          Icons.add,
+                          size: 24.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                  ListView.builder(
+                    shrinkWrap: true,
+                    itemCount: controller.keluargaList.length,
+                    physics: const ScrollPhysics(),
+                    itemBuilder: (BuildContext context, int index) {
+                      var item = controller.keluargaList[index];
+                      return Container(
+                        padding: const EdgeInsets.all(12.0),
+                        decoration: BoxDecoration(
+                          color: Colors.grey[200],
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(12.0),
+                          ),
+                          border: Border.all(
+                            width: 1.0,
+                            color: Colors.grey[400]!,
+                          ),
+                        ),
+                        margin: const EdgeInsets.only(
+                          bottom: 12.0,
+                        ),
+                        child: Transform.scale(
+                          scale: 0.9,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              QTextFieldForm(
+                                label: "Nama",
+                                value: item["nama"],
+                                onChanged: (value) {
+                                  item["nama"] = value;
+                                },
+                              ),
+                              QDropdownField(
+                                label: "Jenis Kelamin:",
+                                items: [
+                                  {
+                                    "label": "Pria",
+                                    "value": "Pria",
+                                  },
+                                  {
+                                    "label": "Wanita",
+                                    "value": "Wanita",
+                                  }
+                                ],
+                                value: item["jenis_kelamin"],
+                                onChanged: (value, label) {
+                                  item["jenis_kelamin"] = value;
+                                },
+                              ),
+                              QDropdownField(
+                                label: "Status Perkawinan:",
+                                items: [
+                                  {
+                                    "label": "Lajang",
+                                    "value": "Lajang",
+                                  },
+                                  {
+                                    "label": "Menikah",
+                                    "value": "Menikah",
+                                  }
+                                ],
+                                value: item["status_perkawinan"],
+                                onChanged: (value, label) {
+                                  item["status_perkawinan"] = value;
+                                },
+                              ),
+                              QTextFieldForm(
+                                label: "Tempat lahir:",
+                                value: item["tempat_lahir"],
+                                onChanged: (value) {
+                                  item["tempat_lahir"] = value;
+                                },
+                                hint: "masukan tempat/tanggal lahir anda",
+                              ),
+                              QDatePicker(
+                                label: "Tanggal lahir",
+                                value: item["tanggal_lahir"],
+                                onChanged: (value) {
+                                  item["tanggal_lahir"] = value;
+                                },
+                              ),
+                              InkWell(
+                                onTap: () => controller.delete(item),
+                                child: Container(
+                                  width: MediaQuery.of(context).size.width,
+                                  child: Text(
+                                    "Delete",
+                                    textAlign: TextAlign.center,
+                                    style: TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.red,
+                                    ),
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      );
+                    },
+                  ),
+                ],
               ],
             ),
           ),

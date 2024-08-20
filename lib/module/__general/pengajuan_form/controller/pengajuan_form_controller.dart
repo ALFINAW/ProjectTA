@@ -18,12 +18,20 @@ class PengajuanFormController extends State<PengajuanFormView> {
     if (kDebugMode) {
       var faker = Faker.instance;
       nama = faker.name.fullName();
+      kepalaKeluarga = faker.name.fullName();
+      //random 8 digit number?
+      var number1 = Random().nextInt(1000000000) + 1000000000;
+      var number2 = Random().nextInt(1000000000) + 1000000000;
+      nik = number1.toString();
+      kk = number2.toString();
       tempatLahir = faker.address.city();
       tanggalLahir = DateTime.now().subtract(Duration(days: 365 * 20));
       umur = Random().nextInt(40) + 1;
       wargaNegara = faker.address.country();
       agama = faker.lorem.word();
       jenisKelamin = "Pria";
+      statusPerkawinan = "Menikah";
+      pendidikan = "SMA";
       pekerjaan = "Wiraswasta";
       alamat = faker.address.streetAddress();
       fotokopiKK =
@@ -40,31 +48,46 @@ class PengajuanFormController extends State<PengajuanFormView> {
   Widget build(BuildContext context) => widget.build(context, this);
 
   String? nama;
+  String? nik;
+  String? kk;
+  String? kepalaKeluarga;
   String? tempatLahir;
   DateTime? tanggalLahir;
   int? umur;
   String? wargaNegara;
   String? agama;
   String? jenisKelamin;
+  String? statusPerkawinan;
+  String? pendidikan;
   String? pekerjaan;
   String? alamat;
   String? fotokopiKK;
   String? keperluan;
   String? golonganDarah;
   String? status = "Pending";
+  List<Map<String, dynamic>> keluargaList = [];
 
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+
+  bool get isSuratPengajuanKtp => view.jenisSurat == "Surat Pengantar KTP";
+  bool get isSuratPengajuanKk => view.jenisSurat == "Surat Pengantar KK";
+  bool get isSuratPengajuanSkck => view.jenisSurat == "Surat Pengantar SKCK";
 
   submit() async {
     showLoading();
     await FirebaseFirestore.instance.collection("user_request").add({
       "nama": nama,
+      "nik": nik,
+      "kk": kk,
+      "kepala_keluarga": kepalaKeluarga,
       "tempat_lahir": tempatLahir,
       "tanggal_lahir": tanggalLahir,
       "umur": umur,
       "warga_negara": wargaNegara,
       "agama": agama,
       "jenis_kelamin": jenisKelamin,
+      "status_perkawinan": statusPerkawinan,
+      "pendidikan": pendidikan,
       "pekerjaan": pekerjaan,
       "alamat": alamat,
       "fotokopi_kk": fotokopiKK,
@@ -72,6 +95,7 @@ class PengajuanFormController extends State<PengajuanFormView> {
       "golongan_darah": golonganDarah,
       "jenis_surat": widget.jenisSurat,
       "status": status,
+      "keluarga": keluargaList,
       "created_at": Timestamp.now(),
       "created_by": currentUser?.uid,
     });
@@ -79,5 +103,15 @@ class PengajuanFormController extends State<PengajuanFormView> {
     Get.back();
     Get.back();
     ss("Berhasil menyimpan data!");
+  }
+
+  addKeluarga() {
+    keluargaList.add({});
+    setState(() {});
+  }
+
+  delete(item) {
+    keluargaList.remove(item);
+    setState(() {});
   }
 }
