@@ -152,7 +152,7 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      "Belum kerja",
+                      "${item["pekerjaan"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
@@ -225,7 +225,7 @@ class UserDetailAjuanView extends StatefulWidget {
                     Text(
                       (item["date"] == null || item["time"] == null)
                           ? "-"
-                          : "Silahkan datang dan ambil surat anda di ${item["tempat"]} pada ${(item["date"].toDate() as DateTime).dMMMy}, jam ${item["time"]}",
+                          : "Silahkan datang dan ambil surat anda di balai desa pada tanggal ${(item["date"].toDate() as DateTime).ddMMyyyy}, jam ${item["time"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),

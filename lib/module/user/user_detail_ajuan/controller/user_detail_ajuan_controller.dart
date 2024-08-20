@@ -47,10 +47,12 @@ class UserDetailAjuanController extends State<UserDetailAjuanView> {
       "status": isApprove ? "Approved" : "Rejected",
       "sudah_diambil": isSudahDiambil ? "Sudah" : "Belum",
       "rejected_notes": isApprove ? null : rejectedNotes,
-      "date": date == null ? null : date,
-      "time": time == null ? null : "${time?.hour}:${time?.minute}",
+      "date": date,
+      "time": time == null
+          ? null
+          : "${time!.hour.toString().padLeft(2, '0')}:${time!.minute.toString().padLeft(2, '0')}",
       "updated_at": Timestamp.now(),
-      "approved_at": !isApprove ? null : Timestamp.now(),
+      "approved_at": isApprove ? Timestamp.now() : null,
       "rejected_at": isApprove ? null : Timestamp.now(),
     });
 
@@ -58,7 +60,8 @@ class UserDetailAjuanController extends State<UserDetailAjuanView> {
 
     Get.back();
     ss("Update data berhasil!");
-  }
+}
+
 
   refresh() {
     setState(() {});
