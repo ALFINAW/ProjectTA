@@ -223,9 +223,11 @@ class UserDetailAjuanView extends StatefulWidget {
                       ),
                     ),
                     Text(
-                      (item["date"] == null || item["time"] == null)
-                          ? "-"
-                          : "Silahkan datang dan ambil surat anda di balai desa pada tanggal ${(item["date"].toDate() as DateTime).ddMMyyyy}, jam ${item["time"]}",
+                      item["status"] == "Rejected"
+                          ? "${item["rejected_notes"] ?? "-"}"
+                          : (item["date"] == null || item["time"] == null)
+                              ? "-"
+                              : "Silahkan datang dan ambil surat anda di balai desa pada tanggal ${(item["date"].toDate() as DateTime).ddMMyyyy}, jam ${item["time"]}",
                       style: TextStyle(
                         fontSize: 16.0,
                       ),
@@ -290,7 +292,7 @@ class UserDetailAjuanView extends StatefulWidget {
                         label: "Atau",
                         value: controller.rejectedNotes,
                         onChanged: (value) {
-                          controller.rejectedNotes;
+                          controller.rejectedNotes = value;
                           controller.refresh();
                         },
                       ),
