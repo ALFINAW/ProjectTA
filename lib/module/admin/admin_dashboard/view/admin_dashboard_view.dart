@@ -84,7 +84,7 @@ class AdminDashboardView extends StatefulWidget {
                 width: 30,
                 fit: BoxFit.cover,
               ),
-              title: const Text("Daftar Berita",
+              title: const Text("Tambah Berita",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   )),
@@ -92,7 +92,7 @@ class AdminDashboardView extends StatefulWidget {
                 Icons.chevron_right,
                 size: 24.0,
               ),
-              onTap: () => Get.to(BeritaListView()),
+              onTap: () => Get.to(BeritaFormView()),
             ),
             ListTile(
               leading: Image.network(
@@ -101,7 +101,7 @@ class AdminDashboardView extends StatefulWidget {
                 width: 30,
                 fit: BoxFit.cover,
               ),
-              title: const Text("Daftar Produk",
+              title: const Text("Tambah Produk",
                   style: TextStyle(
                     fontWeight: FontWeight.bold,
                   )),
@@ -109,7 +109,7 @@ class AdminDashboardView extends StatefulWidget {
                 Icons.chevron_right,
                 size: 24.0,
               ),
-              onTap: () => Get.to(ProductListView()),
+              onTap: () => Get.to(ProductFormView()),
             ),
             ListTile(
               leading: Image.network(

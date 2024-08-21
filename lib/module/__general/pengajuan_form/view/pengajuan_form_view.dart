@@ -104,15 +104,6 @@ class PengajuanFormView extends StatefulWidget {
                     hint: "masukan warga negara anda",
                   ),
                 ),
-                QTextFieldForm(
-                  label: "Agama:",
-                  validator: Validator.required,
-                  value: controller.agama,
-                  onChanged: (value) {
-                    controller.agama = value;
-                  },
-                  hint: "masukan agama anda",
-                ),
                 QDropdownField(
                   label: "Jenis Kelamin:",
                   items: [
@@ -130,6 +121,15 @@ class PengajuanFormView extends StatefulWidget {
                   onChanged: (value, label) {
                     controller.jenisKelamin = value;
                   },
+                ),
+                QTextFieldForm(
+                  label: "Agama:",
+                  validator: Validator.required,
+                  value: controller.agama,
+                  onChanged: (value) {
+                    controller.agama = value;
+                  },
+                  hint: "masukan agama anda",
                 ),
                 Visibility(
                   visible: controller.isSuratPengajuanKk ||
@@ -149,7 +149,7 @@ class PengajuanFormView extends StatefulWidget {
                     validator: Validator.required,
                     value: controller.statusPerkawinan,
                     onChanged: (value, label) {
-                      controller.jenisKelamin = value;
+                      controller.statusPerkawinan = value;
                     },
                   ),
                 ),
